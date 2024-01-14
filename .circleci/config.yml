@@ -1,0 +1,63 @@
+version: 2.1
+jobs:
+  preview_build_test_deploy:
+    docker:
+      - image: cimg/node:20.10.0
+    steps:
+      - checkout
+      - run:
+          name: Install Vercel CLI
+          command: sudo npm install --global vercel@latest
+      - run:
+          name: Pull Vercel environment information
+          command: vercel pull --yes --environment=preview --token="$VERCEL_TOKEN"
+      - run:
+          name: Build project
+          command: vercel build --token="$VERCEL_TOKEN"
+      - run:
+          name: Check formatting
+          command: npx prettier . --check
+      # TODO: Add test suite
+      # run:
+      #   name: Run tests
+      #   command: yarn test
+      - run:
+          name: Deploy preview build to Vercel
+          command: vercel deploy --prebuilt --token="$VERCEL_TOKEN"
+
+  production_build_test_deploy:
+    docker:
+      - image: cimg/node:20.10.0
+    steps:
+      - checkout
+      - run:
+          name: Install Vercel CLI
+          command: npm install --global vercel@latest
+      - run:
+          name: Pull Vercel environment information
+          command: vercel pull --yes --environment=production --token=$VERCEL_TOKEN
+      - run:
+          name: Check formatting
+          command: npx prettier . --check
+      # TODO: Add test suite
+      # run:
+      #   name: Run tests
+      #   command: yarn test
+      - run:
+          name: Build project
+          command: vercel build --prod --token=$VERCEL_TOKEN
+      - run:
+          name: Deploy production build to Vercel
+          command: vercel deploy --prebuilt --prod --token=$VERCEL_TOKEN
+
+workflows:
+  preview:
+    when:
+      matches: { pattern: "((?!main).)*", value: << pipeline.git.branch >> }
+    jobs:
+      - preview_build_test_deploy
+  production:
+    when:
+      matches: { pattern: "main", value: << pipeline.git.branch >> }
+    jobs:
+      - production_build_test_deploy

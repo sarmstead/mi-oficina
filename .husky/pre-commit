@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+echo "Running a lint and formatting check before this commit 🥸..."
+yarn lint-staged

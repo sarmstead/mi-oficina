@@ -6,7 +6,6 @@ const meta = {
   title: "Components/TopNav",
   component: TopNaV,
   parameters: {
-    layout: "centered",
     backgrounds: { default: "dark" },
   },
 } satisfies Meta<typeof TopNaV>;

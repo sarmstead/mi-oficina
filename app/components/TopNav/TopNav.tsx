@@ -3,6 +3,7 @@
 import { ReactNode, useEffect, useState } from "react";
 
 import { Icon } from "~icon/index";
+import Logo from "~components/Logo/Logo";
 
 type LinkProps = {
   children: ReactNode;
@@ -47,7 +48,8 @@ const TopNav = () => {
   };
 
   return (
-    <nav className="flex justify-between">
+    <nav className="flex items-center justify-between w-full">
+      {theme === "dark" ? <Logo fill="white" /> : <Logo />}
       <ul className="flex items-center gap-5">
         <li>
           <Link href="#">About</Link>

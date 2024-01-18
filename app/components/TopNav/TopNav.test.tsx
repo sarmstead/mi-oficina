@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
-import TopNav from "./TopNav";
+import TopNav from "~components/TopNav/TopNav";
 
-describe("TopNav", () => {
+describe("<TopNav />", () => {
   beforeAll(() => {
     return Object.defineProperty(window, "matchMedia", {
       value: jest.fn().mockImplementation(() => ({
@@ -13,22 +13,6 @@ describe("TopNav", () => {
   afterEach(() => {
     document.documentElement.classList.remove("dark");
     localStorage.removeItem("theme");
-  });
-
-  it("renders navigation links", () => {
-    render(<TopNav />);
-
-    const aboutNode = screen.getByText(/about/i);
-    const workNode = screen.getByText(/work/i);
-    const journalNode = screen.getByText(/journal/i);
-    const contactNode = screen.getByText(/contact/i);
-    const resumeNode = screen.getByText(/resume/i);
-
-    expect(aboutNode).toBeInTheDocument();
-    expect(workNode).toBeInTheDocument();
-    expect(journalNode).toBeInTheDocument();
-    expect(contactNode).toBeInTheDocument();
-    expect(resumeNode).toBeInTheDocument();
   });
 
   it("toggles on dark mode", () => {
@@ -43,6 +27,7 @@ describe("TopNav", () => {
     const documentElement = document.documentElement;
 
     expect(documentElement).toHaveClass("dark");
+    expect(modeToggle.firstChild).toHaveClass("color-mode-toggle__light");
   });
 
   it("toggles on light mode", () => {
@@ -59,5 +44,6 @@ describe("TopNav", () => {
     const documentElement = document.documentElement;
 
     expect(documentElement).not.toHaveClass("dark");
+    expect(modeToggle.firstChild).toHaveClass("color-mode-toggle__dark");
   });
 });

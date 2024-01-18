@@ -1,9 +1,18 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { ReactNode, useEffect, useState } from "react";
+
+import { Icon } from "~icon/index";
+
+type LinkProps = {
+  children: ReactNode;
+  href: string;
+  target?: string;
+};
 
 const TopNav = () => {
   const [theme, setTheme] = useState("");
+
   useEffect(() => {
     if (
       localStorage.theme === "dark" ||
@@ -41,28 +50,42 @@ const TopNav = () => {
     <nav>
       <ul>
         <li>
-          <a>About</a>
+          <Link href="#">About</Link>
         </li>
         <li>
-          <a>Work</a>
+          <Link href="#">Work</Link>
         </li>
         <li>
-          <a>Journal</a>
+          <Link href="#">Journal</Link>
         </li>
         <li>
-          <a>Contact</a>
+          <Link href="#">Contact</Link>
         </li>
         <li>
-          <a>Resume</a>
+          <Link href="#">Resume</Link>
         </li>
-        <li>
+        <li className="flex items-center justify-center">
           <button aria-label="color-mode-toggle" onClick={handleClick}>
-            Click ME!
+            {theme === "dark" ? (
+              <Icon
+                name="Sun"
+                fill="white"
+                className="color-mode-toggle__light"
+              />
+            ) : (
+              <Icon name="moon" className="color-mode-toggle__dark" />
+            )}
           </button>
         </li>
       </ul>
     </nav>
   );
 };
+
+const Link = ({ children, href, target = "" }: LinkProps) => (
+  <a href={href} target={target} className="text-black dark:text-white">
+    {children}
+  </a>
+);
 
 export default TopNav;

@@ -12,6 +12,10 @@ type LinkProps = {
   device?: "mobile" | "desktop";
 };
 
+type MobileMenuProps = {
+  menuOpen: boolean;
+};
+
 const TopNav = () => {
   const [theme, setTheme] = useState("");
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -137,7 +141,39 @@ const TopNav = () => {
           </button>
         </section>
       </section>
-      {mobileMenu && (
+      <MobileMenu menuOpen={mobileMenu} />
+    </nav>
+  );
+};
+
+const Link = ({
+  children,
+  href,
+  target = "",
+  device = "mobile",
+}: LinkProps) => {
+  const fontSize = device === "mobile" ? "text-lg" : "text-base";
+  const fontColor =
+    device === "mobile" ? "text-white" : "text-black dark:text-white";
+  return (
+    <a
+      href={href}
+      target={target}
+      className={`${fontColor} uppercase tracking-wider font-medium ${fontSize}`}
+    >
+      {children}
+    </a>
+  );
+};
+
+const MobileMenu = ({ menuOpen }: MobileMenuProps) => {
+  if (!menuOpen) {
+    return null;
+  }
+
+  return (
+    <>
+      {menuOpen && (
         <ul
           data-testid="mobile-menu"
           className="lg:hidden flex flex-col items-center justify-center gap-6 bg-blooper dark:bg-prettyDark min-h-screen dark:border-t-2 dark:border-almostDark"
@@ -164,27 +200,7 @@ const TopNav = () => {
           </li>
         </ul>
       )}
-    </nav>
-  );
-};
-
-const Link = ({
-  children,
-  href,
-  target = "",
-  device = "mobile",
-}: LinkProps) => {
-  const fontSize = device === "mobile" ? "text-lg" : "text-base";
-  const fontColor =
-    device === "mobile" ? "text-white" : "text-black dark:text-white";
-  return (
-    <a
-      href={href}
-      target={target}
-      className={`${fontColor} uppercase tracking-wider font-medium ${fontSize}`}
-    >
-      {children}
-    </a>
+    </>
   );
 };
 

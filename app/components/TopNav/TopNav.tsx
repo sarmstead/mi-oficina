@@ -14,7 +14,7 @@ type LinkProps = {
 
 const TopNav = () => {
   const [theme, setTheme] = useState("");
-  const [mobileMenu, setMobileMenu] = useState(true);
+  const [mobileMenu, setMobileMenu] = useState(false);
 
   useEffect(() => {
     if (
@@ -32,7 +32,7 @@ const TopNav = () => {
     }
   }, []);
 
-  const handleClick = () => {
+  const handleThemeToggle = () => {
     switch (localStorage.theme) {
       case "light":
         document.documentElement.classList.add("dark");
@@ -47,6 +47,10 @@ const TopNav = () => {
       case undefined:
         throw new Error("localStorage.theme must be set to 'dark' or 'light'");
     }
+  };
+
+  const handleMobileMenuToggle = () => {
+    setMobileMenu((prevState) => !prevState);
   };
 
   return (
@@ -77,13 +81,13 @@ const TopNav = () => {
           <li>
             <a
               href="#"
-              className="font-medium tracking-wider text-lg flex items-center justify-center text-white hover:text-blooper dark:text-blooper uppercase bg-blooper dark:bg-white min-h-12 py-3 px-6 hover:bg-transparent border-2 dark:border-white dark:hover:bg-transparent dark:hover:text-white border-blooper"
+              className="font-medium tracking-wider flex items-center justify-center text-white hover:text-blooper dark:text-blooper uppercase bg-blooper dark:bg-white min-h-12 py-3 px-6 hover:bg-transparent border-2 dark:border-white dark:hover:bg-transparent dark:hover:text-white border-blooper"
             >
               Resume
             </a>
           </li>
           <li className="flex items-center justify-center -ml-2">
-            <button aria-label="color-mode-toggle" onClick={handleClick}>
+            <button aria-label="color-mode-toggle" onClick={handleThemeToggle}>
               {theme === "dark" ? (
                 <Icon
                   name="Sun"
@@ -98,7 +102,7 @@ const TopNav = () => {
         </ul>
 
         <section className="flex items-center gap-2 lg:hidden">
-          <button aria-label="color-mode-toggle" onClick={handleClick}>
+          <button aria-label="color-mode-toggle" onClick={handleThemeToggle}>
             {theme === "dark" ? (
               <Icon
                 name="Sun"
@@ -109,12 +113,15 @@ const TopNav = () => {
               <Icon name="moon" className="color-mode-toggle__dark" />
             )}
           </button>
-          <button className="flex items-center">
+          <button
+            className="flex items-center"
+            onClick={handleMobileMenuToggle}
+          >
             <span className="uppercase text-sm tracking-wider text-black dark:text-white">
-              Menu
+              {mobileMenu ? "Close" : "Menu"}
             </span>
             <Icon
-              name="Sandwich"
+              name={mobileMenu ? "close" : "sandwich"}
               stroke={theme === "dark" ? "white" : "black"}
             />
           </button>

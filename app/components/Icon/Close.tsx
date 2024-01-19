@@ -10,16 +10,8 @@ const Close = ({ className, stroke = "black" }: IconProps) => {
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      <path
-        d="M13.5146 30.5L30.4852 13.5294"
-        stroke={stroke}
-        stroke-width="2"
-      />
-      <path
-        d="M13.5146 13.5L30.4852 30.4706"
-        stroke={stroke}
-        stroke-width="2"
-      />
+      <path d="M13.5146 30.5L30.4852 13.5294" stroke={stroke} strokeWidth="2" />
+      <path d="M13.5146 13.5L30.4852 30.4706" stroke={stroke} strokeWidth="2" />
     </svg>
   );
 };

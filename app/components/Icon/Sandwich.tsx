@@ -10,8 +10,8 @@ const Sandwich = ({ className, stroke = "black" }: IconProps) => {
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      <path d="M10 17H34" stroke={stroke} stroke-width="2" />
-      <path d="M10 27H34" stroke={stroke} stroke-width="2" />
+      <path d="M10 17H34" stroke={stroke} strokeWidth="2" />
+      <path d="M10 27H34" stroke={stroke} strokeWidth="2" />
     </svg>
   );
 };

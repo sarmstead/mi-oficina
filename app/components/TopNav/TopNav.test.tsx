@@ -18,9 +18,9 @@ describe("<TopNav />", () => {
   it("toggles on dark mode", () => {
     render(<TopNav />);
 
-    const modeToggle = screen.getByRole("button", {
+    const modeToggle = screen.getAllByRole("button", {
       name: "color-mode-toggle",
-    });
+    })[0];
 
     fireEvent.click(modeToggle);
 
@@ -35,9 +35,9 @@ describe("<TopNav />", () => {
 
     render(<TopNav />);
 
-    const modeToggle = screen.getByRole("button", {
+    const modeToggle = screen.getAllByRole("button", {
       name: "color-mode-toggle",
-    });
+    })[0];
 
     fireEvent.click(modeToggle);
 
@@ -45,5 +45,19 @@ describe("<TopNav />", () => {
 
     expect(documentElement).not.toHaveClass("dark");
     expect(modeToggle.firstChild).toHaveClass("color-mode-toggle__dark");
+  });
+
+  it("toggles mobile menu", () => {
+    render(<TopNav />);
+
+    const menuToggle = screen.getByRole("button", {
+      name: "mobile-menu-toggle",
+    });
+
+    fireEvent.click(menuToggle);
+
+    expect(screen.getByText("Close")).toBeInTheDocument();
+    expect(screen.getByTestId("mobile-menu")).toBeVisible();
+    expect(menuToggle.lastChild).toHaveClass("mobile-menu-toggle__close");
   });
 });

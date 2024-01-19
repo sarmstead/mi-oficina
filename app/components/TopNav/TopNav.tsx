@@ -116,19 +116,32 @@ const TopNav = () => {
           <button
             className="flex items-center"
             onClick={handleMobileMenuToggle}
+            aria-label="mobile-menu-toggle"
           >
             <span className="uppercase text-sm tracking-wider text-black dark:text-white">
               {mobileMenu ? "Close" : "Menu"}
             </span>
-            <Icon
-              name={mobileMenu ? "close" : "sandwich"}
-              stroke={theme === "dark" ? "white" : "black"}
-            />
+            {mobileMenu ? (
+              <Icon
+                name="close"
+                stroke={theme === "dark" ? "white" : "black"}
+                className="mobile-menu-toggle__close"
+              />
+            ) : (
+              <Icon
+                name="sandwich"
+                stroke={theme === "dark" ? "white" : "black"}
+                className="mobile-menu-toggle__open"
+              />
+            )}
           </button>
         </section>
       </section>
       {mobileMenu && (
-        <ul className="lg:hidden flex flex-col items-center justify-center gap-6 bg-blooper dark:bg-prettyDark min-h-screen dark:border-t-2 dark:border-almostDark">
+        <ul
+          data-testid="mobile-menu"
+          className="lg:hidden flex flex-col items-center justify-center gap-6 bg-blooper dark:bg-prettyDark min-h-screen dark:border-t-2 dark:border-almostDark"
+        >
           <li>
             <Link href="#">About</Link>
           </li>

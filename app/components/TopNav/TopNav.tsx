@@ -16,6 +16,11 @@ type MobileMenuProps = {
   menuOpen: boolean;
 };
 
+type ColorModeToggleProps = {
+  handleThemeToggle: () => void;
+  theme: string;
+};
+
 const TopNav = () => {
   const [theme, setTheme] = useState("");
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -91,32 +96,17 @@ const TopNav = () => {
             </a>
           </li>
           <li className="flex items-center justify-center -ml-2">
-            <button aria-label="color-mode-toggle" onClick={handleThemeToggle}>
-              {theme === "dark" ? (
-                <Icon
-                  name="Sun"
-                  fill="white"
-                  className="color-mode-toggle__light"
-                />
-              ) : (
-                <Icon name="moon" className="color-mode-toggle__dark" />
-              )}
-            </button>
+            <ColorModeToggle
+              handleThemeToggle={handleThemeToggle}
+              theme={theme}
+            />
           </li>
         </ul>
-
         <section className="flex items-center gap-2 lg:hidden">
-          <button aria-label="color-mode-toggle" onClick={handleThemeToggle}>
-            {theme === "dark" ? (
-              <Icon
-                name="Sun"
-                fill="white"
-                className="color-mode-toggle__light"
-              />
-            ) : (
-              <Icon name="moon" className="color-mode-toggle__dark" />
-            )}
-          </button>
+          <ColorModeToggle
+            handleThemeToggle={handleThemeToggle}
+            theme={theme}
+          />
           <button
             className="flex items-center"
             onClick={handleMobileMenuToggle}
@@ -203,5 +193,18 @@ const MobileMenu = ({ menuOpen }: MobileMenuProps) => {
     </>
   );
 };
+
+const ColorModeToggle = ({
+  handleThemeToggle,
+  theme,
+}: ColorModeToggleProps) => (
+  <button aria-label="color-mode-toggle" onClick={handleThemeToggle}>
+    {theme === "dark" ? (
+      <Icon name="Sun" fill="white" className="color-mode-toggle__light" />
+    ) : (
+      <Icon name="moon" className="color-mode-toggle__dark" />
+    )}
+  </button>
+);
 
 export default TopNav;

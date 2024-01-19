@@ -1,5 +1,6 @@
 export interface IconProps extends JSX.IntrinsicAttributes {
-  name: string;
   className?: string;
   fill?: string;
+  name: string;
+  stroke?: string;
 }

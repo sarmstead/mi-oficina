@@ -7,6 +7,8 @@ const config: Config = {
     extend: {
       colors: {
         blooper: "#0B2ACC",
+        almostDark: "#4B4B4B",
+        prettyDark: "#1D1D20",
       },
       fontFamily: {
         sans: ['"DM Sans"', ...defaultTheme.fontFamily.sans],

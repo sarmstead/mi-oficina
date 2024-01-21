@@ -65,7 +65,9 @@ const TopNav = () => {
   return (
     <nav className="relative">
       <section className="flex items-center justify-between w-full p-5">
-        {theme === "dark" ? <Logo fill="white" /> : <Logo />}
+        <Link href="/">
+          {theme === "dark" ? <Logo fill="white" /> : <Logo />}
+        </Link>
         <ul className="hidden lg:flex lg:items-center lg:gap-5">
           <li>
             <MenuLink href="#about" device="desktop">

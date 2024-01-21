@@ -1,14 +1,14 @@
 "use client";
 
 import { ReactNode, useEffect, useState } from "react";
+import Link from "next/link";
 
 import { Icon } from "~icon/index";
 import Logo from "~components/Logo/Logo";
 
-type LinkProps = {
+type MenuLinkProps = {
   children: ReactNode;
   href: string;
-  target?: string;
   device?: "mobile" | "desktop";
 };
 
@@ -68,32 +68,33 @@ const TopNav = () => {
         {theme === "dark" ? <Logo fill="white" /> : <Logo />}
         <ul className="hidden lg:flex lg:items-center lg:gap-5">
           <li>
-            <Link href="#about" device="desktop">
+            <MenuLink href="#about" device="desktop">
               About
-            </Link>
+            </MenuLink>
           </li>
           <li>
-            <Link href="#work" device="desktop">
+            <MenuLink href="#work" device="desktop">
               Work
-            </Link>
+            </MenuLink>
           </li>
           <li>
-            <Link href="/journal" device="desktop">
+            <MenuLink href="/journal" device="desktop">
               Journal
-            </Link>
+            </MenuLink>
           </li>
           <li>
-            <Link href="#contact" device="desktop">
+            <MenuLink href="#contact" device="desktop">
               Contact
-            </Link>
+            </MenuLink>
           </li>
           <li>
-            <a
-              href="#"
+            <Link
+              href="/assets/resume.pdf"
+              target="_blank"
               className="font-medium tracking-wider flex items-center justify-center text-white hover:text-blooper dark:text-blooper uppercase bg-blooper dark:bg-white min-h-12 py-3 px-6 hover:bg-transparent border-2 dark:border-white dark:hover:bg-transparent dark:hover:text-white border-blooper"
             >
               Resume
-            </a>
+            </Link>
           </li>
           <li className="flex items-center justify-center -ml-2">
             <ColorModeToggle
@@ -136,23 +137,17 @@ const TopNav = () => {
   );
 };
 
-const Link = ({
-  children,
-  href,
-  target = "",
-  device = "mobile",
-}: LinkProps) => {
+const MenuLink = ({ children, href, device = "mobile" }: MenuLinkProps) => {
   const fontSize = device === "mobile" ? "text-lg" : "text-base";
   const fontColor =
     device === "mobile" ? "text-white" : "text-black dark:text-white";
   return (
-    <a
+    <Link
       href={href}
-      target={target}
       className={`${fontColor} uppercase tracking-wider font-medium ${fontSize}`}
     >
       {children}
-    </a>
+    </Link>
   );
 };
 
@@ -169,24 +164,25 @@ const MobileMenu = ({ menuOpen }: MobileMenuProps) => {
           className="absolute top-[84px] left-0 right-0 min-h-screen lg:hidden flex flex-col items-center justify-center gap-6 bg-blooper dark:bg-prettyDark dark:border-t-2 dark:border-almostDark"
         >
           <li>
-            <Link href="#about">About</Link>
+            <MenuLink href="#about">About</MenuLink>
           </li>
           <li>
-            <Link href="#work">Work</Link>
+            <MenuLink href="#work">Work</MenuLink>
           </li>
           <li>
-            <Link href="/journal">Journal</Link>
+            <MenuLink href="/journal">Journal</MenuLink>
           </li>
           <li>
-            <Link href="#contact">Contact</Link>
+            <MenuLink href="#contact">Contact</MenuLink>
           </li>
           <li>
-            <a
-              href="#"
+            <Link
+              href="/assets/resume.pdf"
+              target="_blank"
               className="font-medium tracking-wider text-lg flex items-center justify-center text-blooper hover:text-white dark:text-prettyDark uppercase bg-white min-h-12 py-3 px-6 hover:bg-transparent border-2 dark:hover:bg-transparent dark:hover:text-white border-white"
             >
               Resume
-            </a>
+            </Link>
           </li>
         </ul>
       )}

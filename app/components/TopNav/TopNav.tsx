@@ -68,22 +68,22 @@ const TopNav = () => {
         {theme === "dark" ? <Logo fill="white" /> : <Logo />}
         <ul className="hidden lg:flex lg:items-center lg:gap-5">
           <li>
-            <Link href="#" device="desktop">
+            <Link href="#about" device="desktop">
               About
             </Link>
           </li>
           <li>
-            <Link href="#" device="desktop">
+            <Link href="#work" device="desktop">
               Work
             </Link>
           </li>
           <li>
-            <Link href="#" device="desktop">
+            <Link href="/journal" device="desktop">
               Journal
             </Link>
           </li>
           <li>
-            <Link href="#" device="desktop">
+            <Link href="#contact" device="desktop">
               Contact
             </Link>
           </li>
@@ -169,16 +169,16 @@ const MobileMenu = ({ menuOpen }: MobileMenuProps) => {
           className="absolute top-[84px] left-0 right-0 min-h-screen lg:hidden flex flex-col items-center justify-center gap-6 bg-blooper dark:bg-prettyDark dark:border-t-2 dark:border-almostDark"
         >
           <li>
-            <Link href="#">About</Link>
+            <Link href="#about">About</Link>
           </li>
           <li>
-            <Link href="#">Work</Link>
+            <Link href="#work">Work</Link>
           </li>
           <li>
-            <Link href="#">Journal</Link>
+            <Link href="/journal">Journal</Link>
           </li>
           <li>
-            <Link href="#">Contact</Link>
+            <Link href="#contact">Contact</Link>
           </li>
           <li>
             <a

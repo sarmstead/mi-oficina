@@ -63,7 +63,7 @@ const TopNav = () => {
   };
 
   return (
-    <nav>
+    <nav className="relative">
       <section className="flex items-center justify-between w-full p-5">
         {theme === "dark" ? <Logo fill="white" /> : <Logo />}
         <ul className="hidden lg:flex lg:items-center lg:gap-5">
@@ -166,7 +166,7 @@ const MobileMenu = ({ menuOpen }: MobileMenuProps) => {
       {menuOpen && (
         <ul
           data-testid="mobile-menu"
-          className="lg:hidden flex flex-col items-center justify-center gap-6 bg-blooper dark:bg-prettyDark min-h-screen dark:border-t-2 dark:border-almostDark"
+          className="absolute top-[84px] left-0 right-0 min-h-screen lg:hidden flex flex-col items-center justify-center gap-6 bg-blooper dark:bg-prettyDark dark:border-t-2 dark:border-almostDark"
         >
           <li>
             <Link href="#">About</Link>

@@ -11,7 +11,7 @@ const config: Config = {
         prettyDark: "#1D1D20",
       },
       fontFamily: {
-        sans: ['"DM Sans"', ...defaultTheme.fontFamily.sans],
+        sans: ["DM Sans", ...defaultTheme.fontFamily.sans],
       },
     },
   },

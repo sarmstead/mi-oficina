@@ -9,7 +9,9 @@
     "lint": "next lint",
     "storybook": "storybook dev -p 3001",
     "build-storybook": "storybook build",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown"
@@ -17,17 +19,24 @@
   "dependencies": {
     "next": "14.0.4",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "ts-node": "^10.9.2"
   },
   "devDependencies": {
+    "@jest/globals": "^29.7.0",
     "@storybook/addon-essentials": "^7.6.8",
-    "@storybook/addon-interactions": "^7.6.8",
+    "@storybook/addon-interactions": "^7.6.10",
     "@storybook/addon-links": "^7.6.8",
     "@storybook/addon-onboarding": "^1.0.10",
     "@storybook/blocks": "^7.6.8",
+    "@storybook/jest": "^0.2.3",
     "@storybook/nextjs": "^7.6.8",
     "@storybook/react": "^7.6.8",
     "@storybook/test": "^7.6.8",
+    "@storybook/testing-library": "^0.2.2",
+    "@testing-library/jest-dom": "^6.2.0",
+    "@testing-library/react": "^14.1.2",
+    "@types/jest": "^29.5.11",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -37,6 +46,8 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-storybook": "^0.6.15",
     "husky": "^8.0.3",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "lint-staged": "^15.2.0",
     "postcss": "^8",
     "prettier": "3.2.1",

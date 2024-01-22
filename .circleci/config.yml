@@ -17,10 +17,9 @@ jobs:
       - run:
           name: Check formatting
           command: npx prettier . --check
-      # TODO: Add test suite
-      # run:
-      #   name: Run tests
-      #   command: yarn test
+      - run:
+          name: Run tests
+          command: yarn test
       - run:
           name: Deploy preview build to Vercel
           command: vercel deploy --prebuilt --token="$VERCEL_TOKEN"
@@ -39,10 +38,9 @@ jobs:
       - run:
           name: Check formatting
           command: npx prettier . --check
-      # TODO: Add test suite
-      # run:
-      #   name: Run tests
-      #   command: yarn test
+      - run:
+          name: Run tests
+          command: yarn test
       - run:
           name: Build project
           command: vercel build --prod --token=$VERCEL_TOKEN

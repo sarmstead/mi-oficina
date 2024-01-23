@@ -3,7 +3,11 @@ import path from "path";
 
 const config: StorybookConfig = {
   stories: ["../app/**/*.mdx", "../app/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
-  addons: ["@storybook/addon-essentials", "@storybook/addon-interactions"],
+  addons: [
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
+    "storybook-dark-mode",
+  ],
   framework: {
     name: "@storybook/nextjs",
     options: {},

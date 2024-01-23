@@ -1,4 +1,5 @@
 import type { Preview } from "@storybook/react";
+import { addons } from "@storybook/preview-api";
 
 import "~/globals.css";
 
@@ -26,5 +27,17 @@ const preview: Preview = {
     },
   },
 };
+
+const channel = addons.getChannel();
+
+channel.on("DARK_MODE", (isDark) => {
+  if (isDark) {
+    document.body.classList.add("dark");
+    localStorage.theme = "dark";
+  } else {
+    document.body.classList.remove("dark");
+    localStorage.theme = "light";
+  }
+});
 
 export default preview;

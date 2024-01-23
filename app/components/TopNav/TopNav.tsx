@@ -63,79 +63,81 @@ const TopNav = () => {
   };
 
   return (
-    <nav className="relative">
-      <section className="flex items-center justify-between w-full p-5">
-        <Link href="/">
-          {theme === "dark" ? <Logo fill="white" /> : <Logo />}
-        </Link>
-        <ul className="hidden lg:flex lg:items-center lg:gap-5">
-          <li>
-            <MenuLink href="#about" device="desktop">
-              About
-            </MenuLink>
-          </li>
-          <li>
-            <MenuLink href="#work" device="desktop">
-              Work
-            </MenuLink>
-          </li>
-          <li>
-            <MenuLink href="/journal" device="desktop">
-              Journal
-            </MenuLink>
-          </li>
-          <li>
-            <MenuLink href="#contact" device="desktop">
-              Contact
-            </MenuLink>
-          </li>
-          <li>
-            <Link
-              href="/assets/resume.pdf"
-              target="_blank"
-              className="font-medium tracking-wider flex items-center justify-center text-white hover:text-blooper dark:text-blooper uppercase bg-blooper dark:bg-white min-h-12 py-3 px-6 hover:bg-transparent border-2 dark:border-white dark:hover:bg-transparent dark:hover:text-white border-blooper"
-            >
-              Resume
-            </Link>
-          </li>
-          <li className="flex items-center justify-center -ml-2">
+    <header>
+      <nav className="relative">
+        <section className="flex items-center justify-between w-full p-5">
+          <Link href="/">
+            {theme === "dark" ? <Logo fill="white" /> : <Logo />}
+          </Link>
+          <ul className="hidden lg:flex lg:items-center lg:gap-5">
+            <li>
+              <MenuLink href="#about" device="desktop">
+                About
+              </MenuLink>
+            </li>
+            <li>
+              <MenuLink href="#work" device="desktop">
+                Work
+              </MenuLink>
+            </li>
+            <li>
+              <MenuLink href="/journal" device="desktop">
+                Journal
+              </MenuLink>
+            </li>
+            <li>
+              <MenuLink href="#contact" device="desktop">
+                Contact
+              </MenuLink>
+            </li>
+            <li>
+              <Link
+                href="/assets/resume.pdf"
+                target="_blank"
+                className="font-medium tracking-wider flex items-center justify-center text-white hover:text-blooper dark:text-blooper uppercase bg-blooper dark:bg-white min-h-12 py-3 px-6 hover:bg-transparent border-2 dark:border-white dark:hover:bg-transparent dark:hover:text-white border-blooper"
+              >
+                Resume
+              </Link>
+            </li>
+            <li className="flex items-center justify-center -ml-2">
+              <ColorModeToggle
+                handleThemeToggle={handleThemeToggle}
+                theme={theme}
+              />
+            </li>
+          </ul>
+          <section className="flex items-center gap-2 lg:hidden">
             <ColorModeToggle
               handleThemeToggle={handleThemeToggle}
               theme={theme}
             />
-          </li>
-        </ul>
-        <section className="flex items-center gap-2 lg:hidden">
-          <ColorModeToggle
-            handleThemeToggle={handleThemeToggle}
-            theme={theme}
-          />
-          <button
-            className="flex items-center"
-            onClick={handleMobileMenuToggle}
-            aria-label="mobile-menu-toggle"
-          >
-            <span className="uppercase text-sm tracking-wider text-black dark:text-white">
-              {mobileMenu ? "Close" : "Menu"}
-            </span>
-            {mobileMenu ? (
-              <Icon
-                name="close"
-                stroke={theme === "dark" ? "white" : "black"}
-                className="mobile-menu-toggle__close"
-              />
-            ) : (
-              <Icon
-                name="sandwich"
-                stroke={theme === "dark" ? "white" : "black"}
-                className="mobile-menu-toggle__open"
-              />
-            )}
-          </button>
+            <button
+              className="flex items-center"
+              onClick={handleMobileMenuToggle}
+              aria-label="mobile-menu-toggle"
+            >
+              <span className="uppercase text-sm tracking-wider text-black dark:text-white">
+                {mobileMenu ? "Close" : "Menu"}
+              </span>
+              {mobileMenu ? (
+                <Icon
+                  name="close"
+                  stroke={theme === "dark" ? "white" : "black"}
+                  className="mobile-menu-toggle__close"
+                />
+              ) : (
+                <Icon
+                  name="sandwich"
+                  stroke={theme === "dark" ? "white" : "black"}
+                  className="mobile-menu-toggle__open"
+                />
+              )}
+            </button>
+          </section>
         </section>
-      </section>
-      <MobileMenu menuOpen={mobileMenu} />
-    </nav>
+        <MobileMenu menuOpen={mobileMenu} />
+      </nav>
+    </header>
   );
 };
 

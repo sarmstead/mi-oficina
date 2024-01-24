@@ -1,4 +1,5 @@
 import { render, screen, fireEvent } from "@testing-library/react";
+import { within } from "@testing-library/dom";
 
 import TopNav from "~components/TopNav/TopNav";
 
@@ -48,7 +49,7 @@ describe("<TopNav />", () => {
     expect(modeToggle.firstChild).toHaveClass("color-mode-toggle__dark");
   });
 
-  it("toggles mobile menu", () => {
+  it("opens mobile menu", () => {
     render(<TopNav />);
 
     const menuToggle = screen.getByRole("button", {
@@ -60,5 +61,24 @@ describe("<TopNav />", () => {
     expect(screen.getByText("Close")).toBeInTheDocument();
     expect(screen.getByTestId("mobile-menu")).toBeVisible();
     expect(menuToggle.lastChild).toHaveClass("mobile-menu-toggle__close");
+  });
+
+  it("closes mobile menu", () => {
+    render(<TopNav />);
+
+    const menuToggle = screen.getByRole("button", {
+      name: "mobile-menu-toggle",
+    });
+
+    fireEvent.click(menuToggle);
+
+    const mobileMenu = screen.getByTestId("mobile-menu");
+    const menuItem = within(mobileMenu).getByText("About");
+
+    fireEvent.click(menuItem);
+
+    expect(screen.getByText("Menu")).toBeInTheDocument();
+    expect(mobileMenu).not.toBeVisible();
+    expect(menuToggle.lastChild).toHaveClass("mobile-menu-toggle__open");
   });
 });

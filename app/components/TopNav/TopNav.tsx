@@ -14,6 +14,7 @@ type MenuLinkProps = {
 
 type MobileMenuProps = {
   menuOpen: boolean;
+  closeMenu: () => void;
 };
 
 type ColorModeToggleProps = {
@@ -142,7 +143,10 @@ const TopNav = () => {
             </button>
           </section>
         </section>
-        <MobileMenu menuOpen={mobileMenu} />
+        <MobileMenu
+          menuOpen={mobileMenu}
+          closeMenu={() => setMobileMenu(false)}
+        />
       </nav>
     </header>
   );
@@ -162,7 +166,7 @@ const MenuLink = ({ children, href, device = "mobile" }: MenuLinkProps) => {
   );
 };
 
-const MobileMenu = ({ menuOpen }: MobileMenuProps) => {
+const MobileMenu = ({ menuOpen, closeMenu }: MobileMenuProps) => {
   if (!menuOpen) {
     return null;
   }
@@ -173,20 +177,21 @@ const MobileMenu = ({ menuOpen }: MobileMenuProps) => {
         <ul
           data-testid="mobile-menu"
           className="absolute top-[84px] left-0 right-0 min-h-screen lg:hidden flex flex-col items-center justify-center gap-6 bg-blooper dark:bg-prettyDark dark:border-t-2 dark:border-almostDark"
+          role="menu"
         >
-          <li>
+          <li onClick={closeMenu} role="menuitem">
             <MenuLink href="#about">About</MenuLink>
           </li>
-          <li>
+          <li onClick={closeMenu}>
             <MenuLink href="#work">Work</MenuLink>
           </li>
-          <li>
+          <li onClick={closeMenu}>
             <MenuLink href="/journal">Journal</MenuLink>
           </li>
-          <li>
+          <li onClick={closeMenu}>
             <MenuLink href="#contact">Contact</MenuLink>
           </li>
-          <li>
+          <li onClick={closeMenu}>
             <Link
               href="/assets/resume.pdf"
               target="_blank"

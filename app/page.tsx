@@ -47,7 +47,7 @@ const About = () => (
     <Image
       src={circleHeadshot}
       alt="Sunjay Armstead smiling big in a jade green collared shirt"
-      className="hidden md:w-full md:block"
+      className="hidden justify-self-center md:w-4/5 md:block lg:w-full"
     />
     <section className="flex flex-col gap-6">
       <section className="flex flex-col gap-3 text-black dark:text-white">

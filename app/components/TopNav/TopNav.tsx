@@ -66,7 +66,7 @@ const TopNav = () => {
   return (
     <header>
       <nav className="relative">
-        <section className="flex items-center justify-between w-full p-5">
+        <section className="flex items-center justify-between w-full p-5 lg:max-w-[1280px] lg:m-auto">
           <Link href="/">
             {theme === "dark" ? (
               <Logo

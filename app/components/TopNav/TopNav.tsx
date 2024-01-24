@@ -67,7 +67,14 @@ const TopNav = () => {
       <nav className="relative">
         <section className="flex items-center justify-between w-full p-5">
           <Link href="/">
-            {theme === "dark" ? <Logo fill="white" /> : <Logo />}
+            {theme === "dark" ? (
+              <Logo
+                fill="white"
+                className="w-[85px] md:w-[120px] lg:w-[144px]"
+              />
+            ) : (
+              <Logo className="w-[85px] md:w-[120px] lg:w-[144px]" />
+            )}
           </Link>
           <ul className="hidden lg:flex lg:items-center lg:gap-5">
             <li>

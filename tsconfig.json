@@ -21,7 +21,8 @@
     "paths": {
       "~/*": ["./app/*"],
       "~components/*": ["./app/components/*"],
-      "~icon/*": ["./app/components/Icon/*"]
+      "~icon/*": ["./app/components/Icon/*"],
+      "~logo/*": ["./app/components/Logo/*"]
     },
     "types": ["@testing-library/jest-dom/jest-globals"]
   },

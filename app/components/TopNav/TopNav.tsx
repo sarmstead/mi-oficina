@@ -4,7 +4,7 @@ import { ReactNode, useEffect, useState } from "react";
 import Link from "next/link";
 
 import { Icon } from "~icon/index";
-import Logo from "~components/Logo/Logo";
+import { Logo } from "~logo/index";
 
 type MenuLinkProps = {
   children: ReactNode;
@@ -70,11 +70,15 @@ const TopNav = () => {
           <Link href="/">
             {theme === "dark" ? (
               <Logo
+                name="sunjay"
                 fill="white"
                 className="w-[85px] md:w-[120px] lg:w-[144px]"
               />
             ) : (
-              <Logo className="w-[85px] md:w-[120px] lg:w-[144px]" />
+              <Logo
+                name="sunjay"
+                className="w-[85px] md:w-[120px] lg:w-[144px]"
+              />
             )}
           </Link>
           <ul className="hidden lg:flex lg:items-center lg:gap-5">

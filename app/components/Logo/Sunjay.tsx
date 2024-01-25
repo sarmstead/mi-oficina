@@ -1,9 +1,6 @@
-type LogoProps = {
-  className?: string;
-  fill?: string;
-};
+import { LogoProps } from "~/types";
 
-const Logo = ({ className, fill = "black" }: LogoProps) => {
+const Sunjay = ({ className, fill = "black" }: LogoProps) => {
   return (
     <svg
       viewBox="0 0 85 28"
@@ -43,4 +40,4 @@ const Logo = ({ className, fill = "black" }: LogoProps) => {
   );
 };
 
-export default Logo;
+export { Sunjay };

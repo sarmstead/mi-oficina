@@ -1,4 +1,4 @@
-import { IconProps } from "~icon/iconProps";
+import { IconProps } from "~/types";
 
 const Sandwich = ({ className, stroke = "black" }: IconProps) => {
   return (

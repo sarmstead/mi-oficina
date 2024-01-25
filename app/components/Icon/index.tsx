@@ -1,4 +1,4 @@
-import { IconProps } from "~icon/iconProps";
+import { IconProps } from "~/types";
 import { ArrowRight } from "~icon/ArrowRight";
 import { Close } from "~icon/Close";
 import { Moon } from "~icon/Moon";

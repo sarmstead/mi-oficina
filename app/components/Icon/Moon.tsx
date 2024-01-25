@@ -1,4 +1,4 @@
-import { IconProps } from "~icon/iconProps";
+import { IconProps } from "~/types";
 
 const Moon = ({ className, fill = "black" }: IconProps) => {
   return (

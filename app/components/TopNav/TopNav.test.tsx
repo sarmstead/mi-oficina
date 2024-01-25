@@ -1,3 +1,4 @@
+import { Providers } from "~/store/providers";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { within } from "@testing-library/dom";
 
@@ -18,7 +19,11 @@ describe("<TopNav />", () => {
   });
 
   it("toggles on dark mode", () => {
-    render(<TopNav />);
+    render(
+      <Providers>
+        <TopNav />
+      </Providers>,
+    );
 
     const modeToggle = screen.getAllByRole("button", {
       name: "color-mode-toggle",
@@ -35,7 +40,11 @@ describe("<TopNav />", () => {
   it("toggles on light mode", () => {
     localStorage.theme = "dark";
 
-    render(<TopNav />);
+    render(
+      <Providers>
+        <TopNav />
+      </Providers>,
+    );
 
     const modeToggle = screen.getAllByRole("button", {
       name: "color-mode-toggle",
@@ -50,7 +59,11 @@ describe("<TopNav />", () => {
   });
 
   it("opens mobile menu", () => {
-    render(<TopNav />);
+    render(
+      <Providers>
+        <TopNav />
+      </Providers>,
+    );
 
     const menuToggle = screen.getByRole("button", {
       name: "mobile-menu-toggle",
@@ -64,7 +77,11 @@ describe("<TopNav />", () => {
   });
 
   it("closes mobile menu", () => {
-    render(<TopNav />);
+    render(
+      <Providers>
+        <TopNav />
+      </Providers>,
+    );
 
     const menuToggle = screen.getByRole("button", {
       name: "mobile-menu-toggle",

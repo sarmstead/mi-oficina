@@ -5,6 +5,8 @@ import Link from "next/link";
 
 import { Icon } from "~icon/index";
 import { Logo } from "~logo/index";
+import { useAppDispatch, useAppSelector } from "~/store/hooks";
+import { set } from "~/store/themeSlice";
 
 type MenuLinkProps = {
   children: ReactNode;
@@ -23,8 +25,9 @@ type ColorModeToggleProps = {
 };
 
 const TopNav = () => {
-  const [theme, setTheme] = useState("");
   const [mobileMenu, setMobileMenu] = useState(false);
+  const theme = useAppSelector((state) => state.theme.value);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (
@@ -34,25 +37,25 @@ const TopNav = () => {
     ) {
       document.documentElement.classList.add("dark");
       localStorage.theme = "dark";
-      setTheme("dark");
+      dispatch(set("dark"));
     } else {
       document.documentElement.classList.remove("dark");
       localStorage.theme = "light";
-      setTheme("light");
+      dispatch(set("light"));
     }
-  }, []);
+  }, [dispatch]);
 
   const handleThemeToggle = () => {
     switch (localStorage.theme) {
       case "light":
         document.documentElement.classList.add("dark");
         localStorage.theme = "dark";
-        setTheme("dark");
+        dispatch(set("dark"));
         return;
       case "dark":
         document.documentElement.classList.remove("dark");
         localStorage.theme = "light";
-        setTheme("light");
+        dispatch(set("light"));
         return;
       case undefined:
         throw new Error("localStorage.theme must be set to 'dark' or 'light'");

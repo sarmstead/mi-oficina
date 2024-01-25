@@ -24,7 +24,7 @@ const meta = {
     },
   },
   args: {
-    className: "w-8",
+    className: "w-11",
     fill: "black",
     stroke: "black",
   },

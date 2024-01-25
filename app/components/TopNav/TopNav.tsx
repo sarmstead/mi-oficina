@@ -131,13 +131,13 @@ const TopNav = () => {
                 <Icon
                   name="close"
                   stroke={theme === "dark" ? "white" : "black"}
-                  className="mobile-menu-toggle__close"
+                  className="w-11 mobile-menu-toggle__close"
                 />
               ) : (
                 <Icon
                   name="sandwich"
                   stroke={theme === "dark" ? "white" : "black"}
-                  className="mobile-menu-toggle__open"
+                  className="w-11 mobile-menu-toggle__open"
                 />
               )}
             </button>
@@ -212,9 +212,9 @@ const ColorModeToggle = ({
 }: ColorModeToggleProps) => (
   <button aria-label="color-mode-toggle" onClick={handleThemeToggle}>
     {theme === "dark" ? (
-      <Icon name="Sun" fill="white" className="color-mode-toggle__light" />
+      <Icon name="Sun" fill="white" className="w-11 color-mode-toggle__light" />
     ) : (
-      <Icon name="moon" className="color-mode-toggle__dark" />
+      <Icon name="moon" className="w-11 color-mode-toggle__dark" />
     )}
   </button>
 );

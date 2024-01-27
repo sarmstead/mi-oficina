@@ -45,6 +45,20 @@ export const Close: Story = {
   },
 };
 
+export const GitHub: Story = {
+  name: "GitHub",
+  args: {
+    name: "github",
+  },
+};
+
+export const LinkedIn: Story = {
+  name: "LinkedIn",
+  args: {
+    name: "linkedin",
+  },
+};
+
 export const Moon: Story = {
   args: {
     name: "moon",
@@ -60,5 +74,12 @@ export const Sandwich: Story = {
 export const Sun: Story = {
   args: {
     name: "sun",
+  },
+};
+
+export const YouTube: Story = {
+  name: "YouTube",
+  args: {
+    name: "youtube",
   },
 };

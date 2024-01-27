@@ -1,6 +1,7 @@
 import "~/globals.css";
+import { Providers } from "~/store/providers";
 import TopNav from "~components/TopNav/TopNav";
-import { Providers } from "./store/providers";
+import Footer from "~/components/Footer/Footer";
 
 export default function RootLayout({
   children,
@@ -13,6 +14,7 @@ export default function RootLayout({
         <Providers>
           <TopNav />
           <main>{children}</main>
+          <Footer />
         </Providers>
       </body>
     </html>

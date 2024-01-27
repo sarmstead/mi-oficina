@@ -21,11 +21,18 @@ const meta = {
   },
   args: {
     fill: "black",
+    className: "w-40",
   },
 } satisfies Meta<typeof Logo>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
+export const Abate: Story = {
+  args: {
+    name: "abate",
+  },
+};
 
 export const Reviewed: Story = {
   args: {
@@ -37,13 +44,11 @@ export const Reviewed: Story = {
 export const Sunjay: Story = {
   args: {
     name: "sunjay",
-    className: "w-40",
   },
 };
 
 export const Webflow: Story = {
   args: {
     name: "webflow",
-    className: "w-40",
   },
 };

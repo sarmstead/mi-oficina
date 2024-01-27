@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 import { userEvent, within } from "@storybook/testing-library";
+import { Providers } from "~/store/providers";
 
 import TopNaV from "./TopNav";
 
@@ -18,5 +19,12 @@ export const Primary: Story = {
     })[0];
 
     await userEvent.click(modeToggle);
+  },
+  render: function Render() {
+    return (
+      <Providers>
+        <TopNaV />
+      </Providers>
+    );
   },
 };

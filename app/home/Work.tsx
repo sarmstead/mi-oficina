@@ -50,6 +50,20 @@ export const Work = () => {
           </p>
           <CaseStudyLink href="/work/webflow" theme={theme} />
         </article>
+        <article className="flex flex-col gap-3">
+          <Logo
+            name="abate"
+            className="w-[157px] max-w-full"
+            fill={colorSwitcher(theme, "white", "black")}
+          />
+          <p className="text-base text-black dark:text-white">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </p>
+          <CaseStudyLink href="/work/abate" theme={theme} />
+        </article>
       </div>
     </section>
   );

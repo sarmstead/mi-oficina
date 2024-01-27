@@ -24,7 +24,7 @@ const ContactForm = () => {
         </a>
         &nbsp;and drop me a line. Talk soon! 👋🏽
       </p>
-      <form action={handleSubmit} className="flex flex-col gap-6">
+      <form action="" className="flex flex-col gap-6">
         <section className="flex gap-5 flex-col md:flex-row">
           <div className="flex flex-col gap-2 w-full">
             <label
@@ -103,7 +103,7 @@ const ContactForm = () => {
           </label>
           <textarea
             id="phone"
-            className="h-11 border-black dark:border-white border-2 px-2 bg-white dark:bg-transparent text-base text-black dark:text-white min-h-32"
+            className="h-11 border-black dark:border-white border-2 p-2 bg-white dark:bg-transparent text-base text-black dark:text-white min-h-32"
           />
         </section>
         <section className="flex justify-end">

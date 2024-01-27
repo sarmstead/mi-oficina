@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { Hero } from "~/home/Hero";
 import { About } from "~/home/About";
 import { Work } from "~/home/Work";
+import { Contact } from "~/home/Contact";
 
 export const metadata: Metadata = {
   title: "Sunjay Armstead | Home",
@@ -16,6 +17,7 @@ export default function Home() {
       <Hero />
       <About />
       <Work />
+      <Contact />
     </div>
   );
 }

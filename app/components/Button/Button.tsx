@@ -4,11 +4,12 @@ type ButtonProps = {
   backgroundType: "solid" | "clear";
   href?: string;
   target?: string;
+  type?: "button" | "submit" | "reset" | undefined;
   onClick?: () => void;
 };
 
 const Button = (props: PropsWithChildren<ButtonProps>) => {
-  const { backgroundType, children, href, onClick, target } = props;
+  const { backgroundType, children, href, onClick, target, type } = props;
   const modifiers =
     backgroundType.toLowerCase() === "clear"
       ? "text-white dark:text-purps hover:text-blooper dark:hover:text-blooper hover:bg-white border-white dark:border-purps dark:hover:border-white"
@@ -23,9 +24,15 @@ const Button = (props: PropsWithChildren<ButtonProps>) => {
         {children}
       </a>
     );
-  } else if (onClick) {
+  } else if (onClick && !type) {
     return (
-      <button onClick={onClick} className={buttonClasses}>
+      <button type="button" onClick={onClick} className={buttonClasses}>
+        {children}
+      </button>
+    );
+  } else if (type && !onClick) {
+    return (
+      <button type={type} className={buttonClasses}>
         {children}
       </button>
     );

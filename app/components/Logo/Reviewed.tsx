@@ -8,10 +8,10 @@ const Reviewed = ({ className, fill = "black" }: LogoProps) => {
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      <g clip-path="url(#clip0_282_12)">
+      <g clipPath="url(#clip0_282_12)">
         <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
+          fillRule="evenodd"
+          clipRule="evenodd"
           d="M40.5582 0H0V40.5582H40.5582V0ZM17.7074 31.1034L34.0208 14.5216L29.0506 9.46484L17.7161 20.9812L11.525 14.7035L6.54614 19.7603L17.7074 31.1034Z"
           fill={fill}
         />

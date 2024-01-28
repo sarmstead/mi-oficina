@@ -1,11 +1,44 @@
+"use client";
+
+import { PropsWithChildren, useCallback } from "react";
+import { useFormState, useFormStatus } from "react-dom";
+
+import { contactAction } from "~/components/ContactForm/contact-action";
 import Button from "~components/Button/Button";
 
+type Error = { errors: string[] };
+
+type Input = {
+  errors?: string[];
+  id: string;
+  name: string;
+  required?: boolean | undefined;
+};
+
+interface Label extends PropsWithChildren {
+  htmlFor: string;
+}
+
 const ContactForm = () => {
-  const handleSubmit = () => {
-    // TODO: handle validation
-    // TODO: handle submit steps (message to sender, to Sunjay, etc.)
-    return;
-  };
+  const [state, formAction] = useFormState(contactAction, { errors: [] });
+  const findErrors = useCallback(
+    (fieldName: string) => {
+      return state.errors
+        .filter((item) => {
+          return item.path.includes(fieldName);
+        })
+        .map((item) => item.message);
+    },
+    [state.errors],
+  );
+
+  const firstNameErrors = findErrors("firstName");
+  const lastNameErrors = findErrors("lastName");
+  const companyErrors = findErrors("company");
+  const emailErrors = findErrors("email");
+  const phoneErrors = findErrors("phone");
+  const messageErrors = findErrors("message");
+
   return (
     <>
       <h2 className="text-3xl font-serif text-black dark:text-white mb-2">
@@ -24,86 +57,37 @@ const ContactForm = () => {
         </a>
         &nbsp;and drop me a line. Talk soon! 👋🏽
       </p>
-      <form action="" className="flex flex-col gap-6">
+      <form action={formAction} className="flex flex-col gap-6">
         <section className="flex gap-5 flex-col md:flex-row">
-          <div className="flex flex-col gap-2 w-full">
-            <label
-              htmlFor="firstName"
-              className="text-base font-medium tracking-wider uppercase text-black dark:text-white"
-            >
-              First Name
-            </label>
-            <input
-              type="text"
-              id="firstName"
-              className="h-11 border-black dark:border-white border-2 px-2 bg-white dark:bg-transparent text-base text-black dark:text-white"
-            />
-          </div>
-          <div className="flex flex-col gap-2 w-full">
-            <label
-              htmlFor="lastName"
-              className="text-base font-medium tracking-wider uppercase text-black dark:text-white"
-            >
-              Last Name
-            </label>
-            <input
-              type="text"
-              id="lastName"
-              className="h-11 border-black dark:border-white border-2 px-2 bg-white dark:bg-transparent text-base text-black dark:text-white"
-            />
-          </div>
-        </section>
-        <section className="flex flex-col gap-2 w-full">
-          <label
-            htmlFor="company"
-            className="text-base font-medium tracking-wider uppercase text-black dark:text-white"
-          >
-            Company
-          </label>
-          <input
-            type="text"
-            id="company"
-            className="h-11 border-black dark:border-white border-2 px-2 bg-white dark:bg-transparent text-base text-black dark:text-white"
+          <TextInput
+            name="First Name"
+            id="firstName"
+            required={true}
+            errors={firstNameErrors}
+          />
+          <TextInput
+            name="Last Name"
+            id="lastName"
+            required={true}
+            errors={lastNameErrors}
           />
         </section>
+        <TextInput name="Company" id="company" errors={companyErrors} />
         <section className="flex gap-5 flex-col md:flex-row">
-          <div className="flex flex-col gap-2 w-full">
-            <label
-              htmlFor="email"
-              className="text-base font-medium tracking-wider uppercase text-black dark:text-white"
-            >
-              Email
-            </label>
-            <input
-              type="text"
-              id="email"
-              className="h-11 border-black dark:border-white border-2 px-2 bg-white dark:bg-transparent text-base text-black dark:text-white"
-            />
-          </div>
-          <div className="flex flex-col gap-2 w-full">
-            <label
-              htmlFor="phone"
-              className="text-base font-medium tracking-wider uppercase text-black dark:text-white"
-            >
-              Phone
-            </label>
-            <input
-              type="text"
-              id="phone"
-              className="h-11 border-black dark:border-white border-2 px-2 bg-white dark:bg-transparent text-base text-black dark:text-white"
-            />
-          </div>
+          <TextInput
+            name="Email"
+            id="email"
+            errors={emailErrors}
+            required={true}
+          />
+          <TextInput name="Phone" id="phone" errors={phoneErrors} />
         </section>
         <section className="flex flex-col gap-2 w-full">
-          <label
-            htmlFor="message"
-            className="text-base font-medium tracking-wider uppercase text-black dark:text-white"
-          >
-            Message
-          </label>
-          <textarea
-            id="phone"
-            className="h-11 border-black dark:border-white border-2 p-2 bg-white dark:bg-transparent text-base text-black dark:text-white min-h-32"
+          <TextArea
+            name="Message"
+            id="message"
+            errors={messageErrors}
+            required={true}
           />
         </section>
         <section className="flex justify-end">
@@ -116,4 +100,86 @@ const ContactForm = () => {
   );
 };
 
+const Label = ({ htmlFor, children }: Label) => (
+  <label
+    htmlFor={htmlFor}
+    className="text-base font-medium tracking-wider uppercase text-black dark:text-white"
+  >
+    {children}
+  </label>
+);
+
+const TextInput = ({ name, id, errors = [], required }: Input) => {
+  const baseClasses =
+    "h-11 border-2 px-2 bg-white dark:bg-transparent text-base text-black dark:text-white";
+  if (errors.length > 0) {
+    return (
+      <div className="flex flex-col gap-2 w-full">
+        <Label htmlFor={id}>{name}</Label>
+        <input
+          type="text"
+          id={id}
+          name={id}
+          className={`${baseClasses} border-red-800 dark:border-red-300`}
+          required={required}
+        />
+        <Errors errors={errors} />
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex flex-col gap-2 w-full">
+      <Label htmlFor={id}>{name}</Label>
+      <input
+        type="text"
+        id={id}
+        name={id}
+        className={`${baseClasses} border-black dark:border-white`}
+        required={required}
+      />
+    </div>
+  );
+};
+
+const TextArea = ({ name, id, errors = [], required }: Input) => {
+  const baseClasses =
+    "h-11 border-2 p-2 bg-white dark:bg-transparent text-base text-black dark:text-white min-h-32";
+  if (errors.length > 0) {
+    return (
+      <div className="flex flex-col gap-2 w-full">
+        <Label htmlFor={id}>{name}</Label>
+        <textarea
+          id={id}
+          name={id}
+          className={`${baseClasses} border-red-800 dark:border-red-300`}
+          required={required}
+        ></textarea>
+        <Errors errors={errors} />
+      </div>
+    );
+  }
+
+  return (
+    <div className="flex flex-col gap-2 w-full">
+      <Label htmlFor={id}>{name}</Label>
+      <textarea
+        id={id}
+        name={id}
+        className={`${baseClasses} border-black dark:border-white`}
+        required={required}
+      ></textarea>
+    </div>
+  );
+};
+
+const Errors = ({ errors }: Error) => {
+  const errorString = errors.join(", ");
+
+  if (!errors || errors.length === 0) null;
+
+  return (
+    <p className="text-red-800 dark:text-red-300 font-medium">{errorString}</p>
+  );
+};
 export default ContactForm;

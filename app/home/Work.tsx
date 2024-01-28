@@ -73,7 +73,7 @@ const CaseStudyLink = ({ href, theme }: CaseStudyProps) => (
   <a
     href={href}
     target="_blank"
-    className="text-blooper dark:text-purps uppercase tracking-wider font-bold flex items center gap-2"
+    className="text-blooper dark:text-purps uppercase tracking-wider font-bold flex items center gap-2 border-b border-transparent hover:border-b hover:border-blooper dark:hover:border-purps w-fit"
   >
     View Case Study
     <Icon

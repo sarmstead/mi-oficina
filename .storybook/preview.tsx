@@ -3,7 +3,6 @@ import { Preview } from "@storybook/react";
 import { addons } from "@storybook/preview-api";
 
 import { Providers } from "../app/store/providers";
-
 import "~/globals.css";
 
 const preview: Preview = {

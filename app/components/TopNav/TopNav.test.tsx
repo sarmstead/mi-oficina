@@ -1,7 +1,7 @@
-import { Providers } from "~/store/providers";
 import { render, screen, fireEvent } from "@testing-library/react";
 import { within } from "@testing-library/dom";
 
+import { Providers } from "~/store/providers";
 import TopNav from "~components/TopNav/TopNav";
 
 describe("<TopNav />", () => {

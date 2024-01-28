@@ -13,11 +13,13 @@ export const About = () => (
       src={rectangleHeadshot}
       alt="Sunjay Armstead smiling big in a jade green collared shirt"
       className="block w-full md:hidden"
+      priority={true}
     />
     <Image
       src={circleHeadshot}
       alt="Sunjay Armstead smiling big in a jade green collared shirt"
       className="hidden justify-self-center md:w-4/5 md:block lg:w-full"
+      priority={true}
     />
     <section className="flex flex-col gap-6">
       <section className="flex flex-col gap-3 text-black dark:text-white">

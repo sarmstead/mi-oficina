@@ -69,7 +69,7 @@ const TopNav = () => {
   return (
     <header>
       <nav className="relative">
-        <section className="flex items-center justify-between w-full p-5 lg:max-w-[1280px] lg:m-auto">
+        <section className="fixed top-0 lg:relative flex items-center justify-between w-full p-5 lg:max-w-[1280px] lg:m-auto bg-white dark:bg-black drop-shadow-md lg:drop-shadow-none">
           <Link href="/">
             {theme === "dark" ? (
               <Logo
@@ -183,7 +183,7 @@ const MobileMenu = ({ menuOpen, closeMenu }: MobileMenuProps) => {
       {menuOpen && (
         <ul
           data-testid="mobile-menu"
-          className="absolute top-[84px] left-0 right-0 min-h-screen lg:hidden flex flex-col items-center justify-center gap-6 bg-blooper dark:bg-prettyDark dark:border-t-2 dark:border-almostDark"
+          className="fixed top-[84px] left-0 right-0 min-h-screen lg:hidden flex flex-col items-center justify-center gap-6 bg-blooper dark:bg-prettyDark dark:border-t-2 dark:border-almostDark"
           role="menu"
         >
           <li onClick={closeMenu} role="menuitem">

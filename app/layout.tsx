@@ -13,7 +13,7 @@ export default function RootLayout({
       <body className="bg-white dark:bg-black">
         <Providers>
           <TopNav />
-          <main>{children}</main>
+          <main className="mt-[84px] lg:mt-0">{children}</main>
           <Footer />
         </Providers>
       </body>

@@ -9,52 +9,77 @@ const meta = {
     name: {
       control: "text",
       description: "Name of icon",
-      defaultValue: "close",
     },
     className: {
+      description: "Accepts both standard CSS and Tailwind utility classes",
       control: "text",
-      defaultValue: "",
     },
     fill: {
       control: "text",
       description: "CSS fill color (not a Tailwind class name)",
-      defaultValue: "black",
     },
     stroke: {
       control: "text",
       description: "CSS stroke color (not a Tailwind class name)",
-      defaultValue: "black",
     },
+  },
+  args: {
+    className: "w-11",
+    fill: "black",
+    stroke: "black",
   },
 } satisfies Meta<typeof Icon>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+export const ArrowRight: Story = {
+  args: {
+    name: "arrowright",
+  },
+};
+
 export const Close: Story = {
   args: {
     name: "close",
-    stroke: "black",
+  },
+};
+
+export const GitHub: Story = {
+  name: "GitHub",
+  args: {
+    name: "github",
+  },
+};
+
+export const LinkedIn: Story = {
+  name: "LinkedIn",
+  args: {
+    name: "linkedin",
   },
 };
 
 export const Moon: Story = {
   args: {
     name: "moon",
-    fill: "black",
   },
 };
 
 export const Sandwich: Story = {
   args: {
     name: "sandwich",
-    stroke: "black",
   },
 };
 
 export const Sun: Story = {
   args: {
     name: "sun",
-    fill: "black",
+  },
+};
+
+export const YouTube: Story = {
+  name: "YouTube",
+  args: {
+    name: "youtube",
   },
 };

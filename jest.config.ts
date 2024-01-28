@@ -100,6 +100,8 @@ const config: Config = {
     "^~/(.*)$": "<rootDir>/app/$1",
     "^~components/(.*)$": "<rootDir>/app/components/$1",
     "^~icon/(.*)$": "<rootDir>/app/components/Icon/$1",
+    "^~logo/(.*)$": "<rootDir>/app/components/Logo/$1",
+    "^~assets/(.*)$": "<rootDir>/public/assets/$1",
   },
 
   // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader

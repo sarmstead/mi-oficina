@@ -1,5 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
+import { within } from "@testing-library/dom";
 
+import { Providers } from "~/store/providers";
 import TopNav from "~components/TopNav/TopNav";
 
 describe("<TopNav />", () => {
@@ -17,7 +19,11 @@ describe("<TopNav />", () => {
   });
 
   it("toggles on dark mode", () => {
-    render(<TopNav />);
+    render(
+      <Providers>
+        <TopNav />
+      </Providers>,
+    );
 
     const modeToggle = screen.getAllByRole("button", {
       name: "color-mode-toggle",
@@ -34,7 +40,11 @@ describe("<TopNav />", () => {
   it("toggles on light mode", () => {
     localStorage.theme = "dark";
 
-    render(<TopNav />);
+    render(
+      <Providers>
+        <TopNav />
+      </Providers>,
+    );
 
     const modeToggle = screen.getAllByRole("button", {
       name: "color-mode-toggle",
@@ -48,8 +58,12 @@ describe("<TopNav />", () => {
     expect(modeToggle.firstChild).toHaveClass("color-mode-toggle__dark");
   });
 
-  it("toggles mobile menu", () => {
-    render(<TopNav />);
+  it("opens mobile menu", () => {
+    render(
+      <Providers>
+        <TopNav />
+      </Providers>,
+    );
 
     const menuToggle = screen.getByRole("button", {
       name: "mobile-menu-toggle",
@@ -60,5 +74,28 @@ describe("<TopNav />", () => {
     expect(screen.getByText("Close")).toBeInTheDocument();
     expect(screen.getByTestId("mobile-menu")).toBeVisible();
     expect(menuToggle.lastChild).toHaveClass("mobile-menu-toggle__close");
+  });
+
+  it("closes mobile menu", () => {
+    render(
+      <Providers>
+        <TopNav />
+      </Providers>,
+    );
+
+    const menuToggle = screen.getByRole("button", {
+      name: "mobile-menu-toggle",
+    });
+
+    fireEvent.click(menuToggle);
+
+    const mobileMenu = screen.getByTestId("mobile-menu");
+    const menuItem = within(mobileMenu).getByText("About");
+
+    fireEvent.click(menuItem);
+
+    expect(screen.getByText("Menu")).toBeInTheDocument();
+    expect(mobileMenu).not.toBeVisible();
+    expect(menuToggle.lastChild).toHaveClass("mobile-menu-toggle__open");
   });
 });

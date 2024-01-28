@@ -4,7 +4,9 @@ import { ReactNode, useEffect, useState } from "react";
 import Link from "next/link";
 
 import { Icon } from "~icon/index";
-import Logo from "~components/Logo/Logo";
+import { Logo } from "~logo/index";
+import { useAppDispatch, useAppSelector } from "~/store/hooks";
+import { set } from "~/store/themeSlice";
 
 type MenuLinkProps = {
   children: ReactNode;
@@ -14,6 +16,7 @@ type MenuLinkProps = {
 
 type MobileMenuProps = {
   menuOpen: boolean;
+  closeMenu: () => void;
 };
 
 type ColorModeToggleProps = {
@@ -22,8 +25,9 @@ type ColorModeToggleProps = {
 };
 
 const TopNav = () => {
-  const [theme, setTheme] = useState("");
   const [mobileMenu, setMobileMenu] = useState(false);
+  const theme = useAppSelector((state) => state.theme.value);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (
@@ -33,25 +37,25 @@ const TopNav = () => {
     ) {
       document.documentElement.classList.add("dark");
       localStorage.theme = "dark";
-      setTheme("dark");
+      dispatch(set("dark"));
     } else {
       document.documentElement.classList.remove("dark");
       localStorage.theme = "light";
-      setTheme("light");
+      dispatch(set("light"));
     }
-  }, []);
+  }, [dispatch]);
 
   const handleThemeToggle = () => {
     switch (localStorage.theme) {
       case "light":
         document.documentElement.classList.add("dark");
         localStorage.theme = "dark";
-        setTheme("dark");
+        dispatch(set("dark"));
         return;
       case "dark":
         document.documentElement.classList.remove("dark");
         localStorage.theme = "light";
-        setTheme("light");
+        dispatch(set("light"));
         return;
       case undefined:
         throw new Error("localStorage.theme must be set to 'dark' or 'light'");
@@ -63,79 +67,95 @@ const TopNav = () => {
   };
 
   return (
-    <nav className="relative">
-      <section className="flex items-center justify-between w-full p-5">
-        <Link href="/">
-          {theme === "dark" ? <Logo fill="white" /> : <Logo />}
-        </Link>
-        <ul className="hidden lg:flex lg:items-center lg:gap-5">
-          <li>
-            <MenuLink href="#about" device="desktop">
-              About
-            </MenuLink>
-          </li>
-          <li>
-            <MenuLink href="#work" device="desktop">
-              Work
-            </MenuLink>
-          </li>
-          <li>
-            <MenuLink href="/journal" device="desktop">
-              Journal
-            </MenuLink>
-          </li>
-          <li>
-            <MenuLink href="#contact" device="desktop">
-              Contact
-            </MenuLink>
-          </li>
-          <li>
-            <Link
-              href="/assets/resume.pdf"
-              target="_blank"
-              className="font-medium tracking-wider flex items-center justify-center text-white hover:text-blooper dark:text-blooper uppercase bg-blooper dark:bg-white min-h-12 py-3 px-6 hover:bg-transparent border-2 dark:border-white dark:hover:bg-transparent dark:hover:text-white border-blooper"
-            >
-              Resume
-            </Link>
-          </li>
-          <li className="flex items-center justify-center -ml-2">
+    <header>
+      <nav className="relative">
+        <section className="fixed top-0 lg:relative flex items-center justify-between w-full p-5 lg:max-w-[1280px] lg:m-auto bg-white dark:bg-black drop-shadow-md lg:drop-shadow-none">
+          <Link href="/">
+            {theme === "dark" ? (
+              <Logo
+                name="sunjay"
+                fill="white"
+                className="w-[85px] md:w-[120px] lg:w-[144px]"
+              />
+            ) : (
+              <Logo
+                name="sunjay"
+                className="w-[85px] md:w-[120px] lg:w-[144px]"
+              />
+            )}
+          </Link>
+          <ul className="hidden lg:flex lg:items-center lg:gap-5">
+            <li>
+              <MenuLink href="#about" device="desktop">
+                About
+              </MenuLink>
+            </li>
+            <li>
+              <MenuLink href="#work" device="desktop">
+                Work
+              </MenuLink>
+            </li>
+            <li>
+              <MenuLink href="/journal" device="desktop">
+                Journal
+              </MenuLink>
+            </li>
+            <li>
+              <MenuLink href="#contact" device="desktop">
+                Contact
+              </MenuLink>
+            </li>
+            <li>
+              <Link
+                href="/assets/resume.pdf"
+                target="_blank"
+                className="font-medium tracking-wider flex items-center justify-center text-white hover:text-blooper dark:text-blooper uppercase bg-blooper dark:bg-white min-h-12 py-3 px-6 hover:bg-transparent border-2 dark:border-white dark:hover:bg-transparent dark:hover:text-white border-blooper"
+              >
+                Resume
+              </Link>
+            </li>
+            <li className="flex items-center justify-center -ml-2">
+              <ColorModeToggle
+                handleThemeToggle={handleThemeToggle}
+                theme={theme}
+              />
+            </li>
+          </ul>
+          <section className="flex items-center gap-2 lg:hidden">
             <ColorModeToggle
               handleThemeToggle={handleThemeToggle}
               theme={theme}
             />
-          </li>
-        </ul>
-        <section className="flex items-center gap-2 lg:hidden">
-          <ColorModeToggle
-            handleThemeToggle={handleThemeToggle}
-            theme={theme}
-          />
-          <button
-            className="flex items-center"
-            onClick={handleMobileMenuToggle}
-            aria-label="mobile-menu-toggle"
-          >
-            <span className="uppercase text-sm tracking-wider text-black dark:text-white">
-              {mobileMenu ? "Close" : "Menu"}
-            </span>
-            {mobileMenu ? (
-              <Icon
-                name="close"
-                stroke={theme === "dark" ? "white" : "black"}
-                className="mobile-menu-toggle__close"
-              />
-            ) : (
-              <Icon
-                name="sandwich"
-                stroke={theme === "dark" ? "white" : "black"}
-                className="mobile-menu-toggle__open"
-              />
-            )}
-          </button>
+            <button
+              className="flex items-center"
+              onClick={handleMobileMenuToggle}
+              aria-label="mobile-menu-toggle"
+            >
+              <span className="uppercase text-sm tracking-wider text-black dark:text-white">
+                {mobileMenu ? "Close" : "Menu"}
+              </span>
+              {mobileMenu ? (
+                <Icon
+                  name="close"
+                  stroke={theme === "dark" ? "white" : "black"}
+                  className="w-11 mobile-menu-toggle__close"
+                />
+              ) : (
+                <Icon
+                  name="sandwich"
+                  stroke={theme === "dark" ? "white" : "black"}
+                  className="w-11 mobile-menu-toggle__open"
+                />
+              )}
+            </button>
+          </section>
         </section>
-      </section>
-      <MobileMenu menuOpen={mobileMenu} />
-    </nav>
+        <MobileMenu
+          menuOpen={mobileMenu}
+          closeMenu={() => setMobileMenu(false)}
+        />
+      </nav>
+    </header>
   );
 };
 
@@ -153,7 +173,7 @@ const MenuLink = ({ children, href, device = "mobile" }: MenuLinkProps) => {
   );
 };
 
-const MobileMenu = ({ menuOpen }: MobileMenuProps) => {
+const MobileMenu = ({ menuOpen, closeMenu }: MobileMenuProps) => {
   if (!menuOpen) {
     return null;
   }
@@ -163,21 +183,22 @@ const MobileMenu = ({ menuOpen }: MobileMenuProps) => {
       {menuOpen && (
         <ul
           data-testid="mobile-menu"
-          className="absolute top-[84px] left-0 right-0 min-h-screen lg:hidden flex flex-col items-center justify-center gap-6 bg-blooper dark:bg-prettyDark dark:border-t-2 dark:border-almostDark"
+          className="fixed top-[84px] left-0 right-0 min-h-screen lg:hidden flex flex-col items-center justify-center gap-6 bg-blooper dark:bg-prettyDark dark:border-t-2 dark:border-almostDark"
+          role="menu"
         >
-          <li>
+          <li onClick={closeMenu} role="menuitem">
             <MenuLink href="#about">About</MenuLink>
           </li>
-          <li>
+          <li onClick={closeMenu}>
             <MenuLink href="#work">Work</MenuLink>
           </li>
-          <li>
+          <li onClick={closeMenu}>
             <MenuLink href="/journal">Journal</MenuLink>
           </li>
-          <li>
+          <li onClick={closeMenu}>
             <MenuLink href="#contact">Contact</MenuLink>
           </li>
-          <li>
+          <li onClick={closeMenu}>
             <Link
               href="/assets/resume.pdf"
               target="_blank"
@@ -198,9 +219,9 @@ const ColorModeToggle = ({
 }: ColorModeToggleProps) => (
   <button aria-label="color-mode-toggle" onClick={handleThemeToggle}>
     {theme === "dark" ? (
-      <Icon name="Sun" fill="white" className="color-mode-toggle__light" />
+      <Icon name="Sun" fill="white" className="w-11 color-mode-toggle__light" />
     ) : (
-      <Icon name="moon" className="color-mode-toggle__dark" />
+      <Icon name="moon" className="w-11 color-mode-toggle__dark" />
     )}
   </button>
 );

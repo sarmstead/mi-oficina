@@ -1,10 +1,8 @@
-import { IconProps } from "~icon/iconProps";
+import { IconProps } from "~/types";
 
 const Moon = ({ className, fill = "black" }: IconProps) => {
   return (
     <svg
-      width="44"
-      height="44"
       viewBox="0 0 44 44"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

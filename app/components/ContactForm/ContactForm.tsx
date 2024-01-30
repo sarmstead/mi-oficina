@@ -13,6 +13,7 @@ type Input = {
   id: string;
   name: string;
   required?: boolean | undefined;
+  type?: string;
 };
 
 interface Label extends PropsWithChildren {
@@ -81,10 +82,11 @@ const ContactForm = () => {
           <TextInput
             name="Email"
             id="email"
+            type="email"
             errors={emailErrors}
             required={true}
           />
-          <TextInput name="Phone" id="phone" errors={phoneErrors} />
+          <TextInput name="Phone" id="phone" type="tel" errors={phoneErrors} />
         </section>
         <section className="flex flex-col gap-2 w-full">
           <TextArea
@@ -113,7 +115,13 @@ const Label = ({ htmlFor, children }: Label) => (
   </label>
 );
 
-const TextInput = ({ name, id, errors = [], required }: Input) => {
+const TextInput = ({
+  name,
+  id,
+  errors = [],
+  required,
+  type = "text",
+}: Input) => {
   const baseClasses =
     "h-11 border-2 px-2 bg-white dark:bg-transparent text-base text-black dark:text-white";
   if (errors.length > 0) {
@@ -136,7 +144,7 @@ const TextInput = ({ name, id, errors = [], required }: Input) => {
     <div className="flex flex-col gap-2 w-full">
       <Label htmlFor={id}>{name}</Label>
       <input
-        type="text"
+        type={type}
         id={id}
         name={id}
         className={`${baseClasses} border-black dark:border-white`}

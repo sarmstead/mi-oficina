@@ -20,16 +20,20 @@ interface Label extends PropsWithChildren {
 }
 
 const ContactForm = () => {
-  const [state, formAction] = useFormState(contactAction, { errors: [] });
+  const [state, formAction] = useFormState(contactAction, {
+    errors: [],
+    message: "",
+    status: 200,
+  });
   const findErrors = useCallback(
     (fieldName: string) => {
-      return state.errors
+      return state?.errors
         .filter((item) => {
           return item.path.includes(fieldName);
         })
         .map((item) => item.message);
     },
-    [state.errors],
+    [state?.errors],
   );
 
   const firstNameErrors = findErrors("firstName");

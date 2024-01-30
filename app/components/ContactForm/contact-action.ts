@@ -3,6 +3,9 @@
 import { z } from "zod";
 import { phone } from "phone";
 
+import createMessagesTable from "./create-table-action";
+import addMessageRow from "./add-row-action";
+
 const schema = z.object({
   firstName: z.string().min(1, "First name cannot be blank"),
   lastName: z.string().min(1, "Last name cannot be blank"),
@@ -44,10 +47,15 @@ export const contactAction = (_prevState: any, params: FormData) => {
     // TODO: Should email Sunjay after form submission with an error log if validations don't pass
     return {
       errors: validation.error.issues,
+      message: "Yeah, that data is not valid.",
+      status: 404,
     };
   }
 
   // TODO: Should send a confirmation email to the user of the form after form submission
   // TODO: Should email Sunjay after form submission with a form summary if validations pass
-  return { errors: [] };
+  createMessagesTable();
+  addMessageRow(validation.data).then((payload) => {
+    return payload;
+  });
 };

@@ -54,8 +54,9 @@ export const contactAction = (_prevState: any, params: FormData) => {
 
   // TODO: Should send a confirmation email to the user of the form after form submission
   // TODO: Should email Sunjay after form submission with a form summary if validations pass
-  createMessagesTable();
-  addMessageRow(validation.data).then((payload) => {
-    return payload;
+  createMessagesTable().then(() => {
+    addMessageRow(validation.data).then((payload) => {
+      return payload;
+    });
   });
 };

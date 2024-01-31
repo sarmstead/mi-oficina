@@ -73,19 +73,22 @@ export const contactAction = async (_prevState: any, params: FormData) => {
     subject: "New message from the website! 🎉",
   };
 
-  await fetch(`${baseUrl}/api/messages/init`);
-  const addRow = await fetch(
-    `${baseUrl}/api/messages/new?firstName=${validation.data.firstName}&lastName=${validation.data.lastName}&company=${validation.data.company}&email=${validation.data.email}&phone=${validation.data.phone}&message=${validation.data.message}`,
-    {
-      method: "POST",
-    },
-  );
-
-  addRow.json().then((data) => {
-    if (data.status === 201) {
-      sendEmail(recipientEmailData, Received);
-      sendEmail(adminEmailData, Success);
-      return data;
-    }
+  await fetch(`${baseUrl}/api/messages/init`).then((data) => {
+    fetch(
+      `${baseUrl}/api/messages/new?firstName=${validation.data.firstName}&lastName=${validation.data.lastName}&company=${validation.data.company}&email=${validation.data.email}&phone=${validation.data.phone}&message=${validation.data.message}`,
+      {
+        method: "POST",
+      },
+    )
+      .then((data) => {
+        return data.json();
+      })
+      .then((payload) => {
+        if (payload.status === 201) {
+          sendEmail(recipientEmailData, Received);
+          sendEmail(adminEmailData, Success);
+          return data;
+        }
+      });
   });
 };

@@ -1,14 +1,14 @@
 "use server";
 
-import { revalidatePath } from "next/cache";
-
 import { z } from "zod";
 import { phone } from "phone";
 
-import createMessagesTable from "./create-table-action";
-import addMessageRow from "./add-row-action";
 import { sendEmail } from "~components/Email/send-email-action";
 import { Received, Success } from "~components/Email";
+
+const protocol =
+  process.env.VERCEL_ENV === "development" ? "http://" : "https://";
+const baseUrl = protocol + process.env.VERCEL_URL;
 
 const schema = z.object({
   firstName: z.string().min(1, "First name cannot be blank"),
@@ -37,7 +37,7 @@ const schema = z.object({
     .max(250, "Message should be less than 250 characters"),
 });
 
-export const contactAction = (_prevState: any, params: FormData) => {
+export const contactAction = async (_prevState: any, params: FormData) => {
   const validation = schema.safeParse({
     firstName: params.get("firstName"),
     lastName: params.get("lastName"),
@@ -73,12 +73,19 @@ export const contactAction = (_prevState: any, params: FormData) => {
     subject: "New message from the website! 🎉",
   };
 
-  createMessagesTable().then(() => {
-    addMessageRow(validation.data).then((payload) => {
-      console.log({ payload });
+  await fetch(`${baseUrl}/api/messages/init`);
+  const addRow = await fetch(
+    `${baseUrl}/api/messages/new?firstName=${validation.data.firstName}&lastName=${validation.data.lastName}&company=${validation.data.company}&email=${validation.data.email}&phone=${validation.data.phone}&message=${validation.data.message}`,
+    {
+      method: "POST",
+    },
+  );
+
+  addRow.json().then((data) => {
+    if (data.status === 201) {
       sendEmail(recipientEmailData, Received);
       sendEmail(adminEmailData, Success);
-      revalidatePath("/");
-    });
+      return data;
+    }
   });
 };

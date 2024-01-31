@@ -5,6 +5,8 @@ import { phone } from "phone";
 
 import createMessagesTable from "./create-table-action";
 import addMessageRow from "./add-row-action";
+import { sendEmail } from "~components/Email/send-email-action";
+import { Received } from "~components/Email";
 
 const schema = z.object({
   firstName: z.string().min(1, "First name cannot be blank"),
@@ -54,9 +56,18 @@ export const contactAction = (_prevState: any, params: FormData) => {
 
   // TODO: Should send a confirmation email to the user of the form after form submission
   // TODO: Should email Sunjay after form submission with a form summary if validations pass
-  createMessagesTable().then(() => {
-    addMessageRow(validation.data).then((payload) => {
-      return payload;
-    });
-  });
+  // createMessagesTable().then(() => {
+  //   addMessageRow(validation.data).then((payload) => {
+  //     return payload;
+  //   });
+  // });
+
+  const emailData = {
+    firstName: validation?.data?.firstName,
+    lastName: validation.data?.lastName,
+    email: validation.data?.email,
+    subject: `Thanks for your message, ${validation?.data?.firstName}`,
+  };
+
+  sendEmail(emailData, Received);
 };

@@ -1,0 +1,41 @@
+"use server";
+
+import { Resend } from "resend";
+import { ComponentType } from "react";
+
+type EmailData = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  subject: string;
+};
+
+const resend = new Resend(process.env.RESEND_API_KEY);
+const senderName = process.env.EMAIL_SEND_NAME;
+const senderAddress = process.env.EMAIL_SEND_ADDRESS;
+
+export const sendEmail = async (
+  data: EmailData,
+  Component: ComponentType<EmailData>,
+) => {
+  const recipientName = data.firstName + data.lastName;
+  const subject = data.subject;
+  const { error } = await resend.emails.send({
+    from: `${senderName} <${senderAddress}>`,
+    to: `${recipientName} <${data.email}>`,
+    subject: subject,
+    react: <Component {...data} />,
+  });
+
+  if (error) {
+    console.log(error);
+    return {
+      message: "Yikes! We ran into an error sending that email.",
+      error,
+    };
+  }
+
+  console.log("Success");
+
+  return { message: "Successfully sent an email!", error: [] };
+};

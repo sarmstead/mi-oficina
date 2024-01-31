@@ -6,10 +6,6 @@ import { phone } from "phone";
 import { sendEmail } from "~components/Email/send-email-action";
 import { Received, Success } from "~components/Email";
 
-const protocol =
-  process.env.VERCEL_ENV === "development" ? "http://" : "https://";
-const baseUrl = protocol + process.env.VERCEL_URL;
-
 const schema = z.object({
   firstName: z.string().min(1, "First name cannot be blank"),
   lastName: z.string().min(1, "Last name cannot be blank"),
@@ -73,10 +69,10 @@ export const contactAction = async (_prevState: any, params: FormData) => {
     subject: "New message from the website! 🎉",
   };
 
-  await fetch(`${baseUrl}/api/messages/init`)
+  await fetch(`${process.env.API_BASE}/api/messages/init`)
     .then((data) => {
       fetch(
-        `${baseUrl}/api/messages/new?firstName=${validation.data.firstName}&lastName=${validation.data.lastName}&company=${validation.data.company}&email=${validation.data.email}&phone=${validation.data.phone}&message=${validation.data.message}`,
+        `${process.env.API_BASE}/api/messages/new?firstName=${validation.data.firstName}&lastName=${validation.data.lastName}&company=${validation.data.company}&email=${validation.data.email}&phone=${validation.data.phone}&message=${validation.data.message}`,
         {
           method: "POST",
         },

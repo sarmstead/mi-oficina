@@ -1,5 +1,7 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
+
 import { z } from "zod";
 import { phone } from "phone";
 
@@ -54,30 +56,29 @@ export const contactAction = (_prevState: any, params: FormData) => {
     };
   }
 
-  // TODO: Should send a confirmation email to the user of the form after form submission
-  // TODO: Should email Sunjay after form submission with a form summary if validations pass
-  // createMessagesTable().then(() => {
-  //   addMessageRow(validation.data).then((payload) => {
-  //     return payload;
-  //   });
-  // });
-
   const recipientEmailData = {
-    firstName: validation?.data?.firstName,
-    lastName: validation.data?.lastName,
+    firstName: validation.data.firstName,
+    lastName: validation.data.lastName,
     recipientEmail: validation.data?.email,
     subject: `Thanks for your message, ${validation?.data?.firstName}! 👋🏽`,
   };
 
   const adminEmailData = {
-    firstName: validation?.data?.firstName,
-    lastName: validation.data?.lastName,
-    company: validation.data?.company,
-    message: validation.data?.message,
+    firstName: validation.data.firstName,
+    lastName: validation.data.lastName,
+    company: validation.data.company,
+    phone: validation.data.phone,
     recipientEmail: process.env.EMAIL_ADMIN_ADDRESS as string,
+    message: validation.data.message,
     subject: "New message from the website! 🎉",
   };
 
-  sendEmail(recipientEmailData, Received);
-  sendEmail(adminEmailData, Success);
+  createMessagesTable().then(() => {
+    addMessageRow(validation.data).then((payload) => {
+      console.log({ payload });
+      sendEmail(recipientEmailData, Received);
+      sendEmail(adminEmailData, Success);
+      revalidatePath("/");
+    });
+  });
 };

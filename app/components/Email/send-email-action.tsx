@@ -6,23 +6,25 @@ import { ComponentType } from "react";
 type EmailData = {
   firstName: string;
   lastName: string;
-  email: string;
+  recipientEmail: string;
+  senderEmail?: string;
   subject: string;
 };
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const senderName = process.env.EMAIL_SEND_NAME;
-const senderAddress = process.env.EMAIL_SEND_ADDRESS;
+const defaultSenderAddress = process.env.EMAIL_SEND_ADDRESS;
 
 export const sendEmail = async (
-  data: EmailData,
+  { ...data }: EmailData,
   Component: ComponentType<EmailData>,
 ) => {
   const recipientName = data.firstName + data.lastName;
+  const sendFrom = data.senderEmail ? data.senderEmail : defaultSenderAddress;
   const subject = data.subject;
   const { error } = await resend.emails.send({
-    from: `${senderName} <${senderAddress}>`,
-    to: `${recipientName} <${data.email}>`,
+    from: `${senderName} <${sendFrom}>`,
+    to: `${recipientName} <${data.recipientEmail}>`,
     subject: subject,
     react: <Component {...data} />,
   });

@@ -6,7 +6,7 @@ import { phone } from "phone";
 import createMessagesTable from "./create-table-action";
 import addMessageRow from "./add-row-action";
 import { sendEmail } from "~components/Email/send-email-action";
-import { Received } from "~components/Email";
+import { Received, Success } from "~components/Email";
 
 const schema = z.object({
   firstName: z.string().min(1, "First name cannot be blank"),
@@ -62,12 +62,22 @@ export const contactAction = (_prevState: any, params: FormData) => {
   //   });
   // });
 
-  const emailData = {
+  const recipientEmailData = {
     firstName: validation?.data?.firstName,
     lastName: validation.data?.lastName,
-    email: validation.data?.email,
-    subject: `Thanks for your message, ${validation?.data?.firstName}`,
+    recipientEmail: validation.data?.email,
+    subject: `Thanks for your message, ${validation?.data?.firstName}! 👋🏽`,
   };
 
-  sendEmail(emailData, Received);
+  const adminEmailData = {
+    firstName: validation?.data?.firstName,
+    lastName: validation.data?.lastName,
+    company: validation.data?.company,
+    message: validation.data?.message,
+    recipientEmail: process.env.EMAIL_ADMIN_ADDRESS as string,
+    subject: "New message from the website! 🎉",
+  };
+
+  sendEmail(recipientEmailData, Received);
+  sendEmail(adminEmailData, Success);
 };

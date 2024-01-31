@@ -1,14 +1,14 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import { Received } from "~components/Email/index";
+import { Success } from "~components/Email/index";
 import { emailArgs, emailArgTypes } from "~components/Email/shared-args";
 
 const meta = {
-  component: Received,
+  component: Success,
   tags: ["autodocs"],
   argTypes: emailArgTypes,
   args: emailArgs,
-} satisfies Meta<typeof Received>;
+} satisfies Meta<typeof Success>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

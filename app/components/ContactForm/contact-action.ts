@@ -64,7 +64,7 @@ const newMessage = async (data: ValidData) => {
   }
 };
 
-const createTableIfExists = async (data: ValidData) => {
+const createTableIfExists = async () => {
   try {
     const exists = await sql`SELECT EXISTS (SELECT FROM Messages);`;
     if (exists)
@@ -125,7 +125,7 @@ export const contactAction = async (_prevState: any, params: FormData) => {
     subject: "New message from the website! 🎉",
   };
 
-  await createTableIfExists(validation.data)
+  await createTableIfExists()
     .then(() => {
       newMessage(validation.data)
         .then((data) => {

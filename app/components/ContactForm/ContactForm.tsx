@@ -3,7 +3,7 @@
 import { PropsWithChildren, useCallback } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 
-import { contactAction } from "~/components/ContactForm/contact-action";
+import { contactAction } from "~/components/ContactForm/contact-action.ts";
 import Button from "~components/Button/Button";
 
 type Error = { errors: string[] };

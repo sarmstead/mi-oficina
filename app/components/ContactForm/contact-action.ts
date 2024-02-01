@@ -5,7 +5,7 @@ import { phone } from "phone";
 import { sql } from "@vercel/postgres";
 import { revalidatePath } from "next/cache";
 
-import { sendEmail } from "~components/Email/send-email-action.tsx";
+import { sendEmail } from "~components/Email/send-email-action";
 import { Received, Success } from "~components/Email";
 
 type ValidData = {

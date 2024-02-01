@@ -2,9 +2,19 @@
 
 import { z } from "zod";
 import { phone } from "phone";
+import { sql } from "@vercel/postgres";
 
 import { sendEmail } from "~components/Email/send-email-action";
 import { Received, Success } from "~components/Email";
+
+type ValidData = {
+  firstName: string;
+  lastName: string;
+  company: string;
+  email: string;
+  phone: string;
+  message: string;
+};
 
 const protocol =
   process.env.VERCEL_ENV === "development" ? "http://" : "https://";
@@ -36,6 +46,48 @@ const schema = z.object({
     .min(1, "Message cannot be blank")
     .max(250, "Message should be less than 250 characters"),
 });
+
+const newMessage = async (data: ValidData) => {
+  try {
+    await sql`INSERT INTO Messages (first_name, last_name, company, email, phone, message) VALUES (${data.firstName}, ${data.lastName}, ${data.company}, ${data.email}, ${data.phone}, ${data.message});`;
+    return Response.json({
+      errors: [],
+      message: "Successfully added row to Messages table",
+      status: 201,
+    });
+  } catch (error) {
+    return Response.json({
+      errors: [error],
+      message: "Aye! We ran into an error.",
+      status: 500,
+    });
+  }
+};
+
+const createTableIfExists = async (data: ValidData) => {
+  try {
+    const exists = await sql`SELECT EXISTS (SELECT FROM Messages);`;
+    if (exists)
+      return Response.json({
+        errors: [],
+        message: "Messages table already exists. No new table created.",
+        status: 200,
+      });
+    await sql`CREATE EXTENSION "uuid-ossp"`;
+    await sql`CREATE TABLE IF NOT EXISTS Messages (id UUID PRIMARY KEY DEFAULT gen_random_uuid(), first_name VARCHAR(250), last_name VARCHAR(250), company VARCHAR(250), email VARCHAR(250), phone VARCHAR(250), message VARCHAR(250), created_at timestamp DEFAULT now() NOT NULL);`;
+    return Response.json({
+      errors: [],
+      message: "Successfully created the Messages table",
+      status: 201,
+    });
+  } catch (error) {
+    return Response.json({
+      errors: [error],
+      message: "Yikes, we ran into an error!",
+      status: 500,
+    });
+  }
+};
 
 export const contactAction = async (_prevState: any, params: FormData) => {
   const validation = schema.safeParse({
@@ -73,24 +125,22 @@ export const contactAction = async (_prevState: any, params: FormData) => {
     subject: "New message from the website! 🎉",
   };
 
-  await fetch(`${baseUrl}/api/messages/init`)
-    .then((data) => {
-      fetch(
-        `${baseUrl}/api/messages/new?firstName=${validation.data.firstName}&lastName=${validation.data.lastName}&company=${validation.data.company}&email=${validation.data.email}&phone=${validation.data.phone}&message=${validation.data.message}`,
-        {
-          method: "POST",
-        },
-      )
+  await createTableIfExists(validation.data)
+    .then(() => {
+      newMessage(validation.data)
         .then((data) => {
-          return data.json();
+          sendEmail(recipientEmailData, Received);
+          sendEmail(adminEmailData, Success);
+
+          return data;
         })
-        .then((payload) => {
-          if (payload.status === 201) {
-            sendEmail(recipientEmailData, Received);
-            sendEmail(adminEmailData, Success);
-          }
-        })
-        .catch((error) => console.error(error));
+        .catch((error) => {
+          console.error(error);
+          return error;
+        });
     })
-    .catch((error) => console.error(error));
+    .catch((error) => {
+      console.error(error);
+      return error;
+    });
 };

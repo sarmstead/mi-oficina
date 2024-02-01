@@ -3,8 +3,9 @@
 import { z } from "zod";
 import { phone } from "phone";
 import { sql } from "@vercel/postgres";
+import { revalidatePath } from "next/cache";
 
-import { sendEmail } from "~components/Email/send-email-action";
+import { sendEmail } from "~components/Email/send-email-action.tsx";
 import { Received, Success } from "~components/Email";
 
 type ValidData = {
@@ -15,10 +16,6 @@ type ValidData = {
   phone: string;
   message: string;
 };
-
-const protocol =
-  process.env.VERCEL_ENV === "development" ? "http://" : "https://";
-const baseUrl = protocol + process.env.VERCEL_URL;
 
 const schema = z.object({
   firstName: z.string().min(1, "First name cannot be blank"),
@@ -64,7 +61,7 @@ const newMessage = async (data: ValidData) => {
   }
 };
 
-const createTableIfExists = async () => {
+const createTableIfNotExists = async () => {
   try {
     const exists = await sql`SELECT EXISTS (SELECT FROM Messages);`;
     if (exists)
@@ -90,7 +87,7 @@ const createTableIfExists = async () => {
 };
 
 export const contactAction = async (_prevState: any, params: FormData) => {
-  const validation = schema.safeParse({
+  const validation = await schema.safeParse({
     firstName: params.get("firstName"),
     lastName: params.get("lastName"),
     company: params.get("company"),
@@ -111,7 +108,7 @@ export const contactAction = async (_prevState: any, params: FormData) => {
   const recipientEmailData = {
     firstName: validation.data.firstName,
     lastName: validation.data.lastName,
-    recipientEmail: validation.data?.email,
+    recipientEmail: validation.data.email,
     subject: `Thanks for your message, ${validation?.data?.firstName}! 👋🏽`,
   };
 
@@ -125,7 +122,7 @@ export const contactAction = async (_prevState: any, params: FormData) => {
     subject: "New message from the website! 🎉",
   };
 
-  await createTableIfExists()
+  await createTableIfNotExists()
     .then(() => {
       newMessage(validation.data)
         .then((data) => {
@@ -143,4 +140,6 @@ export const contactAction = async (_prevState: any, params: FormData) => {
       console.error(error);
       return error;
     });
+
+  revalidatePath("/");
 };

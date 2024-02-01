@@ -78,7 +78,7 @@ export const contactAction = async (_prevState: any, params: FormData) => {
       fetch(
         `${baseUrl}/api/messages/new?firstName=${validation.data.firstName}&lastName=${validation.data.lastName}&company=${validation.data.company}&email=${validation.data.email}&phone=${validation.data.phone}&message=${validation.data.message}`,
         {
-          method: "GET",
+          method: "POST",
         },
       )
         .then((data) => {

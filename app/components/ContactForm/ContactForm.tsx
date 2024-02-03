@@ -1,10 +1,11 @@
 "use client";
 
 import { PropsWithChildren, useCallback } from "react";
-import { useFormState, useFormStatus } from "react-dom";
+import { useFormState } from "react-dom";
 
 import { contactAction } from "~/components/ContactForm/contact-action";
 import Button from "~components/Button/Button";
+import SuccessMessage from "~/components/SuccessMessage/SuccessMessage";
 
 type Error = { errors: string[] };
 
@@ -26,6 +27,7 @@ const ContactForm = () => {
     message: "",
     status: 200,
   });
+
   const findErrors = useCallback(
     (fieldName: string) => {
       return state?.errors
@@ -44,6 +46,8 @@ const ContactForm = () => {
   const phoneErrors = findErrors("phone");
   const messageErrors = findErrors("message");
   const honeyPotErrors = findErrors("website");
+
+  if (state?.status === 201) return <SuccessMessage />;
 
   return (
     <>
@@ -201,4 +205,5 @@ const Errors = ({ errors }: Error) => {
     <p className="text-red-800 dark:text-red-300 font-medium">{errorString}</p>
   );
 };
+
 export default ContactForm;

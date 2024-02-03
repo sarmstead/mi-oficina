@@ -12,16 +12,8 @@ type ValidFormData = {
 export const newMessage = async (data: ValidFormData) => {
   try {
     await sql`INSERT INTO Messages (first_name, last_name, company, email, phone, message) VALUES (${data.firstName}, ${data.lastName}, ${data.company}, ${data.email}, ${data.phone}, ${data.message});`;
-    return {
-      errors: [],
-      message: "Successfully added row to Messages table",
-      status: 201,
-    };
+    return;
   } catch (error) {
-    return {
-      errors: [error],
-      message: "Aye! We ran into an error.",
-      status: 500,
-    };
+    return error;
   }
 };

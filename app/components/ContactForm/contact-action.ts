@@ -96,21 +96,23 @@ export const contactAction = async (_prevState: any, params: FormData) => {
   await createTableIfNotExists()
     .then(() => {
       newMessage(validation.data)
-        .then((data) => {
+        .then(() => {
           sendEmail(recipientEmailData, Received);
           sendEmail(adminEmailData, Success);
-
-          return data;
         })
         .catch((error) => {
           console.error(error);
-          return error;
+          revalidatePath("/");
         });
     })
     .catch((error) => {
       console.error(error);
-      return error;
+      revalidatePath("/");
     });
 
-  revalidatePath("/");
+  return {
+    errors: [],
+    message: "Successfully added row to Messages table",
+    status: 201,
+  };
 };

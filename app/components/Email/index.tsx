@@ -48,6 +48,9 @@ const emailStyles = {
   },
 };
 
+const logoPath =
+  "https://sunjayarmstead.com/wp-content/uploads/2024/02/sunjay-logo.png";
+
 export const Received = ({ firstName }: EmailProps) => (
   <html>
     <body style={emailStyles.body}>
@@ -58,7 +61,7 @@ export const Received = ({ firstName }: EmailProps) => (
               <img
                 style={emailStyles.logo}
                 alt="Sunjay Armstead's website logo"
-                src="https://lh3.googleusercontent.com/u/0/drive-viewer/AEYmBYQe1dL0k6mm-rAnJt0Uv3AjgM7YhrEoBBE8W3OK4rI7xrTKg6xpyGExLE2_fY_73FtN7D83_kqCaSUFLu8U4pJqgiLI_Q=w1316-h1201"
+                src={logoPath}
               />
             </div>
           </td>
@@ -149,7 +152,7 @@ export const Success = ({
               <img
                 style={emailStyles.logo}
                 alt="Sunjay Armstead's website logo"
-                src="https://lh3.googleusercontent.com/u/0/drive-viewer/AEYmBYQe1dL0k6mm-rAnJt0Uv3AjgM7YhrEoBBE8W3OK4rI7xrTKg6xpyGExLE2_fY_73FtN7D83_kqCaSUFLu8U4pJqgiLI_Q=w1316-h1201"
+                src={logoPath}
               />
             </div>
           </td>
@@ -249,7 +252,7 @@ export const Error = ({
               <img
                 style={emailStyles.logo}
                 alt="Sunjay Armstead's website logo"
-                src="https://lh3.googleusercontent.com/u/0/drive-viewer/AEYmBYQe1dL0k6mm-rAnJt0Uv3AjgM7YhrEoBBE8W3OK4rI7xrTKg6xpyGExLE2_fY_73FtN7D83_kqCaSUFLu8U4pJqgiLI_Q=w1316-h1201"
+                src={logoPath}
               />
             </div>
           </td>

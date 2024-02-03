@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-sync-scripts */
+
 import "~/globals.css";
 import { Providers } from "~/store/providers";
 import TopNav from "~components/TopNav/TopNav";
@@ -10,6 +12,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <script
+          src={`https://www.google.com/recaptcha/enterprise.js?render=${process.env.GOOGLE_KEY_ID}`}
+        ></script>
+      </head>
       <body className="bg-white dark:bg-black">
         <Providers>
           <TopNav />

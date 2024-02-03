@@ -4,6 +4,7 @@ import { z } from "zod";
 import { phone } from "phone";
 import { revalidatePath } from "next/cache";
 
+import { assessRecaptcha } from "~components/ContactForm/recaptcha-action";
 import { sendEmail } from "~components/Email/send-email-action";
 import { createTableIfNotExists } from "~components/ContactForm/create-table-action";
 import { newMessage } from "~components/ContactForm/new-message-action";
@@ -37,6 +38,11 @@ const schema = z.object({
 });
 
 export const contactAction = async (_prevState: any, params: FormData) => {
+  const recaptchaScore = await assessRecaptcha(
+    params.get("token"),
+    "contact_submit",
+  );
+
   const validation = await schema.safeParse({
     firstName: params.get("firstName"),
     lastName: params.get("lastName"),
@@ -46,7 +52,7 @@ export const contactAction = async (_prevState: any, params: FormData) => {
     message: params.get("message"),
   });
 
-  if (!validation.success) {
+  if (!validation.success || recaptchaScore > 0.7) {
     // TODO: Should email Sunjay after form submission with an error log if validations don't pass
     return {
       errors: validation.error.issues,
@@ -55,41 +61,41 @@ export const contactAction = async (_prevState: any, params: FormData) => {
     };
   }
 
-  const recipientEmailData = {
-    firstName: validation.data.firstName,
-    lastName: validation.data.lastName,
-    recipientEmail: validation.data.email,
-    subject: `Thanks for your message, ${validation?.data?.firstName}! 👋🏽`,
-  };
+  // const recipientEmailData = {
+  //   firstName: validation.data.firstName,
+  //   lastName: validation.data.lastName,
+  //   recipientEmail: validation.data.email,
+  //   subject: `Thanks for your message, ${validation?.data?.firstName}! 👋🏽`,
+  // };
 
-  const adminEmailData = {
-    firstName: validation.data.firstName,
-    lastName: validation.data.lastName,
-    company: validation.data.company,
-    phone: validation.data.phone,
-    recipientEmail: process.env.EMAIL_ADMIN_ADDRESS as string,
-    message: validation.data.message,
-    subject: "New message from the website! 🎉",
-  };
+  // const adminEmailData = {
+  //   firstName: validation.data.firstName,
+  //   lastName: validation.data.lastName,
+  //   company: validation.data.company,
+  //   phone: validation.data.phone,
+  //   recipientEmail: process.env.EMAIL_ADMIN_ADDRESS as string,
+  //   message: validation.data.message,
+  //   subject: "New message from the website! 🎉",
+  // };
 
-  await createTableIfNotExists()
-    .then(() => {
-      newMessage(validation.data)
-        .then((data) => {
-          sendEmail(recipientEmailData, Received);
-          sendEmail(adminEmailData, Success);
+  // await createTableIfNotExists()
+  //   .then(() => {
+  //     newMessage(validation.data)
+  //       .then((data) => {
+  //         sendEmail(recipientEmailData, Received);
+  //         sendEmail(adminEmailData, Success);
 
-          return data;
-        })
-        .catch((error) => {
-          console.error(error);
-          return error;
-        });
-    })
-    .catch((error) => {
-      console.error(error);
-      return error;
-    });
+  //         return data;
+  //       })
+  //       .catch((error) => {
+  //         console.error(error);
+  //         return error;
+  //       });
+  //   })
+  //   .catch((error) => {
+  //     console.error(error);
+  //     return error;
+  //   });
 
-  revalidatePath("/");
+  // revalidatePath("/");
 };

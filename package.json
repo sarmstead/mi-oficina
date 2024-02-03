@@ -17,6 +17,7 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
+    "@google-cloud/recaptcha-enterprise": "^5.2.0",
     "@reduxjs/toolkit": "^2.1.0",
     "@vercel/postgres": "^0.7.2",
     "next": "14.0.4",

@@ -7,7 +7,7 @@ import circleHeadshot from "~assets/images/headshot--circle.png";
 export const About = () => (
   <section
     id="about"
-    className="px-5 py-12 grid gap-6 md:py-16 md:items-center md:grid-cols-[293px_1fr] max-w-[954px]"
+    className="px-5 md:px-10 lg:px-0 py-12 grid gap-6 md:py-16 md:items-center md:grid-cols-[293px_1fr] max-w-[954px]"
   >
     <Image
       src={rectangleHeadshot}

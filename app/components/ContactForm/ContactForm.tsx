@@ -129,10 +129,11 @@ const TextInput = ({
 }: Input) => {
   const baseClasses =
     "h-11 border-2 px-2 bg-white dark:bg-transparent text-base text-black dark:text-white";
+  const label = required ? `${name}*` : name;
   if (errors.length > 0) {
     return (
       <div className="flex flex-col gap-2 w-full">
-        <Label htmlFor={id}>{name}</Label>
+        <Label htmlFor={id}>{label}</Label>
         <input
           type="text"
           id={id}
@@ -147,7 +148,7 @@ const TextInput = ({
 
   return (
     <div className="flex flex-col gap-2 w-full">
-      <Label htmlFor={id}>{name}</Label>
+      <Label htmlFor={id}>{label}</Label>
       <input
         type={type}
         id={id}
@@ -162,10 +163,11 @@ const TextInput = ({
 const TextArea = ({ name, id, errors = [], required }: Input) => {
   const baseClasses =
     "h-11 border-2 p-2 bg-white dark:bg-transparent text-base text-black dark:text-white min-h-32";
+  const label = required ? `${name}*` : name;
   if (errors.length > 0) {
     return (
       <div className="flex flex-col gap-2 w-full">
-        <Label htmlFor={id}>{name}</Label>
+        <Label htmlFor={id}>{label}</Label>
         <textarea
           id={id}
           name={id}
@@ -179,7 +181,7 @@ const TextArea = ({ name, id, errors = [], required }: Input) => {
 
   return (
     <div className="flex flex-col gap-2 w-full">
-      <Label htmlFor={id}>{name}</Label>
+      <Label htmlFor={id}>{label}</Label>
       <textarea
         id={id}
         name={id}

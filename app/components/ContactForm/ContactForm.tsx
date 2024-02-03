@@ -43,6 +43,7 @@ const ContactForm = () => {
   const emailErrors = findErrors("email");
   const phoneErrors = findErrors("phone");
   const messageErrors = findErrors("message");
+  const honeyPotErrors = findErrors("website");
 
   return (
     <>
@@ -96,6 +97,10 @@ const ContactForm = () => {
             required={true}
           />
         </section>
+        {honeyPotErrors && honeyPotErrors.length > 0 && (
+          <Errors errors={honeyPotErrors} />
+        )}
+        <input type="text" id="nobot" name="website" defaultValue="" />
         <section className="flex justify-end">
           <Button type="submit" backgroundType="solid">
             Send Message

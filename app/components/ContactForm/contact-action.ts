@@ -34,6 +34,12 @@ const schema = z.object({
     .string()
     .min(1, "Message cannot be blank")
     .max(250, "Message should be less than 250 characters"),
+  website: z
+    .string()
+    .max(
+      0,
+      "Woah now! You're either a bot or a magician. We can't process your submission at this time. Sorry!",
+    ),
 });
 
 export const contactAction = async (_prevState: any, params: FormData) => {
@@ -44,6 +50,7 @@ export const contactAction = async (_prevState: any, params: FormData) => {
     email: params.get("email"),
     phone: params.get("phone"),
     message: params.get("message"),
+    website: params.get("website"),
   });
 
   if (!validation.success) {

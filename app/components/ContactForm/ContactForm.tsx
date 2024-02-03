@@ -1,10 +1,11 @@
 "use client";
 
-import { PropsWithChildren, useCallback } from "react";
+import { PropsWithChildren, useCallback, useState, useEffect } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 
 import { contactAction } from "~/components/ContactForm/contact-action";
 import Button from "~components/Button/Button";
+import { generateRecaptchaToken } from "~/utils";
 
 type Error = { errors: string[] };
 
@@ -25,7 +26,9 @@ const ContactForm = () => {
     errors: [],
     message: "",
     status: 200,
+    token: "",
   });
+
   const findErrors = useCallback(
     (fieldName: string) => {
       return state?.errors
@@ -43,6 +46,13 @@ const ContactForm = () => {
   const emailErrors = findErrors("email");
   const phoneErrors = findErrors("phone");
   const messageErrors = findErrors("message");
+
+  const handleSubmit = async (data: FormData) => {
+    const recaptchaToken = sessionStorage.getItem("token") || "";
+    await data.append("token", recaptchaToken);
+    await formAction(data);
+    sessionStorage.clear();
+  };
 
   return (
     <>
@@ -62,7 +72,7 @@ const ContactForm = () => {
         </a>
         &nbsp;and drop me a line. Talk soon! 👋🏽
       </p>
-      <form action={formAction} className="flex flex-col gap-6">
+      <form className="flex flex-col gap-6" action={handleSubmit}>
         <section className="flex gap-5 flex-col md:flex-row">
           <TextInput
             name="First Name"
@@ -97,9 +107,13 @@ const ContactForm = () => {
           />
         </section>
         <section className="flex justify-end">
-          <Button type="submit" backgroundType="solid">
+          <button
+            type="submit"
+            onClick={() => generateRecaptchaToken()}
+            className="flex items-center justify-center min-h-12 font-medium text-base border-2 p-3 min-w-32 w-fit tracking-wider uppercase text-white hover:text-blooper bg-blooper border-blooper hover:bg-white dark:text-purps dark:bg-transparent dark:hover:text-blooper dark:border-purps dark:hover:border-white dark:hover:bg-white"
+          >
             Send Message
-          </Button>
+          </button>
         </section>
       </form>
     </>

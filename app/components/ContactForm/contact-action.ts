@@ -68,6 +68,8 @@ export const contactAction = async (_prevState: any, params: FormData) => {
 
     sendEmail(errorEmailData, Error);
 
+    revalidatePath("/");
+
     return {
       errors: validation.error.issues,
       message: "Yeah, that data is not valid.",
@@ -102,13 +104,15 @@ export const contactAction = async (_prevState: any, params: FormData) => {
         })
         .catch((error) => {
           console.error(error);
-          revalidatePath("/");
+          return;
         });
     })
     .catch((error) => {
       console.error(error);
-      revalidatePath("/");
+      return;
     });
+
+  revalidatePath("/");
 
   return {
     errors: [],

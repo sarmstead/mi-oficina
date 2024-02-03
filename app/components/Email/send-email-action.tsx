@@ -19,7 +19,7 @@ export const sendEmail = async (
   { ...data }: EmailData,
   Component: ComponentType<EmailData>,
 ) => {
-  const recipientName = data.firstName + data.lastName;
+  const recipientName = `${data.firstName} ${data.lastName}`;
   const sendFrom = data.senderEmail ? data.senderEmail : defaultSenderAddress;
   const subject = data.subject;
   const { error } = await resend.emails.send({
@@ -37,7 +37,7 @@ export const sendEmail = async (
     };
   }
 
-  console.log("Success");
+  console.log(`Successfully sent an email to ${data.recipientEmail}`);
 
   return { message: "Successfully sent an email!", error: [] };
 };

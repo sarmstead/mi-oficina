@@ -1,12 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 
+import { ZodIssue } from "zod";
+
 interface EmailProps extends JSX.IntrinsicAttributes {
   firstName?: string;
   lastName?: string;
   company?: string;
+  email?: string;
   recipientEmail?: string;
   phone?: string;
   message?: string;
+  errors?: ZodIssue[];
 }
 
 const emailStyles = {
@@ -38,6 +42,9 @@ const emailStyles = {
   footer: {
     padding: "32px 20px 32px",
     fontSize: "12px",
+  },
+  error: {
+    color: "#a80011",
   },
 };
 
@@ -129,7 +136,7 @@ export const Success = ({
   firstName,
   lastName,
   company,
-  recipientEmail,
+  email,
   phone,
   message,
 }: EmailProps) => (
@@ -170,7 +177,7 @@ export const Success = ({
               </tr>
               <tr>
                 <td style={emailStyles.tableKeyColumn}>Email</td>
-                <td style={emailStyles.inlineTableData}>{recipientEmail}</td>
+                <td style={emailStyles.inlineTableData}>{email}</td>
               </tr>
               <tr>
                 <td style={emailStyles.tableKeyColumn}>Phone</td>
@@ -191,6 +198,149 @@ export const Success = ({
         <tr>
           <td style={emailStyles.paragraph}>
             <p>Have a wonderful week!</p>
+          </td>
+        </tr>
+        <tr>
+          <td style={emailStyles.paragraph}>
+            <p>
+              <strong>Jack notGPT, your sort of automated assistant</strong>
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td style={emailStyles.footer}>
+            <p
+              style={{
+                textAlign: "center",
+                margin: "auto",
+                maxWidth: "450px",
+              }}
+            >
+              You are receiving this email because your email address is
+              configured as an admin on my website. If that&apos;s you, great!
+              If not,&nbsp;
+              <a href="mailto: connect@sunjayarmstead.com">
+                please reach out to me
+              </a>
+              &nbsp; so I can stop the bots!
+            </p>
+          </td>
+        </tr>
+      </table>
+    </body>
+  </html>
+);
+
+export const Error = ({
+  firstName,
+  lastName,
+  company,
+  email,
+  phone,
+  message,
+  errors,
+}: EmailProps) => (
+  <html>
+    <body style={emailStyles.body}>
+      <table style={emailStyles.table}>
+        <tr>
+          <td>
+            <div>
+              <img
+                style={emailStyles.logo}
+                alt="Sunjay Armstead's website logo"
+                src="https://lh3.googleusercontent.com/u/0/drive-viewer/AEYmBYQe1dL0k6mm-rAnJt0Uv3AjgM7YhrEoBBE8W3OK4rI7xrTKg6xpyGExLE2_fY_73FtN7D83_kqCaSUFLu8U4pJqgiLI_Q=w1316-h1201"
+              />
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td style={emailStyles.paragraph}>Hey, Sunjay!</td>
+        </tr>
+        <tr>
+          <td style={emailStyles.paragraph}>
+            <p style={{ paddingBottom: "16px" }}>
+              A message on our site just failed validation. Below are the
+              details:
+            </p>
+            <table>
+              <tr>
+                <td style={emailStyles.tableKeyColumn}>First Name</td>
+                <td style={emailStyles.inlineTableData}>{firstName}</td>
+              </tr>
+              <tr>
+                <td style={emailStyles.tableKeyColumn}>Last Name</td>
+                <td style={emailStyles.inlineTableData}>{lastName}</td>
+              </tr>
+              <tr>
+                <td style={emailStyles.tableKeyColumn}>Company</td>
+                <td style={emailStyles.inlineTableData}>{company}</td>
+              </tr>
+              <tr>
+                <td style={emailStyles.tableKeyColumn}>Email</td>
+                <td style={emailStyles.inlineTableData}>{email}</td>
+              </tr>
+              <tr>
+                <td style={emailStyles.tableKeyColumn}>Phone</td>
+                <td style={emailStyles.inlineTableData}>{phone}</td>
+              </tr>
+              <tr>
+                <td style={emailStyles.tableKeyColumn}>Message</td>
+                <td style={emailStyles.inlineTableData}>{message}</td>
+              </tr>
+            </table>
+            {errors && (
+              <div
+                style={{
+                  backgroundColor: "#f6dfe1",
+                  padding: "12px",
+                  marginTop: "12px",
+                  marginBottom: "4px",
+                }}
+              >
+                <p
+                  style={{
+                    ...emailStyles.tableKeyColumn,
+                    ...emailStyles.error,
+                  }}
+                >
+                  Error Logs
+                </p>
+                {errors.map((message) => {
+                  return (
+                    <div
+                      key={message.path[0]}
+                      style={{
+                        border: "1px solid #a80011",
+                        padding: "4px",
+                        marginBottom: "4px",
+                      }}
+                    >
+                      <p style={emailStyles.error}>
+                        Field Name: {message.path[0]}
+                      </p>
+                      <p style={emailStyles.error}>Code: {message.code}</p>
+                      <p style={emailStyles.error}>
+                        Error Message: {message.message}
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            )}
+          </td>
+        </tr>
+        <tr>
+          <td style={emailStyles.paragraph}>
+            <p>
+              Looks legit? Reach out soon to {firstName} as soon as possible! If
+              not, hop into Next.js and figure this thing out.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td style={emailStyles.paragraph}>
+            <p>Okay, byeeee!</p>
           </td>
         </tr>
         <tr>

@@ -7,7 +7,7 @@ import { revalidatePath } from "next/cache";
 import { sendEmail } from "~components/Email/send-email-action";
 import { createTableIfNotExists } from "~components/ContactForm/create-table-action";
 import { newMessage } from "~components/ContactForm/new-message-action";
-import { Received, Success } from "~components/Email";
+import { Error, Received, Success } from "~components/Email";
 
 const schema = z.object({
   firstName: z.string().min(1, "First name cannot be blank"),
@@ -54,7 +54,20 @@ export const contactAction = async (_prevState: any, params: FormData) => {
   });
 
   if (!validation.success) {
-    // TODO: Should email Sunjay after form submission with an error log if validations don't pass
+    const errorEmailData = {
+      firstName: params.get("firstName") as string,
+      lastName: params.get("lastName") as string,
+      company: params.get("company") as string,
+      email: params.get("email") as string,
+      phone: params.get("phone") as string,
+      message: params.get("message") as string,
+      errors: validation.error.issues,
+      recipientEmail: process.env.EMAIL_ADMIN_ADDRESS as string,
+      subject: "Invalid message on the website 🫤",
+    };
+
+    sendEmail(errorEmailData, Error);
+
     return {
       errors: validation.error.issues,
       message: "Yeah, that data is not valid.",
@@ -74,6 +87,7 @@ export const contactAction = async (_prevState: any, params: FormData) => {
     lastName: validation.data.lastName,
     company: validation.data.company,
     phone: validation.data.phone,
+    email: validation.data.email,
     recipientEmail: process.env.EMAIL_ADMIN_ADDRESS as string,
     message: validation.data.message,
     subject: "New message from the website! 🎉",

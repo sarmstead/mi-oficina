@@ -2,7 +2,7 @@ import Stem from "~/work/reviewed/Stem";
 import Arrow from "~/work/reviewed/Arrow";
 
 const Figure = () => (
-  <figure className="mx-auto max-w-[954px] px-5 md:px-10 lg:px-0">
+  <figure className="mx-auto max-w-[954px] pb-16 px-5 md:px-10 lg:px-0">
     <figcaption className="uppercase tracking-wider mb-4">
       <strong>Figure 1 -</strong>&nbsp;Data Flow Diagram
     </figcaption>

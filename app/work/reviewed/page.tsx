@@ -53,6 +53,18 @@ export default function CaseStudyReviewed() {
         </p>
       </section>
       <Figure />
+      <section className="mx-auto max-w-[954px] pb-16 px-5 md:px-10 lg:px-0">
+        <h2 className="text-2xl font-serif text-black dark:text-white mb-2">
+          Design
+        </h2>
+        <p className="text-base text-black dark:text-white mb-2">
+          My first design task was to brainstorm several ideas for the
+          user-facing components. After a few sketches and several drafts, I
+          enhanced my design with important form states (first visit, errors,
+          etc.), multiple screen sizes, and ensured that the final design was
+          cohesive with Reviewed’s design system.
+        </p>
+      </section>
     </>
   );
 }

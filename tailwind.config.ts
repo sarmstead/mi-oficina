@@ -9,6 +9,7 @@ const config: Config = {
         blooper: "#0B2ACC",
         purps: "#7BA0FF",
         grayish: "#F5F5F5",
+        figureGray: "#D9D9D9",
         almostDark: "#4B4B4B",
         prettyDark: "#1D1D20",
       },

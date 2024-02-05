@@ -69,7 +69,7 @@ export default function CaseStudyReviewed() {
           cohesive with Reviewed’s design system.
         </p>
       </section>
-      <section className="bg-grayish py-16 mb-16">
+      <section className="bg-grayish dark:bg-almostDark py-16 mb-16">
         <figure className="flex flex-col-reverse lg:grid lg:grid-cols-2 lg:max-h-[470px] overflow-y-hidden gap-3 px-5 md:px-10 lg:px-0 w-full max-w-[954px] mx-auto">
           <Image
             src={desktopWireframes}

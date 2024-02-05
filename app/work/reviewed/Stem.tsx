@@ -1,4 +1,8 @@
-const Stem = () => (
+type StemProps = {
+  stroke: string;
+};
+
+const Stem = ({ stroke }: StemProps) => (
   <svg
     width="3"
     height="28"
@@ -6,7 +10,7 @@ const Stem = () => (
     fill="none"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <path d="M1.5 0L1.5 28" stroke="black" strokeWidth="2" />
+    <path d="M1.5 0L1.5 28" stroke={stroke} strokeWidth="2" />
   </svg>
 );
 

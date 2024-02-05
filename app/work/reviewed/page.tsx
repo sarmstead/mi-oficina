@@ -22,7 +22,7 @@ export default function CaseStudyReviewed() {
             go to Reviewed to get fair product comparisons backed by scientific
             research. Look no further for nana’s next smart photo frame."
       />
-      <section className="mx-auto max-w-[954px] py-16 px-5 md:px-10 lg:px-0">
+      <section className="mx-auto max-w-innerContainer py-16 px-5 md:px-10 lg:px-0">
         <h2 className="text-3xl font-serif text-black dark:text-white mb-2">
           The problem
         </h2>
@@ -57,7 +57,7 @@ export default function CaseStudyReviewed() {
         </p>
       </section>
       <Figure />
-      <section className="mx-auto max-w-[954px] pb-16 px-5 md:px-10 lg:px-0">
+      <section className="mx-auto max-w-innerContainer pb-16 px-5 md:px-10 lg:px-0">
         <h2 className="text-2xl font-serif text-black dark:text-white mb-2">
           Design
         </h2>
@@ -70,7 +70,7 @@ export default function CaseStudyReviewed() {
         </p>
       </section>
       <section className="bg-grayish dark:bg-almostDark py-16 mb-16">
-        <figure className="flex flex-col-reverse lg:grid lg:grid-cols-2 lg:max-h-[470px] overflow-y-hidden gap-3 px-5 md:px-10 lg:px-0 w-full max-w-[954px] mx-auto">
+        <figure className="flex flex-col-reverse lg:grid lg:grid-cols-2 lg:max-h-[470px] overflow-y-hidden gap-3 px-5 md:px-10 lg:px-0 w-full max-w-innerContainer mx-auto">
           <Image
             src={desktopWireframes}
             alt="Desktop wireframes for email signup feature"
@@ -81,7 +81,7 @@ export default function CaseStudyReviewed() {
           />
         </figure>
       </section>
-      <section className="mx-auto max-w-[954px] px-5 md:px-10 lg:px-0">
+      <section className="mx-auto max-w-innerContainer px-5 md:px-10 lg:px-0">
         <p className="text-base text-black dark:text-white mb-8">
           There are so many things I love about this design. First, these
           wireframes are distinctly &quot;Reviewed&quot; in terms of color,

@@ -8,7 +8,7 @@ import { colorSwitcher } from "~/utils";
 const Figure = () => {
   const theme = useAppSelector((state) => state.theme.value);
   return (
-    <figure className="mx-auto max-w-[954px] pb-16 px-5 md:px-10 lg:px-0">
+    <figure className="mx-auto max-w-innerContainer pb-16 px-5 md:px-10 lg:px-0">
       <figcaption className="uppercase tracking-wider mb-4 text-black dark:text-white">
         <strong>Figure 1 -</strong>&nbsp;Data Flow Diagram
       </figcaption>

@@ -1,14 +1,9 @@
 "use client";
 
 import { useAppSelector } from "~/store/hooks";
-import { Icon } from "~icon/index";
 import { Logo } from "~logo/index";
 import { colorSwitcher } from "~/utils";
-
-type CaseStudyProps = {
-  href: string;
-  theme: string;
-};
+import ViewLink from "~components/ViewLink/ViewLink";
 
 export const Work = () => {
   const theme = useAppSelector((state) => state.theme.value);
@@ -34,7 +29,7 @@ export const Work = () => {
             expanding list of email newsletters. Design and engineering to the
             rescue!
           </p>
-          <CaseStudyLink href="/work/reviewed" theme={theme} />
+          <ViewLink href="/work/reviewed" title="View Case Study" />
         </article>
         <article className="flex flex-col gap-3">
           <Logo
@@ -48,7 +43,7 @@ export const Work = () => {
             was making changes to its Webflow site, all of its blog meta
             descriptions disappeared! ChatGPT, meet Webflow.
           </p>
-          <CaseStudyLink href="/work/webflow" theme={theme} />
+          <ViewLink href="/work/webflow" title="View Case Study" />
         </article>
         <article className="flex flex-col gap-3">
           <Logo
@@ -62,24 +57,9 @@ export const Work = () => {
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
             aliquip ex ea commodo consequat.
           </p>
-          <CaseStudyLink href="/work/abate" theme={theme} />
+          <ViewLink href="/work/abate" title="View Case Study" />
         </article>
       </div>
     </section>
   );
 };
-
-const CaseStudyLink = ({ href, theme }: CaseStudyProps) => (
-  <a
-    href={href}
-    target="_blank"
-    className="text-blooper dark:text-purps uppercase tracking-wider font-bold flex items center gap-2 border-b border-transparent hover:border-b hover:border-blooper dark:hover:border-purps w-fit"
-  >
-    View Case Study
-    <Icon
-      name="arrowright"
-      fill={colorSwitcher(theme, "#7BA0FF", "#0B2ACC")}
-      className="w-6"
-    />
-  </a>
-);

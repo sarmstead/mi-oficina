@@ -1,7 +1,11 @@
 import { Metadata } from "next";
+import Image from "next/image";
 
 import PageHeader from "~components/PageHeader";
 import Figure from "~/work/reviewed/Figure";
+import desktopWireframes from "~assets/images/case-study-reviewed--desktop.svg";
+import mobileWireframes from "~assets/images/case-study-reviewed--mobile.svg";
+import ViewLink from "~components/ViewLink/ViewLink";
 
 export const metadata: Metadata = {
   title: "Sunjay Armstead | Reviewed Case Study",
@@ -64,6 +68,44 @@ export default function CaseStudyReviewed() {
           etc.), multiple screen sizes, and ensured that the final design was
           cohesive with Reviewed’s design system.
         </p>
+      </section>
+      <section className="bg-grayish py-16 mb-16">
+        <figure className="flex flex-col-reverse lg:grid lg:grid-cols-2 lg:max-h-[470px] overflow-y-hidden gap-3 px-5 md:px-10 lg:px-0 w-full max-w-[954px] mx-auto">
+          <Image
+            src={desktopWireframes}
+            alt="Desktop wireframes for email signup feature"
+          />
+          <Image
+            src={mobileWireframes}
+            alt="Mobile and tablet wireframes for email signup feature"
+          />
+        </figure>
+      </section>
+      <section className="mx-auto max-w-[954px] px-5 md:px-10 lg:px-0">
+        <p className="text-base text-black dark:text-white mb-8">
+          There are so many things I love about this design. First, these
+          wireframes are distinctly &quot;Reviewed&quot; in terms of color,
+          layout, typography, and messaging. It simply blends in with the rest
+          of the site ... like a ninja. I’m also proud of the responsiveness of
+          the design. This is a great example of thinking through how a user
+          interface will change based on screen sizes and device types.
+        </p>
+        <h2 className="text-2xl font-serif text-black dark:text-white mb-2">
+          Engineering
+        </h2>
+        <p className="text-base text-black dark:text-white mb-8">
+          In typical unicorn fashion, I had the privilege of implementing the
+          design I created. Engineers at Reviewed were delegated the content
+          management component while I tackled the front end. I created a Rails
+          route, a view index, several view partials, and sprinkled in some
+          stylish CSS alongside existing CSS variables. This laid the ground
+          work for other engineers to plug in dynamic aspects of the content
+          management and email service provider.
+        </p>
+        <ViewLink
+          href="https://reviewed.usatoday.com/newsletters"
+          title="View Live Page"
+        />
       </section>
     </>
   );

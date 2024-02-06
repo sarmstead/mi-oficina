@@ -67,7 +67,7 @@ const TopNav = () => {
   };
 
   return (
-    <header>
+    <header className="z-10">
       <nav className="relative">
         <section className="fixed top-0 lg:relative flex items-center justify-between w-full p-5 lg:max-w-[1280px] lg:m-auto bg-white dark:bg-black drop-shadow-md lg:drop-shadow-none">
           <Link href="/">

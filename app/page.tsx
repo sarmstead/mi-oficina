@@ -3,7 +3,7 @@ import { Metadata } from "next";
 import { Hero } from "~/home/Hero";
 import { About } from "~/home/About";
 import { Work } from "~/home/Work";
-import { Contact } from "~/home/Contact";
+import ContactSection from "~components/ContactSection";
 
 export const metadata: Metadata = {
   title: "Sunjay Armstead | Home",
@@ -17,7 +17,7 @@ export default function Home() {
       <Hero />
       <About />
       <Work />
-      <Contact />
+      <ContactSection />
     </div>
   );
 }

@@ -50,9 +50,10 @@ const ContactForm = () => {
   const messageErrors = findErrors("message");
   const honeyPotErrors = findErrors("website");
 
-  useEffect(() => {
+  const handleSubmit = (data: FormData) => {
+    formAction(data);
     router.refresh();
-  }, [state?.status, router]);
+  };
 
   if (state?.status === 201) return <SuccessMessage />;
 
@@ -74,7 +75,7 @@ const ContactForm = () => {
         </a>
         &nbsp;and drop me a line. Talk soon! 👋🏽
       </p>
-      <form action={formAction} className="flex flex-col gap-6">
+      <form action={handleSubmit} className="flex flex-col gap-6">
         <section className="flex gap-5 flex-col md:flex-row">
           <TextInput
             name="First Name"

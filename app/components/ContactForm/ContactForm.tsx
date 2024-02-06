@@ -2,6 +2,7 @@
 
 import { PropsWithChildren, useCallback } from "react";
 import { useFormState } from "react-dom";
+import { useRouter } from "next/navigation";
 
 import { contactAction } from "~/components/ContactForm/contact-action";
 import Button from "~components/Button/Button";
@@ -22,6 +23,8 @@ interface Label extends PropsWithChildren {
 }
 
 const ContactForm = () => {
+  const router = useRouter();
+
   const [state, formAction] = useFormState(contactAction, {
     errors: [],
     message: "",
@@ -47,6 +50,11 @@ const ContactForm = () => {
   const messageErrors = findErrors("message");
   const honeyPotErrors = findErrors("website");
 
+  const handleSubmit = (data: FormData) => {
+    formAction(data);
+    router.refresh();
+  };
+
   if (state?.status === 201) return <SuccessMessage />;
 
   return (
@@ -67,7 +75,7 @@ const ContactForm = () => {
         </a>
         &nbsp;and drop me a line. Talk soon! 👋🏽
       </p>
-      <form action={formAction} className="flex flex-col gap-6">
+      <form action={handleSubmit} className="flex flex-col gap-6">
         <section className="flex gap-5 flex-col md:flex-row">
           <TextInput
             name="First Name"

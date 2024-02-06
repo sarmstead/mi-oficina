@@ -3,8 +3,8 @@ import Image from "next/image";
 
 import PageHeader from "~components/PageHeader";
 import Figure from "~/work/reviewed/Figure";
-import desktopWireframes from "~assets/images/case-study-reviewed--desktop.svg";
-import mobileWireframes from "~assets/images/case-study-reviewed--mobile.svg";
+import desktopWireframes from "~assets/images/case-study-reviewed--desktop.png";
+import mobileWireframes from "~assets/images/case-study-reviewed--mobile.png";
 import ViewLink from "~components/ViewLink/ViewLink";
 
 export const metadata: Metadata = {

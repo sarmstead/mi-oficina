@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 import PageHeader from "~components/PageHeader";
 import ViewLink from "~components/ViewLink/ViewLink";
-import Code from "~/components/Code/Code";
+import Code from "~/components/Code";
 import { fileToString } from "~/utils";
 
 export const metadata: Metadata = {
@@ -110,7 +110,7 @@ export default async function CaseStudyWebflow() {
         <Code
           block={true}
           code={files.posts}
-          language="text"
+          language="plaintext"
           fileName="posts.csv"
           className="mb-4"
         />

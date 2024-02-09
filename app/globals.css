@@ -1,11 +1,8 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "./highlight.css";
-
-input#nobot {
-  display: none;
-}
+@import "highlight";
+@import "fonts";
 
 *::-webkit-scrollbar {
   background: #1d1d20;
@@ -17,4 +14,8 @@ input#nobot {
 
 * {
   scrollbar-color: #777777 #1d1d20;
+}
+
+input#nobot {
+  display: none;
 }

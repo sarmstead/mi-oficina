@@ -1,8 +1,9 @@
-import { PropsWithChildren } from "react";
 import { Metadata } from "next";
 
 import PageHeader from "~components/PageHeader";
 import ViewLink from "~components/ViewLink/ViewLink";
+import Code from "~/components/Code/Code";
+import { fileToString } from "~/utils";
 
 export const metadata: Metadata = {
   title: "Sunjay Armstead | Webflow AI Case Study",
@@ -10,7 +11,12 @@ export const metadata: Metadata = {
     "Meta descriptions? Yikes. Let’s have AI write those for us, shall we?",
 };
 
-export default function CaseStudyWebflow() {
+export default async function CaseStudyWebflow() {
+  const files = {
+    posts: await fileToString("app/work/webflow/code-samples/posts.csv"),
+    openai: await fileToString("app/work/webflow/code-samples/generate.js"),
+  };
+
   return (
     <>
       <PageHeader
@@ -83,36 +89,31 @@ export default function CaseStudyWebflow() {
           &nbsp;is set to&nbsp;<Code>200</Code>&nbsp;to ensure that the
           generated description has at least 150 characters.
         </p>
-        <p className="text-base text-black dark:text-white mb-2">
+        <p className="text-base text-black dark:text-white mb-4">
           Altogether, the payload sent to OpenAI looks like this:
         </p>
-        <aside className="bg-grayish dark:bg-almostDark p-4 text-black dark:text-white mb-8">
-          <code className="block mb-5 font-bold">generate.js</code>
-          <code>INSERT MARKDOWN HERE</code>
-        </aside>
+        <Code
+          block={true}
+          code={files.openai}
+          fileName="generate.js"
+          className="mb-11"
+        />
         <h3 className="text-2xl font-serif text-black dark:text-white mb-2">
           Results and limitations
         </h3>
-        <p className="text-base text-black dark:text-white mb-8">
+        <p className="text-base text-black dark:text-white mb-4">
           The response from OpenAI is stored in the SQLite database and posted
           to Webflow. A comprehensive report of the work completed is then
           generated with time stamps, post IDs, and new descriptions. Below is a
           snippet of what reports include:
         </p>
-        <aside className="bg-grayish dark:bg-almostDark p-4 text-black dark:text-white mb-8">
-          <code className="block mb-5 font-bold">posts.csv</code>
-          <code>
-            ID,Webflow ID,Post Name,Previous Meta Description,AI Meta
-            Description,Created At,Updated At 1,12345678abcdefg,Tailwind is a
-            popular library. Here is how to add it to RedwoodJS,,&quot;Learn how
-            to use Tailwind with RedwoodJS to speed up your styling process,
-            decrease your CSS bundle size, and standardize your code. Tailwind
-            is a utility-first CSS framework that is compatible with React, Ruby
-            on Rails, Angular, and more. Customize Tailwind with ad hoc and
-            global changes to fit your project needs.&quot;,2023-07-17
-            17:07:50,2023-07-17 19:54:02
-          </code>
-        </aside>
+        <Code
+          block={true}
+          code={files.posts}
+          language="text"
+          fileName="posts.csv"
+          className="mb-4"
+        />
         <p className="text-base text-black dark:text-white mb-2">
           One limitation of the&nbsp;<Code>davinci-003</Code>&nbsp;model is that
           it is not good at following character limits for generated text.
@@ -141,9 +142,3 @@ export default function CaseStudyWebflow() {
     </>
   );
 }
-
-const Code = ({ children }: PropsWithChildren) => (
-  <code className="font-bold tracking-wide px-2 py-[2px] mr-[1px] bg-blue-100 dark:bg-almostDark">
-    {children}
-  </code>
-);

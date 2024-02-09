@@ -46,7 +46,6 @@ export const Close: Story = {
 };
 
 export const File: Story = {
-  name: "File",
   args: {
     name: "file",
   },

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import Code from "~components/Code/Code";
+import Code from "~/components/Code";
 
 const meta = {
   component: Code,

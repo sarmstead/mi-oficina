@@ -1,8 +1,10 @@
 "use client";
+
 import { useEffect } from "react";
-import hljs from "highlight.js";
+import Prism from "prismjs";
 
 import { Icon } from "~icon/index";
+import "~/prism.css";
 
 type CodeBlockProps = {
   code: string;
@@ -18,13 +20,12 @@ const CodeBlock = ({
   fileName,
 }: CodeBlockProps) => {
   useEffect(() => {
-    hljs.highlightAll();
+    Prism.highlightAll();
   }, []);
 
   const baseClasses = "p-5 bg-black scrollbar-track-black";
-  const borderClasses = fileName
-    ? "border-t-[1px] border-purps dark:border-[1px]"
-    : "dark:border-[1px] dark:border-purps";
+  const borderClasses = "border-[1px] border-purps";
+
   return (
     <>
       {fileName && (
@@ -35,10 +36,18 @@ const CodeBlock = ({
           </div>
         </div>
       )}
-      <pre className={[baseClasses, borderClasses, className].join(" ")}>
+      <pre
+        className={[
+          language && `language-${language}`,
+          baseClasses,
+          borderClasses,
+          className,
+        ].join(" ")}
+      >
         <code
-          className={language && `language-${language}`}
-          dangerouslySetInnerHTML={{ __html: code }}
+          dangerouslySetInnerHTML={{
+            __html: code,
+          }}
         ></code>
       </pre>
     </>

@@ -97,6 +97,7 @@ export default async function CaseStudyWebflow() {
           code={files.openai}
           fileName="generate.js"
           className="mb-11"
+          language="javascript"
         />
         <h3 className="text-2xl font-serif text-black dark:text-white mb-2">
           Results and limitations

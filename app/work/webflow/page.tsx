@@ -2,7 +2,8 @@ import { Metadata } from "next";
 
 import PageHeader from "~components/PageHeader";
 import ViewLink from "~components/ViewLink/ViewLink";
-import Code from "~/components/Code";
+import InlineCode from "~/components/Code/InlineCode";
+import CodeBlock from "~/components/Code/CodeBlock";
 import { fileToString } from "~/utils";
 
 export const metadata: Metadata = {
@@ -77,23 +78,25 @@ export default async function CaseStudyWebflow() {
         </h3>
         <p className="text-base text-black dark:text-white mb-2">
           The payload sent to OpenAI contains the&nbsp;
-          <Code>model</Code>,&nbsp;<Code>prompt</Code>,&nbsp;
-          <Code>temperature</Code>, and&nbsp;<Code>max_tokens</Code>. The model
-          for this program is&nbsp;<Code>text-davinci-003</Code>, a GPT-3.5
-          model that generates well for most tasks. The&nbsp;<Code>prompt</Code>
+          <InlineCode>model</InlineCode>,&nbsp;<InlineCode>prompt</InlineCode>
+          ,&nbsp;
+          <InlineCode>temperature</InlineCode>, and&nbsp;
+          <InlineCode>max_tokens</InlineCode>. The model for this program
+          is&nbsp;<InlineCode>text-davinci-003</InlineCode>, a GPT-3.5 model
+          that generates well for most tasks. The&nbsp;
+          <InlineCode>prompt</InlineCode>
           &nbsp;asks OpenAI to read a specific blog post and generate a meta
           description with up to 150 characters. The&nbsp;
-          <Code>temperature</Code>&nbsp;handles output variability, which in
-          this case is set to a low value. Finally,&nbsp;
-          <Code>max_tokens</Code>
-          &nbsp;is set to&nbsp;<Code>200</Code>&nbsp;to ensure that the
-          generated description has at least 150 characters.
+          <InlineCode>temperature</InlineCode>&nbsp;handles output variability,
+          which in this case is set to a low value. Finally,&nbsp;
+          <InlineCode>max_tokens</InlineCode>
+          &nbsp;is set to&nbsp;<InlineCode>200</InlineCode>&nbsp;to ensure that
+          the generated description has at least 150 characters.
         </p>
         <p className="text-base text-black dark:text-white mb-4">
           Altogether, the payload sent to OpenAI looks like this:
         </p>
-        <Code
-          block={true}
+        <CodeBlock
           code={files.openai}
           fileName="generate.js"
           className="mb-11"
@@ -108,20 +111,19 @@ export default async function CaseStudyWebflow() {
           generated with time stamps, post IDs, and new descriptions. Below is a
           snippet of what reports include:
         </p>
-        <Code
-          block={true}
+        <CodeBlock
           code={files.posts}
           language="plaintext"
           fileName="posts.csv"
           className="mb-4"
         />
         <p className="text-base text-black dark:text-white mb-2">
-          One limitation of the&nbsp;<Code>davinci-003</Code>&nbsp;model is that
-          it is not good at following character limits for generated text.
-          Often, the new description would exceed the 150 character
-          specification set in the prompt. One way around this is to send
-          multiple requests to OpenAI for each article and choose the response
-          with the least number of characters.
+          One limitation of the&nbsp;<InlineCode>davinci-003</InlineCode>
+          &nbsp;model is that it is not good at following character limits for
+          generated text. Often, the new description would exceed the 150
+          character specification set in the prompt. One way around this is to
+          send multiple requests to OpenAI for each article and choose the
+          response with the least number of characters.
         </p>
         <p className="text-base text-black dark:text-white mb-2">
           Another limitation is Webflow’s API throttle limits, which can quickly

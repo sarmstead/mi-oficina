@@ -13,12 +13,7 @@ type CodeBlockProps = {
   fileName?: string;
 };
 
-const CodeBlock = ({
-  className,
-  code,
-  language = "",
-  fileName,
-}: CodeBlockProps) => {
+const CodeBlock = ({ className, code, language, fileName }: CodeBlockProps) => {
   useEffect(() => {
     Prism.highlightAll();
   }, []);

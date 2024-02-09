@@ -17,7 +17,7 @@ const defaultSenderAddress = process.env.EMAIL_SEND_ADDRESS;
 
 export const sendEmail = async (
   { ...data }: EmailData,
-  Component: ComponentType<EmailData>,
+  Component: ComponentType<EmailData>
 ) => {
   const recipientName = `${data.firstName} ${data.lastName}`;
   const sendFrom = data.senderEmail ? data.senderEmail : defaultSenderAddress;

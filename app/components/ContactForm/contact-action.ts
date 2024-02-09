@@ -22,7 +22,7 @@ const schema = z.object({
         return false;
       }
     },
-    { message: "Company name must be between 1 and 250 characters" },
+    { message: "Company name must be between 1 and 250 characters" }
   ),
   email: z.string().email().min(1, "Email cannot be blank"),
   phone: z
@@ -38,7 +38,7 @@ const schema = z.object({
     .string()
     .max(
       0,
-      "Woah now! You're either a bot or a magician. We can't process your submission at this time. Sorry!",
+      "Woah now! You're either a bot or a magician. We can't process your submission at this time. Sorry!"
     ),
 });
 

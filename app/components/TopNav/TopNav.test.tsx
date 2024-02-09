@@ -22,7 +22,7 @@ describe("<TopNav />", () => {
     render(
       <Providers>
         <TopNav />
-      </Providers>,
+      </Providers>
     );
 
     const modeToggle = screen.getAllByRole("button", {
@@ -43,7 +43,7 @@ describe("<TopNav />", () => {
     render(
       <Providers>
         <TopNav />
-      </Providers>,
+      </Providers>
     );
 
     const modeToggle = screen.getAllByRole("button", {
@@ -62,7 +62,7 @@ describe("<TopNav />", () => {
     render(
       <Providers>
         <TopNav />
-      </Providers>,
+      </Providers>
     );
 
     const menuToggle = screen.getByRole("button", {
@@ -80,7 +80,7 @@ describe("<TopNav />", () => {
     render(
       <Providers>
         <TopNav />
-      </Providers>,
+      </Providers>
     );
 
     const menuToggle = screen.getByRole("button", {

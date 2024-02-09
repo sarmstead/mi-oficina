@@ -39,7 +39,7 @@ const ContactForm = () => {
         })
         .map((item) => item.message);
     },
-    [state?.errors],
+    [state?.errors]
   );
 
   const firstNameErrors = findErrors("firstName");

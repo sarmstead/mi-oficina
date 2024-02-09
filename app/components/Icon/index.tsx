@@ -2,6 +2,7 @@ import { IconProps } from "~/types";
 
 import { ArrowRight } from "~icon/ArrowRight";
 import { Close } from "~icon/Close";
+import { File } from "~icon/File";
 import { GitHub } from "~icon/GitHub";
 import { LinkedIn } from "~icon/LinkedIn";
 import { Moon } from "~icon/Moon";
@@ -16,6 +17,8 @@ const Icon = (props: IconProps) => {
       return <ArrowRight {...props} />;
     case "close":
       return <Close {...props} />;
+    case "file":
+      return <File {...props} />;
     case "github":
       return <GitHub {...props} />;
     case "linkedin":

@@ -86,12 +86,12 @@ const TopNav = () => {
           </Link>
           <ul className="hidden lg:flex lg:items-center lg:gap-5">
             <li>
-              <MenuLink href="#about" device="desktop">
+              <MenuLink href="/#about" device="desktop">
                 About
               </MenuLink>
             </li>
             <li>
-              <MenuLink href="#work" device="desktop">
+              <MenuLink href="/#work" device="desktop">
                 Work
               </MenuLink>
             </li>
@@ -101,7 +101,7 @@ const TopNav = () => {
               </MenuLink>
             </li>
             <li>
-              <MenuLink href="#contact" device="desktop">
+              <MenuLink href="/#contact" device="desktop">
                 Contact
               </MenuLink>
             </li>
@@ -187,16 +187,16 @@ const MobileMenu = ({ menuOpen, closeMenu }: MobileMenuProps) => {
           role="menu"
         >
           <li onClick={closeMenu} role="menuitem">
-            <MenuLink href="#about">About</MenuLink>
+            <MenuLink href="/#about">About</MenuLink>
           </li>
           <li onClick={closeMenu}>
-            <MenuLink href="#work">Work</MenuLink>
+            <MenuLink href="/#work">Work</MenuLink>
           </li>
           <li onClick={closeMenu}>
             <MenuLink href="/journal">Journal</MenuLink>
           </li>
           <li onClick={closeMenu}>
-            <MenuLink href="#contact">Contact</MenuLink>
+            <MenuLink href="/#contact">Contact</MenuLink>
           </li>
           <li onClick={closeMenu}>
             <Link

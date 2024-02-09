@@ -1,6 +1,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "fonts";
+
+*::-webkit-scrollbar {
+  background: #1d1d20;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: #777777;
+}
+
+* {
+  scrollbar-color: #777777 #1d1d20;
+}
 
 input#nobot {
   display: none;

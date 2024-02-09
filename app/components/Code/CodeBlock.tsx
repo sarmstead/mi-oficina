@@ -35,9 +35,7 @@ const CodeBlock = ({
           </div>
         </div>
       )}
-      <pre
-        className={["hljs", baseClasses, borderClasses, className].join(" ")}
-      >
+      <pre className={[baseClasses, borderClasses, className].join(" ")}>
         <code
           className={language && `language-${language}`}
           dangerouslySetInnerHTML={{ __html: code }}

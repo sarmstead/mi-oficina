@@ -45,6 +45,13 @@ export const Close: Story = {
   },
 };
 
+export const File: Story = {
+  name: "File",
+  args: {
+    name: "file",
+  },
+};
+
 export const GitHub: Story = {
   name: "GitHub",
   args: {

@@ -26,7 +26,7 @@ export default function CaseStudyReviewed() {
         <h2 className="text-3xl font-serif text-black dark:text-white mb-2">
           The problem
         </h2>
-        <p className="text-base text-black dark:text-white mb-8">
+        <p className="leading-body text-base text-black dark:text-white mb-8">
           Reviewed, as part of the USA TODAY network, was growing rapidly and
           their team needed a single place for users to sign up for an expanding
           list of email newsletters.
@@ -34,14 +34,14 @@ export default function CaseStudyReviewed() {
         <h2 className="text-3xl font-serif text-black dark:text-white mb-2">
           The solution
         </h2>
-        <p className="text-base text-black dark:text-white mb-2">
+        <p className="leading-body text-base text-black dark:text-white mb-2">
           There are several factors to consider when addressing a problem like
           Reviewed was facing. First up, who are the users we’re solving for? In
           this case, Reviewed needed a solution that delighted their customers
           and would be easy for their team to manage. That’s two primary user
           groups.
         </p>
-        <p className="text-base text-black dark:text-white mb-2">
+        <p className="leading-body text-base text-black dark:text-white mb-2">
           Next, it’s important to consider the unique needs of each user.
           Customers need a simple way to enter in their contact information and
           select the newsletters they want to subscribe to. However, Reviewed’s
@@ -49,7 +49,7 @@ export default function CaseStudyReviewed() {
           signup process. Instead, they needed a simple way to manage their
           subscriptions and add new newsletter options in the future.
         </p>
-        <p className="text-base text-black dark:text-white">
+        <p className="leading-body text-base text-black dark:text-white">
           Finally, any addition to an existing user interface should match
           established design patterns. At the same time, it is my job as a
           designer to push the envelope. In this way, my aim for Reviewed was to
@@ -61,7 +61,7 @@ export default function CaseStudyReviewed() {
         <h2 className="text-2xl font-serif text-black dark:text-white mb-2">
           Design
         </h2>
-        <p className="text-base text-black dark:text-white mb-2">
+        <p className="leading-body text-base text-black dark:text-white mb-2">
           My first design task was to brainstorm several ideas for the
           user-facing components. After a few sketches and several drafts, I
           enhanced my design with important form states (first visit, errors,
@@ -82,7 +82,7 @@ export default function CaseStudyReviewed() {
         </figure>
       </section>
       <section className="mx-auto max-w-innerContainer px-5 md:px-10 lg:px-0">
-        <p className="text-base text-black dark:text-white mb-8">
+        <p className="leading-body text-base text-black dark:text-white mb-8">
           There are so many things I love about this design. First, these
           wireframes are distinctly &quot;Reviewed&quot; in terms of color,
           layout, typography, and messaging. It simply blends in with the rest
@@ -93,7 +93,7 @@ export default function CaseStudyReviewed() {
         <h2 className="text-2xl font-serif text-black dark:text-white mb-2">
           Engineering
         </h2>
-        <p className="text-base text-black dark:text-white mb-8">
+        <p className="leading-body text-base text-black dark:text-white mb-8">
           In typical unicorn fashion, I had the privilege of implementing the
           design I created. Engineers at Reviewed were delegated the content
           management component while I tackled the front end. I created a Rails

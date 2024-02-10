@@ -28,7 +28,7 @@ export default async function CaseStudyWebflow() {
         <h2 className="text-3xl font-serif text-black dark:text-white mb-2">
           The problem
         </h2>
-        <p className="text-base text-black dark:text-white mb-8">
+        <p className="leading-body text-base text-black dark:text-white mb-8">
           The wonderful thing about Webflow is its incredible flexibility; a
           user can shape their database in almost any fashion imaginable.
           Unfortunately, as the team at ZEAL was making changes to its Webflow
@@ -38,7 +38,7 @@ export default async function CaseStudyWebflow() {
         <h2 className="text-3xl font-serif text-black dark:text-white mb-2">
           The solution
         </h2>
-        <p className="text-base text-black dark:text-white mb-2">
+        <p className="leading-body text-base text-black dark:text-white mb-2">
           Bad things happen to good people and, yes, this is a fine example. At
           the time, ZEAL’s blog collection exceeded 100 articles. We could
           create new descriptions manually, reading through each blog and coming
@@ -46,7 +46,7 @@ export default async function CaseStudyWebflow() {
           process and we would forfeit the opportunity to help other teams
           facing similar predicaments.
         </p>
-        <p className="text-base text-black dark:text-white">
+        <p className="leading-body text-base text-black dark:text-white">
           To solve our problem, I created a JavaScript program with four core
           functions:
         </p>
@@ -64,7 +64,7 @@ export default async function CaseStudyWebflow() {
         <h3 className="text-2xl font-serif text-black dark:text-white mb-2">
           Fetching and sending articles
         </h3>
-        <p className="text-base text-black dark:text-white mb-8">
+        <p className="leading-body text-base text-black dark:text-white mb-8">
           Altogether, the four core functions of this program require a great
           deal of asynchronous processes that are likely to get tangled with one
           another. For this reason, I instantiated a lightweight SQLite database
@@ -76,7 +76,7 @@ export default async function CaseStudyWebflow() {
         <h3 className="text-2xl font-serif text-black dark:text-white mb-2">
           Generating descriptions
         </h3>
-        <p className="text-base text-black dark:text-white mb-2">
+        <p className="leading-body text-base text-black dark:text-white mb-2">
           The payload sent to OpenAI contains the&nbsp;
           <InlineCode>model</InlineCode>,&nbsp;<InlineCode>prompt</InlineCode>
           ,&nbsp;
@@ -93,7 +93,7 @@ export default async function CaseStudyWebflow() {
           &nbsp;is set to&nbsp;<InlineCode>200</InlineCode>&nbsp;to ensure that
           the generated description has at least 150 characters.
         </p>
-        <p className="text-base text-black dark:text-white mb-4">
+        <p className="leading-body text-base text-black dark:text-white mb-4">
           Altogether, the payload sent to OpenAI looks like this:
         </p>
         <CodeBlock
@@ -105,7 +105,7 @@ export default async function CaseStudyWebflow() {
         <h3 className="text-2xl font-serif text-black dark:text-white mb-2">
           Results and limitations
         </h3>
-        <p className="text-base text-black dark:text-white mb-4">
+        <p className="leading-body text-base text-black dark:text-white mb-4">
           The response from OpenAI is stored in the SQLite database and posted
           to Webflow. A comprehensive report of the work completed is then
           generated with time stamps, post IDs, and new descriptions. Below is a
@@ -117,7 +117,7 @@ export default async function CaseStudyWebflow() {
           fileName="posts.csv"
           className="mb-4"
         />
-        <p className="text-base text-black dark:text-white mb-2">
+        <p className="leading-body text-base text-black dark:text-white mb-2">
           One limitation of the&nbsp;<InlineCode>davinci-003</InlineCode>
           &nbsp;model is that it is not good at following character limits for
           generated text. Often, the new description would exceed the 150
@@ -125,12 +125,12 @@ export default async function CaseStudyWebflow() {
           send multiple requests to OpenAI for each article and choose the
           response with the least number of characters.
         </p>
-        <p className="text-base text-black dark:text-white mb-2">
+        <p className="leading-body text-base text-black dark:text-white mb-2">
           Another limitation is Webflow’s API throttle limits, which can quickly
           corrupt data sets. I overcame this issue by creating a wait function
           that returns a Promise based on a specified setTimeout function.
         </p>
-        <p className="text-base text-black dark:text-white mb-8">
+        <p className="leading-body text-base text-black dark:text-white mb-8">
           Although the program did yield favorable results, with some
           limitations, Agile iterations are a logical next step toward improving
           the application. I can write new user stories for additional use cases

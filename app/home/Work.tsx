@@ -23,13 +23,17 @@ export const Work = () => {
             className="w-[238px] max-w-full"
             fill={colorSwitcher(theme, "white", "black")}
           />
-          <p className="text-base text-black dark:text-white">
+          <p className="text-base text-black dark:text-white leading-body">
             Reviewed, as part of the USA TODAY network, was growing rapidly and
             their team needed a single place for users to sign up for an
             expanding list of email newsletters. Design and engineering to the
             rescue!
           </p>
-          <ViewLink href="/work/reviewed" title="View Case Study" />
+          <ViewLink
+            target="_self"
+            href="/work/reviewed"
+            title="View Case Study"
+          />
         </article>
         <article className="flex flex-col gap-3">
           <Logo
@@ -37,13 +41,17 @@ export const Work = () => {
             className="w-[182px] max-w-full"
             fill={colorSwitcher(theme, "white", "black")}
           />
-          <p className="text-base text-black dark:text-white">
+          <p className="text-base text-black dark:text-white leading-body">
             Webflow is incredibly flexible; a user can shape their database in
             almost any fashion imaginable. Unfortunately, as the team at ZEAL
             was making changes to its Webflow site, all of its blog meta
             descriptions disappeared! ChatGPT, meet Webflow.
           </p>
-          <ViewLink href="/work/webflow" title="View Case Study" />
+          <ViewLink
+            target="_self"
+            href="/work/webflow"
+            title="View Case Study"
+          />
         </article>
         <article className="flex flex-col gap-3">
           <Logo
@@ -51,13 +59,12 @@ export const Work = () => {
             className="w-[157px] max-w-full"
             fill={colorSwitcher(theme, "white", "black")}
           />
-          <p className="text-base text-black dark:text-white">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+          <p className="text-base text-black dark:text-white leading-body">
+            Imagine an undistracted news experience. No ads, no photos, no
+            videos—just text. Now picture multiple text-only sources in one
+            place. This is Abate.
           </p>
-          <ViewLink href="/work/abate" title="View Case Study" />
+          <ViewLink target="_self" href="/work/abate" title="View Case Study" />
         </article>
       </div>
     </section>

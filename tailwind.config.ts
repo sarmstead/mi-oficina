@@ -26,6 +26,9 @@ const config: Config = {
         sans: ["DM Sans", ...defaultTheme.fontFamily.sans],
         serif: ["DM Serif Display", ...defaultTheme.fontFamily.serif],
       },
+      lineHeight: {
+        body: "26px",
+      },
     },
   },
   plugins: [],

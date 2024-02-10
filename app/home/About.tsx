@@ -24,14 +24,14 @@ export const About = () => (
     <section className="flex flex-col gap-6">
       <section className="flex flex-col gap-3 text-black dark:text-white">
         <h2 className="text-3xl font-serif">It’s me, Sunjay!</h2>
-        <p className="text-base leading-7">
+        <p className="text-base leading-body">
           If you’re reading this, you likely have a few thorny problems to
           solve. And you specifically need someone who understands your
           challenges and has the proficiency to solve them. In other
           words,&nbsp;<strong>you need a generalist:</strong>&nbsp;someone who
           specializes in comprehending the big picture. As a generalist 👉🏽
         </p>
-        <ul className="text-base leading-7 list-disc ml-7">
+        <ul className="text-base leading-body list-disc ml-7">
           <li>I bring broad and diverse perspectives.</li>
           <li>I unify design and engineering teams.</li>
           <li>

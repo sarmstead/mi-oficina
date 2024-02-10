@@ -62,7 +62,7 @@ const ContactForm = () => {
       <h2 className="text-3xl font-serif text-black dark:text-white mb-2">
         Like what you see?
       </h2>
-      <p className="text-base text-black dark:text-white mb-8">
+      <p className="text-base text-black dark:text-white mb-8 leading-body">
         Well, you made it this far. It kind of seems like we should chat about
         how I can add value to your team. Don’t you think? (And yes, I read
         every message that comes through and respond promptly).&nbsp;

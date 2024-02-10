@@ -82,6 +82,73 @@ export default async function CaseStudyWebflow() {
           />
         </figure>
       </section>
+      <section className="mx-auto max-w-innerContainer px-5 md:px-10 lg:px-0">
+        <h3 className="text-2xl font-serif text-black dark:text-white mb-2">
+          A look under the hood
+        </h3>
+        <p className="text-base text-black dark:text-white mb-2">
+          To build the application itself, I chose Next.js for its baked-in
+          routing, caching, and API endpoints. Most of Abate’s magic happens on
+          the backend using Axios for data fetching and Cheerio for page data
+          scraping.
+        </p>
+        <p className="text-base text-black dark:text-white mb-2">
+          To curate a list of articles, for example, the frontend calls Abate’s
+          API to fetch a list of articles from a news source and then parses
+          through that data to display relevant information like article titles.
+          For individual articles, Cheerio’s parsing power also enabled proper
+          citation using the story title, author name, publication date, and
+          link to the original article.
+        </p>
+        <p className="text-base text-black dark:text-white mb-8">
+          I love starting design projects with sketching. As a medium, it
+          presents few guidelines, endless possibilities, and allows me to be as
+          messy as I’d like. In fact, I’d argue that the disorderly nature of
+          sketching is what enabled me to create such a beautiful interface for
+          Abate.
+        </p>
+        <h2 className="text-3xl font-serif text-black dark:text-white mb-2">
+          A few final thoughts
+        </h2>
+        <p className="text-base text-black dark:text-white mb-2">
+          Early in development, one of the largest hurdles I faced was figuring
+          out the legal aspects of an app like Abate. For instance, does
+          scraping articles from news sources amount to copyright infringement,
+          even with robust citations?
+        </p>
+        <p className="text-base text-black dark:text-white mb-2">
+          Another challenge I faced was the procurement of the article data
+          itself. Some news sites have stripped down versions of their story
+          repositories (such as&nbsp;
+          <a
+            className="text-blooper dark:text-purps underline"
+            href="https://lite.cnn.com/"
+            target="_blank"
+          >
+            CNN Lite
+          </a>
+          ). Nevertheless, the majority of new companies have either no public
+          API, or restrict their APIs for paid users only.
+        </p>
+        <p className="text-base text-black dark:text-white mb-8">
+          I ultimately decided not to commercialize Abate given the legal
+          questions and API limitations. Regardless, as an app I now use for
+          myself, I can attest that it is always refreshing to get a simplified
+          news experience when I’m feeling overwhelmed by the status quo.
+        </p>
+        <section className="flex gap-4">
+          <div className="border-r-[1px] border-r-blooper dark:border-r-purps pr-4">
+            <ViewLink
+              href="https://abate-news.vercel.app/"
+              title="View Live Page"
+            />
+          </div>
+          <ViewLink
+            href="https://github.com/sarmstead/abate/"
+            title="View GitHub Repo"
+          />
+        </section>
+      </section>
     </>
   );
 }

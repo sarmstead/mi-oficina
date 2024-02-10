@@ -28,7 +28,7 @@ export default async function CaseStudyWebflow() {
         <h2 className="text-3xl font-serif text-black dark:text-white mb-2">
           The problem
         </h2>
-        <p className="text-base text-black dark:text-white mb-8">
+        <p className="leading-body text-base text-black dark:text-white mb-8">
           Think of the last time you checked the news online. What comes to
           mind? For me, that experience usually involves lots of popups, glitchy
           page reloads, and plenty of spammy advertisements for fake products.
@@ -38,7 +38,7 @@ export default async function CaseStudyWebflow() {
         <h2 className="text-3xl font-serif text-black dark:text-white mb-2">
           The solution
         </h2>
-        <p className="text-base text-black dark:text-white mb-8">
+        <p className="leading-body text-base text-black dark:text-white mb-8">
           Frustrated by my news experiences, I dreamed up a web app called
           Abate.&nbsp;
           <a
@@ -58,7 +58,7 @@ export default async function CaseStudyWebflow() {
         <h3 className="text-2xl font-serif text-black dark:text-white mb-2">
           Making things pretty
         </h3>
-        <p className="text-base text-black dark:text-white mb-2">
+        <p className="leading-body text-base text-black dark:text-white mb-2">
           Creating an app from the ground up requires quite a bit of
           heavy-lifting with design. For Abate, my design target was to shoot
           for something that very clearly expresses the simplistic personality
@@ -66,13 +66,13 @@ export default async function CaseStudyWebflow() {
           esthetically pleasing, and easy to navigate. With these objectives in
           mind, I opened my sketchbook and got to drawing!
         </p>
-        <p className="text-base text-black dark:text-white mb-2">
+        <p className="leading-body text-base text-black dark:text-white mb-2">
           I sketched low-fidelity wireframes first, then found my way through
           Illustrator with brand identity ideation, and eventually created
           high-fidelity wireframes that closely resemble the user interface as
           it exists today.
         </p>
-        <p className="text-base text-black dark:text-white mb-2">
+        <p className="leading-body text-base text-black dark:text-white mb-2">
           I love starting design projects with sketching. As a medium, it
           presents few guidelines, endless possibilities, and allows me to be as
           messy as I’d like. In fact, I’d argue that the disorderly nature of
@@ -92,13 +92,13 @@ export default async function CaseStudyWebflow() {
         <h3 className="text-2xl font-serif text-black dark:text-white mb-2">
           A look under the hood
         </h3>
-        <p className="text-base text-black dark:text-white mb-2">
+        <p className="leading-body text-base text-black dark:text-white mb-2">
           To build the application itself, I chose Next.js for its baked-in
           routing, caching, and API endpoints. Most of Abate’s magic happens on
           the backend using Axios for data fetching and Cheerio for page data
           scraping.
         </p>
-        <p className="text-base text-black dark:text-white mb-8">
+        <p className="leading-body text-base text-black dark:text-white mb-8">
           To curate a list of articles, for example, the frontend calls Abate’s
           API to fetch a list of articles from a news source and then parses
           through that data to display relevant information like article titles.
@@ -106,7 +106,7 @@ export default async function CaseStudyWebflow() {
           citation using the story title, author name, publication date, and
           link to the original article.
         </p>
-        <p className="text-base text-black dark:text-white mb-4">
+        <p className="leading-body text-base text-black dark:text-white mb-4">
           Below is a peek behind the curtain:
         </p>
         <CodeBlock
@@ -118,13 +118,13 @@ export default async function CaseStudyWebflow() {
         <h2 className="text-3xl font-serif text-black dark:text-white mb-2">
           A few final thoughts
         </h2>
-        <p className="text-base text-black dark:text-white mb-2">
+        <p className="leading-body text-base text-black dark:text-white mb-2">
           Early in development, one of the largest hurdles I faced was figuring
           out the legal aspects of an app like Abate. For instance, does
           scraping articles from news sources amount to copyright infringement,
           even with robust citations?
         </p>
-        <p className="text-base text-black dark:text-white mb-2">
+        <p className="leading-body text-base text-black dark:text-white mb-2">
           Another challenge I faced was the procurement of the article data
           itself. Some news sites have stripped down versions of their story
           repositories (such as&nbsp;
@@ -138,7 +138,7 @@ export default async function CaseStudyWebflow() {
           ). Nevertheless, the majority of news companies have either no public
           API, or restrict their APIs for paid users only.
         </p>
-        <p className="text-base text-black dark:text-white mb-8">
+        <p className="leading-body text-base text-black dark:text-white mb-8">
           I ultimately decided not to commercialize Abate given the legal
           questions and API limitations. Regardless, as an app I now use for
           myself, I can attest that it is always refreshing to get a simplified

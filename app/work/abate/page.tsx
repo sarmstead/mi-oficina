@@ -100,20 +100,13 @@ export default async function CaseStudyWebflow() {
           the backend using Axios for data fetching and Cheerio for page data
           scraping.
         </p>
-        <p className="text-base text-black dark:text-white mb-2">
+        <p className="text-base text-black dark:text-white mb-8">
           To curate a list of articles, for example, the frontend calls Abate’s
           API to fetch a list of articles from a news source and then parses
           through that data to display relevant information like article titles.
           For individual articles, Cheerio’s parsing power also enabled proper
           citation using the story title, author name, publication date, and
           link to the original article.
-        </p>
-        <p className="text-base text-black dark:text-white mb-8">
-          I love starting design projects with sketching. As a medium, it
-          presents few guidelines, endless possibilities, and allows me to be as
-          messy as I’d like. In fact, I’d argue that the disorderly nature of
-          sketching is what enabled me to create such a beautiful interface for
-          Abate.
         </p>
         <h2 className="text-3xl font-serif text-black dark:text-white mb-2">
           A few final thoughts
@@ -135,7 +128,7 @@ export default async function CaseStudyWebflow() {
           >
             CNN Lite
           </a>
-          ). Nevertheless, the majority of new companies have either no public
+          ). Nevertheless, the majority of news companies have either no public
           API, or restrict their APIs for paid users only.
         </p>
         <p className="text-base text-black dark:text-white mb-8">

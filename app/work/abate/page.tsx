@@ -1,10 +1,12 @@
 import { Metadata } from "next";
+import Image from "next/image";
 
 import PageHeader from "~components/PageHeader";
 import ViewLink from "~components/ViewLink/ViewLink";
 import InlineCode from "~/components/Code/InlineCode";
 import CodeBlock from "~/components/Code/CodeBlock";
 import { fileToString } from "~/utils";
+import fullProcess from "~assets/images/case-study-abate.png";
 
 export const metadata: Metadata = {
   title: "Sunjay Armstead | Abate Case Study",
@@ -24,7 +26,7 @@ export default async function CaseStudyWebflow() {
         title="A case study: Abate"
         subtitle="Picture an undistracted news experience. No ads, no photos, no videos—just text. Now imagine if you could aggregate multiple text-only sources in one place. This is Abate."
       />
-      <section className="mx-auto max-w-innerContainer pt-16 px-5 md:px-10 lg:px-0">
+      <section className="mx-auto max-w-innerContainer py-16 px-5 md:px-10 lg:px-0">
         <h2 className="text-3xl font-serif text-black dark:text-white mb-2">
           The problem
         </h2>
@@ -71,6 +73,14 @@ export default async function CaseStudyWebflow() {
           sketching is what enabled me to create such a beautiful interface for
           Abate.
         </p>
+      </section>
+      <section className="bg-grayish dark:bg-almostDark py-16 mb-16">
+        <figure className="flex gap-3 px-5 md:px-10 lg:px-0 w-full max-w-innerContainer mx-auto">
+          <Image
+            src={fullProcess}
+            alt="Wireframe sketches and high-fidelity wireframes for the Abate app"
+          />
+        </figure>
       </section>
     </>
   );

@@ -52,10 +52,9 @@ export const Work = () => {
             fill={colorSwitcher(theme, "white", "black")}
           />
           <p className="text-base text-black dark:text-white">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            Imagine an undistracted news experience. No ads, no photos, no
+            videos—just text. Now picture multiple text-only sources in one
+            place. This is Abate.
           </p>
           <ViewLink href="/work/abate" title="View Case Study" />
         </article>

@@ -3,7 +3,6 @@ import Image from "next/image";
 
 import PageHeader from "~components/PageHeader";
 import ViewLink from "~components/ViewLink/ViewLink";
-import InlineCode from "~/components/Code/InlineCode";
 import CodeBlock from "~/components/Code/CodeBlock";
 import { fileToString } from "~/utils";
 import fullProcess from "~assets/images/case-study-abate.png";
@@ -16,8 +15,7 @@ export const metadata: Metadata = {
 
 export default async function CaseStudyWebflow() {
   const files = {
-    posts: await fileToString("app/work/webflow/code-samples/posts.csv"),
-    openai: await fileToString("app/work/webflow/code-samples/generate.js"),
+    article: await fileToString("app/work/abate/code-samples/cnn-article.js"),
   };
 
   return (
@@ -108,6 +106,15 @@ export default async function CaseStudyWebflow() {
           citation using the story title, author name, publication date, and
           link to the original article.
         </p>
+        <p className="text-base text-black dark:text-white mb-4">
+          Below is a peek behind the curtain:
+        </p>
+        <CodeBlock
+          code={files.article}
+          fileName="cnn-article.js"
+          className="mb-11"
+          language="javascript"
+        />
         <h2 className="text-3xl font-serif text-black dark:text-white mb-2">
           A few final thoughts
         </h2>

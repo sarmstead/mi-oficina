@@ -29,7 +29,11 @@ export const Work = () => {
             expanding list of email newsletters. Design and engineering to the
             rescue!
           </p>
-          <ViewLink href="/work/reviewed" title="View Case Study" />
+          <ViewLink
+            target="_self"
+            href="/work/reviewed"
+            title="View Case Study"
+          />
         </article>
         <article className="flex flex-col gap-3">
           <Logo
@@ -43,7 +47,11 @@ export const Work = () => {
             was making changes to its Webflow site, all of its blog meta
             descriptions disappeared! ChatGPT, meet Webflow.
           </p>
-          <ViewLink href="/work/webflow" title="View Case Study" />
+          <ViewLink
+            target="_self"
+            href="/work/webflow"
+            title="View Case Study"
+          />
         </article>
         <article className="flex flex-col gap-3">
           <Logo
@@ -56,7 +64,7 @@ export const Work = () => {
             videos—just text. Now picture multiple text-only sources in one
             place. This is Abate.
           </p>
-          <ViewLink href="/work/abate" title="View Case Study" />
+          <ViewLink target="_self" href="/work/abate" title="View Case Study" />
         </article>
       </div>
     </section>

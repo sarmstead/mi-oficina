@@ -42,8 +42,16 @@ export default async function CaseStudyWebflow() {
         </h2>
         <p className="text-base text-black dark:text-white mb-8">
           Frustrated by my news experiences, I dreamed up a web app called
-          Abate. The name means to “reduce in amount, degree, [or] intensity.”
-          And that definition informs Abate’s overarching purpose: to diminish
+          Abate.&nbsp;
+          <a
+            className="text-blooper dark:text-purps underline"
+            href="https://www.dictionary.com/browse/abate"
+            target="_blank"
+          >
+            The name means
+          </a>
+          &nbsp;to “reduce in amount, degree, [or] intensity.” And that
+          definition informs Abate’s overarching purpose: to diminish
           distracting news experiences by aggregating news in one place, free
           from anything but text. To achieve this goal, news articles are
           gathered from around the internet. That data is then stripped of its

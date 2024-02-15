@@ -32,7 +32,7 @@ export default async function Article() {
                 >
                   <img src={article.imageUrl} alt={article.imageAlt} />
                   <div className="p-4 flex flex-col justify-between md:min-h-64">
-                    <a href={`/journal//${article.slug}`}>
+                    <a href={`/journal/${article.slug}`}>
                       <h2 className="text-2xl font-serif text-black dark:text-white mb-2">
                         {article.title}
                       </h2>
@@ -42,7 +42,7 @@ export default async function Article() {
                       {article.metaDescription}
                     </p>
                     <a
-                      href={`/journal//${article.slug}`}
+                      href={`/journal/${article.slug}`}
                       className="text-blooper dark:text-purps uppercase tracking-wider font-bold flex items center gap-2 border-b border-transparent hover:border-b hover:border-blooper dark:hover:border-purps w-fit"
                     >
                       Keep Reading

@@ -27,3 +27,9 @@ export const getAllSlugs = async (category: string) => {
     `*[_type == 'journal' && '${category}' in categories[]->.name]{slug}`,
   );
 };
+
+export const getAllArticlesByCategory = async (category: string) => {
+  return await client.fetch(
+    `*[_type == 'journal' && '${category}' in categories[]->.name]{metaDescription, publishDate, title, "slug": slug.current, "imageAlt": featuredImage.alt, "imageUrl": featuredImage.asset->url}`,
+  );
+};

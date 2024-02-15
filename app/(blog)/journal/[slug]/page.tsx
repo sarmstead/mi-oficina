@@ -1,4 +1,4 @@
-import { getArticleBySlug } from "./sanity-actions";
+import { getArticleBySlug, getAllSlugs } from "~/(blog)/sanity-actions";
 
 import PageHeader from "~components/PageHeader";
 
@@ -31,9 +31,10 @@ export default async function Article({
   );
 }
 
-// export async function generateStaticParams() {
-//   // *[_type == 'journal' && 'Journal' in categories[]->.name]{slug}
-//   // getJournal();
+export async function generateStaticParams() {
+  const slugs = await getAllSlugs("Journal");
 
-//   return [{ slug: "boop" }];
-// }
+  return slugs.map((slug: { _type: "slug"; current: string }) => ({
+    slug: slug.current,
+  }));
+}

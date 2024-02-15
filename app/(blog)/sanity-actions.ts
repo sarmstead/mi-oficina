@@ -14,3 +14,9 @@ export const getArticleBySlug = async (slug: string, category: string) => {
     `*[_type == 'journal' && '${category}' in categories[]->.name && slug.current == '${slug}']{authors[]->, publishDate, title, body}[0]`,
   );
 };
+
+export const getAllSlugs = async (category: string) => {
+  return await client.fetch(
+    `*[_type == 'journal' && '${category}' in categories[]->.name]{slug}`,
+  );
+};

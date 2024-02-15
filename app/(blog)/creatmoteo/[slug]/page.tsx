@@ -48,7 +48,7 @@ export async function generateMetadata({
   const meta = await getArticleBySlug(params.slug, "Creat-Moteo");
 
   return {
-    title: meta.title,
+    title: `${meta.title} | ${meta.authors.map((name: { firstName: string; lastName: string }) => `${name.firstName} ${name.lastName}`).join(", ")}`,
     description: meta.metaDescription,
     openGraph: {
       images: { url: meta.featuredImage },

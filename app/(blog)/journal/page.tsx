@@ -1,6 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
+import { Metadata } from "next";
+
 import { getAllArticlesByCategory } from "~/(blog)/sanity-actions";
 import PageHeader from "~components/PageHeader";
+
+export const metadata: Metadata = {
+  title: "Sunjay Armstead | Journal",
+  description:
+    "If you’re like me and you can’t get enough about design and development, you’re in the right place. Let's discover the joys of being unicorns.",
+};
 
 export default async function Article() {
   const articles = await getAllArticlesByCategory("Journal");

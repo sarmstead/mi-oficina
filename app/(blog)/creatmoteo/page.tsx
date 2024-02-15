@@ -1,6 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
+import { Metadata } from "next";
+
 import { getAllArticlesByCategory } from "~/(blog)/sanity-actions";
 import PageHeader from "~components/PageHeader";
+
+export const metadata: Metadata = {
+  title: "Sunjay Armstead | Creat-Moteo",
+  description:
+    "Creat-Moteo was an experiment started in the summer of 2016 that finished in early 2020.",
+};
 
 export default async function Article() {
   const articles = await getAllArticlesByCategory("Creat-Moteo");

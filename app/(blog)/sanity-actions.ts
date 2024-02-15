@@ -1,6 +1,7 @@
 "use server";
 
 import { createClient } from "@sanity/client";
+import { redirect } from "next/navigation";
 
 const client = createClient({
   projectId: process.env.SANITY_PROJECT_ID,
@@ -10,9 +11,15 @@ const client = createClient({
 });
 
 export const getArticleBySlug = async (slug: string, category: string) => {
-  return await client.fetch(
+  const article = await client.fetch(
     `*[_type == 'journal' && '${category}' in categories[]->.name && slug.current == '${slug}']{authors[]->, publishDate, title, body}[0]`,
   );
+
+  if (!article || article.length === 0) {
+    redirect("/journal");
+  }
+
+  return article;
 };
 
 export const getAllSlugs = async (category: string) => {

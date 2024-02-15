@@ -1,5 +1,6 @@
-import { getArticleBySlug, getAllSlugs } from "~/(blog)/sanity-actions";
+import type { Metadata } from "next";
 
+import { getArticleBySlug, getAllSlugs } from "~/(blog)/sanity-actions";
 import PageHeader from "~components/PageHeader";
 
 export default async function Article({
@@ -37,4 +38,25 @@ export async function generateStaticParams() {
   return slugs.map((slug: { _type: "slug"; current: string }) => ({
     slug: slug.current,
   }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  const meta = await getArticleBySlug(params.slug, "Creat-Moteo");
+
+  return {
+    title: meta.title,
+    description: meta.metaDescription,
+    openGraph: {
+      images: { url: meta.featuredImage },
+    },
+    authors: meta.authors.map(
+      (author: { firstName: string; lastName: string }) => ({
+        name: `${author.firstName} ${author.lastName}`,
+      }),
+    ),
+  };
 }

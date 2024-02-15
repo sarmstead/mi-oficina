@@ -12,7 +12,7 @@ const client = createClient({
 
 export const getArticleBySlug = async (slug: string, category: string) => {
   const article = await client.fetch(
-    `*[_type == 'journal' && '${category}' in categories[]->.name && slug.current == '${slug}']{authors[]->, publishDate, title, body}[0]`,
+    `*[_type == 'journal' && '${category}' in categories[]->.name && slug.current == '${slug}']{authors[]->, publishDate, title, body, metaDescription, "featuredImage": featuredImage.asset->url}[0]`,
   );
 
   if (!article || article.length === 0) {

@@ -17,3 +17,7 @@
 .article code {
   @apply font-bold tracking-wide px-2 py-[2px] mr-[1px] bg-blue-100 dark:bg-almostDark;
 }
+
+.article hr {
+  @apply mt-16 mb-4;
+}

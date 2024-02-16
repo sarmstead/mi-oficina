@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import { getArticleBySlug, getAllSlugs } from "~/(blog)/sanity-actions";
 import PageHeader from "~components/PageHeader";
-import { generateBlogMeta } from "~/utils";
+import { authorsAsString, generateBlogMeta, formattedBlogDate } from "~/utils";
 
 export default async function Article({
   params,
@@ -10,21 +10,15 @@ export default async function Article({
   params: { slug: string };
 }) {
   const article = await getArticleBySlug(params.slug, "Creat-Moteo");
-  const date = new Date(article.publishDate).toLocaleDateString("en-US", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-  const authors = article.authors.map(
-    (author: { firstName: string; lastName: string }) => {
-      return `${author.firstName} ${author.lastName}`;
-    },
-  );
-  const title = article.title;
+  const date = formattedBlogDate(article.publishDate);
+  const authors = authorsAsString(article.authors);
 
   return (
     <>
-      <PageHeader title={title} subtitle={`${authors.join(" ")} | ${date}`} />
+      <PageHeader
+        title={article.title}
+        subtitle={`${authors.join(", ")} | ${date}`}
+      />
       <article
         className="article mx-auto max-w-innerContainer py-16 px-5 md:px-10 lg:px-0"
         dangerouslySetInnerHTML={{ __html: article.body }}

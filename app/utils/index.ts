@@ -2,6 +2,11 @@ import { readFile } from "node:fs/promises";
 
 import { getArticleBySlug } from "~/(blog)/sanity-actions";
 
+type Author = {
+  firstName: string;
+  lastName: string;
+};
+
 export const colorSwitcher = (
   theme: string,
   darkColor: string,
@@ -25,4 +30,18 @@ export const generateBlogMeta = async (slug: string, category: string) => {
       }),
     ),
   };
+};
+
+export const formattedBlogDate = (date: string | number | Date) => {
+  return new Date(date).toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+};
+
+export const authorsAsString = (authors: Author[]) => {
+  return authors.map((author: Author) => {
+    return `${author.firstName} ${author.lastName}`;
+  });
 };

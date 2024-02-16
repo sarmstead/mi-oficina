@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { getArticleBySlug, getAllSlugs } from "~/(blog)/sanity-actions";
 import PageHeader from "~components/PageHeader";
+import { generateBlogMeta } from "~/utils";
 
 export default async function Article({
   params,
@@ -45,18 +46,5 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
-  const meta = await getArticleBySlug(params.slug, "Journal");
-
-  return {
-    title: `${meta.title} | ${meta.authors.map((name: { firstName: string; lastName: string }) => `${name.firstName} ${name.lastName}`).join(", ")}`,
-    description: meta.metaDescription,
-    openGraph: {
-      images: { url: meta.featuredImage },
-    },
-    authors: meta.authors.map(
-      (author: { firstName: string; lastName: string }) => ({
-        name: `${author.firstName} ${author.lastName}`,
-      }),
-    ),
-  };
+  return await generateBlogMeta(params.slug, "Journal");
 }

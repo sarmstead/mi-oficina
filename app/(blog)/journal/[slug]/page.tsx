@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 
-import { getArticleBySlug, getAllSlugs } from "~/(blog)/sanity-actions";
 import PageHeader from "~components/PageHeader";
+import { getArticleBySlug, getAllSlugs } from "~/(blog)/sanity-actions";
+import ArticleBody from "~/(blog)/ArticleBody";
 import { authorsAsString, generateBlogMeta, formattedBlogDate } from "~/utils";
 
 export default async function Article({
@@ -19,10 +20,7 @@ export default async function Article({
         title={article.title}
         subtitle={`${authors.join(" ")} | ${date}`}
       />
-      <article
-        className="article mx-auto max-w-innerContainer py-16 px-5 md:px-10 lg:px-0"
-        dangerouslySetInnerHTML={{ __html: article.body }}
-      ></article>
+      <ArticleBody content={article.body}></ArticleBody>
     </>
   );
 }

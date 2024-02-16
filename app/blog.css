@@ -1,3 +1,5 @@
+@import "prism";
+
 .article p {
   @apply leading-body text-base text-black dark:text-white mb-2;
 }
@@ -14,14 +16,47 @@
   @apply text-blooper dark:text-purps underline;
 }
 
-.article code {
-  @apply font-bold tracking-wide px-2 py-[2px] mr-[1px] bg-blue-100 dark:bg-almostDark;
+.article code:not(pre code) {
+  @apply font-bold tracking-wide px-2 py-[2px] mr-[1px] bg-blue-100 dark:bg-almostDark break-words;
+}
+
+.article pre {
+  @apply p-5 bg-black border-[1px] border-purps mb-4 overflow-auto;
 }
 
 .article hr {
   @apply mt-16 mb-4;
 }
 
+.article ul,
+ol {
+  @apply mb-2;
+}
+
 .article li {
-  @apply list-disc list-outside ml-7;
+  @apply leading-body text-base text-black dark:text-white list-outside ml-7 mb-1;
+}
+
+.article ul li {
+  @apply list-disc;
+}
+
+.article ol li {
+  @apply list-decimal;
+}
+
+.article iframe {
+  @apply w-full max-w-full min-h-96 md:min-h-[400px] lg:min-h-[550px];
+}
+
+.codeblock__container {
+  @apply text-white lowercase bg-black border-purps border-x-[1px] border-t-[1px];
+}
+
+.codeblock__title {
+  @apply flex items-center gap-2 text-white py-3 px-5 border-purps w-fit border-r-[1px];
+}
+
+.codeblock__title svg {
+  @apply w-4;
 }

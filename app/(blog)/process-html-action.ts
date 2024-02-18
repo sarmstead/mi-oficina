@@ -3,10 +3,12 @@ import sanitize from "sanitize-html";
 
 import { start, end } from "./filename";
 
-const processHtml = (markdown: string) => {
-  const titledHtml = markdown.replaceAll("++>", start).replaceAll("<++", end);
+const processHtml = async (markdown: string) => {
+  const titledHtml = await markdown
+    .replaceAll("++>", start)
+    .replaceAll("<++", end);
   const converter = new showdown.Converter();
-  const convertedHtmlString = converter.makeHtml(titledHtml);
+  const convertedHtmlString = await converter.makeHtml(titledHtml);
 
   const allowedAttributes = {
     div: ["class"],

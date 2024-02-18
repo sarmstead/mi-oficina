@@ -13,10 +13,13 @@ const processHtml = (markdown: string) => {
     pre: ["class", "tabindex"],
     code: ["class"],
     ol: ["start"],
+    iframe: ["src", "allow", "allowfullscreen", "loading", "title"],
   };
 
   return sanitize(convertedHtmlString, {
+    allowedTags: sanitize.defaults.allowedTags.concat(["iframe"]),
     allowedAttributes,
+    allowedIframeHostnames: ["www.youtube.com"],
   });
 };
 

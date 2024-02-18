@@ -18,7 +18,7 @@ const CodeBlock = ({ className, code, language, fileName }: CodeBlockProps) => {
     Prism.highlightAll();
   }, []);
 
-  const baseClasses = "p-5 bg-black scrollbar-track-black";
+  const baseClasses = "p-5 bg-black";
   const borderClasses = "border-[1px] border-purps";
 
   return (

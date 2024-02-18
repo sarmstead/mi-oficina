@@ -1,18 +1,27 @@
 import showdown from "showdown";
 import sanitize from "sanitize-html";
 
-const processHtml = (markdown: string) => {
+import { start, end } from "./filename";
+
+const processHtml = async (markdown: string) => {
+  const titledHtml = await markdown
+    .replaceAll("++>", start)
+    .replaceAll("<++", end);
   const converter = new showdown.Converter();
-  const convertedHtmlString = converter.makeHtml(markdown);
+  const convertedHtmlString = await converter.makeHtml(titledHtml);
 
   const allowedAttributes = {
-    pre: ["class", "tabindex", "filename", "language"],
+    div: ["class"],
+    pre: ["class", "tabindex"],
     code: ["class"],
     ol: ["start"],
+    iframe: ["src", "allow", "allowfullscreen", "loading", "title"],
   };
 
   return sanitize(convertedHtmlString, {
+    allowedTags: sanitize.defaults.allowedTags.concat(["iframe"]),
     allowedAttributes,
+    allowedIframeHostnames: ["www.youtube.com"],
   });
 };
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 
 import PageHeader from "~components/PageHeader";
 import { getArticleBySlug, getAllSlugs } from "~/(blog)/sanity-actions";
-import ArticleBody from "~/(blog)/ArticleBody";
+import ArticleWrapper from "~/(blog)/ArticleWrapper";
 import { authorsAsString, generateBlogMeta, formattedBlogDate } from "~/utils";
 
 export default async function Article({
@@ -20,7 +20,7 @@ export default async function Article({
         title={article.title}
         subtitle={`${authors.join(" ")} | ${date}`}
       />
-      <ArticleBody content={article.body}></ArticleBody>
+      <ArticleWrapper content={article.body}></ArticleWrapper>
     </>
   );
 }

@@ -5,5 +5,5 @@ export default function BlogLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <main className="mt-[84px] lg:mt-0">{children}</main>;
+  return <>{children}</>;
 }

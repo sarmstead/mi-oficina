@@ -1,12 +1,16 @@
 import showdown from "showdown";
 import sanitize from "sanitize-html";
 
+import { start, end } from "./filename";
+
 const processHtml = (markdown: string) => {
+  const titledHtml = markdown.replaceAll("++>", start).replaceAll("<++", end);
   const converter = new showdown.Converter();
-  const convertedHtmlString = converter.makeHtml(markdown);
+  const convertedHtmlString = converter.makeHtml(titledHtml);
 
   const allowedAttributes = {
-    pre: ["class", "tabindex", "filename", "language"],
+    div: ["class"],
+    pre: ["class", "tabindex"],
     code: ["class"],
     ol: ["start"],
   };

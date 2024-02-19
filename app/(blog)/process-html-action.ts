@@ -15,6 +15,7 @@ const processHtml = async (markdown: string) => {
     pre: ["class", "tabindex"],
     code: ["class"],
     ol: ["start"],
+    a: ["href"],
     iframe: ["src", "allow", "allowfullscreen", "loading", "title"],
   };
 

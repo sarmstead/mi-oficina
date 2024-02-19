@@ -55,6 +55,6 @@ ol {
   @apply flex items-center gap-2 text-white py-3 px-5 border-purps w-fit border-r-[1px];
 }
 
-.codeblock__title svg {
+.codeblock__title img {
   @apply w-4;
 }

@@ -16,11 +16,12 @@ const processHtml = async (markdown: string) => {
     code: ["class"],
     ol: ["start"],
     a: ["href"],
+    img: ["src", "alt"],
     iframe: ["src", "allow", "allowfullscreen", "loading", "title"],
   };
 
   return sanitize(convertedHtmlString, {
-    allowedTags: sanitize.defaults.allowedTags.concat(["iframe"]),
+    allowedTags: sanitize.defaults.allowedTags.concat(["iframe", "img"]),
     allowedAttributes,
     allowedIframeHostnames: ["www.youtube.com"],
   });

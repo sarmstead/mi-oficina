@@ -144,8 +144,8 @@ export default async function CaseStudyWebflow() {
           myself, I can attest that it is always refreshing to get a simplified
           news experience when I’m feeling overwhelmed by the status quo.
         </p>
-        <section className="flex gap-4">
-          <div className="border-r-[1px] border-r-blooper dark:border-r-purps pr-4">
+        <section className="flex flex-col gap-2 sm:flex-row sm:gap-4">
+          <div className="sm:border-r-[1px] sm:border-r-blooper sm:dark:border-r-purps sm:pr-4">
             <ViewLink
               href="https://abate-news.vercel.app/"
               title="View Live Page"

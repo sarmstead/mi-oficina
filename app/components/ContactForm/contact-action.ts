@@ -7,7 +7,7 @@ import { revalidatePath } from "next/cache";
 import { sendEmail } from "~components/Email/send-email-action";
 import { createTableIfNotExists } from "~components/ContactForm/create-table-action";
 import { newMessage } from "~components/ContactForm/new-message-action";
-import { Error, Received, Success } from "~components/Email";
+import { Received, Success } from "~components/Email";
 
 const schema = z.object({
   firstName: z.string().min(1, "First name cannot be blank"),
@@ -54,20 +54,6 @@ export const contactAction = async (_prevState: any, params: FormData) => {
   });
 
   if (!validation.success) {
-    const errorEmailData = {
-      firstName: params.get("firstName") as string,
-      lastName: params.get("lastName") as string,
-      company: params.get("company") as string,
-      email: params.get("email") as string,
-      phone: params.get("phone") as string,
-      message: params.get("message") as string,
-      errors: validation.error.issues,
-      recipientEmail: process.env.EMAIL_ADMIN_ADDRESS as string,
-      subject: "Invalid message on the website 🫤",
-    };
-
-    sendEmail(errorEmailData, Error);
-
     revalidatePath("/");
 
     return {

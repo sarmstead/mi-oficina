@@ -59,6 +59,10 @@ ol {
   @apply font-blockquote text-lg font-bold italic text-black dark:text-white leading-8 tracking-wide;
 }
 
+.article iframe {
+  @apply mb-8;
+}
+
 .codeblock__container {
   @apply text-white bg-black border-purps border-x-[1px] border-t-[1px];
 }

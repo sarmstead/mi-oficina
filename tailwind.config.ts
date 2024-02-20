@@ -25,6 +25,7 @@ const config: Config = {
       fontFamily: {
         sans: ["DM Sans", ...defaultTheme.fontFamily.sans],
         serif: ["DM Serif Display", ...defaultTheme.fontFamily.serif],
+        blockquote: ["Playfair Display", ...defaultTheme.fontFamily.serif],
       },
       lineHeight: {
         body: "26px",

@@ -10,6 +10,10 @@
   @apply text-2xl font-serif text-black dark:text-white my-2;
 }
 
+.article h4 {
+  @apply text-xl font-serif text-black dark:text-white my-2;
+}
+
 .article a {
   @apply text-blooper dark:text-purps underline;
 }
@@ -45,6 +49,14 @@ ol {
 
 .article iframe {
   @apply w-full max-w-full min-h-96 md:min-h-[400px] lg:min-h-[550px];
+}
+
+.article blockquote {
+  @apply p-6 my-9 border-y-[1px] border-figureGray dark:border-almostDark;
+}
+
+.article blockquote p {
+  @apply font-blockquote text-lg font-bold italic text-black dark:text-white leading-8 tracking-wide;
 }
 
 .codeblock__container {

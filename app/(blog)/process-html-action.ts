@@ -23,7 +23,7 @@ const processHtml = async (markdown: string) => {
   return sanitize(convertedHtmlString, {
     allowedTags: sanitize.defaults.allowedTags.concat(["iframe", "img"]),
     allowedAttributes,
-    allowedIframeHostnames: ["www.youtube.com"],
+    allowedIframeDomains: ["www.youtube.com", "player.vimeo.com"],
   });
 };
 

@@ -14,6 +14,75 @@ const nextConfig = {
 
     return config;
   },
+  redirects: async () => {
+    return [
+      {
+        source: "/contact",
+        destination: "/#contact",
+        permanent: false,
+      },
+      {
+        source: "/about",
+        destination: "/#about",
+        permanent: false,
+      },
+      {
+        source: "/work",
+        destination: "/#work",
+        permanent: false,
+      },
+      {
+        source: "/work/jammming",
+        destination: "/#work",
+        permanent: false,
+      },
+      {
+        source: "/work/ravenous",
+        destination: "/#work",
+        permanent: false,
+      },
+      {
+        source: "/work/confessions-of-a-wavy-girl",
+        destination: "/#work",
+        permanent: false,
+      },
+      {
+        source: "/work/salem-baptist-church",
+        destination: "/#work",
+        permanent: false,
+      },
+      {
+        source: "/work/chick-fil-a",
+        destination: "/#work",
+        permanent: false,
+      },
+      {
+        source: "/work/ctipath",
+        destination: "/#work",
+        permanent: false,
+      },
+      {
+        source: "/work/the-garden-church",
+        destination: "/#work",
+        permanent: false,
+      },
+      {
+        source: "/work/bolt",
+        destination: "/#work",
+        permanent: false,
+      },
+      {
+        source: "/work/first-baptist-douglasville",
+        destination: "/#work",
+        permanent: false,
+      },
+      {
+        source: "/covid-19",
+        destination: "/",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

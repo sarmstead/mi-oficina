@@ -3,6 +3,7 @@ import { Metadata } from "next";
 
 import { getAllArticlesByCategory } from "~/(blog)/sanity-actions";
 import PageHeader from "~components/PageHeader";
+import Button from "~/components/Button/Button";
 
 export const metadata: Metadata = {
   title: "Sunjay Armstead | Journal",
@@ -60,6 +61,19 @@ export default async function Article() {
               );
             },
           )}
+        </section>
+        <section className="py-20 flex flex-col gap-4 justify-center px-5 md:px-10 lg:px-0 mt-16 bg-grayish dark:bg-prettyDark">
+          <h2 className="text-center text-3xl font-serif text-black dark:text-white">
+            Looking for Creat-Moteo?
+          </h2>
+          <p className="text-base text-black text-center dark:text-white leading-body">
+            Read the blogs by Creat-Moteo on creative discipleship.
+          </p>
+          <div className="flex justify-center">
+            <Button backgroundType="solid" href="/creatmoteo">
+              Start Reading
+            </Button>
+          </div>
         </section>
       </section>
     </>

@@ -81,6 +81,11 @@ const nextConfig = {
         destination: "/",
         permanent: false,
       },
+      {
+        source: "/resume",
+        destination: "/assets/resume.pdf",
+        permanent: false,
+      },
     ];
   },
 };

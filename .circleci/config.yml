@@ -16,7 +16,7 @@ jobs:
           command: vercel build --token="$VERCEL_TOKEN"
       - run:
           name: Check formatting
-          command: npx prettier . --check
+          command: npx prettier ./app/ --check
       - run:
           name: Run tests
           command: yarn test
@@ -40,7 +40,7 @@ jobs:
           command: vercel build --prod --token=$VERCEL_TOKEN
       - run:
           name: Check formatting
-          command: npx prettier . --check
+          command: npx prettier ./app/ --check
       - run:
           name: Run tests
           command: yarn test

@@ -49,7 +49,7 @@ const emailStyles = {
 };
 
 const logoPath =
-  "https://sunjayarmstead.com/wp-content/uploads/2024/02/sunjay-logo.png";
+  "https://cdn.sanity.io/images/q3yrxlwb/production/6eb213de7c6b2b2e5529b5feb912f036fdd4d31b-1280x402.png";
 
 export const Received = ({ firstName }: EmailProps) => (
   <html>

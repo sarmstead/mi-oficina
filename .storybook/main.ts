@@ -13,9 +13,6 @@ const config: StorybookConfig = {
     name: "@storybook/nextjs",
     options: {},
   },
-  docs: {
-    autodocs: "tag",
-  },
   webpackFinal: async (config) => {
     if (config.externals) {
       config.externals["node:fs"] = "commonjs node:fs";

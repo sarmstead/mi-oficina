@@ -32,7 +32,6 @@ export default async function Article() {
         <section className="grid md:grid-cols-2 gap-12 md:gap-6">
           {articles.map(
             (article: {
-              _id: string;
               imageUrl: string;
               imageAlt: string;
               slug: string;
@@ -41,7 +40,7 @@ export default async function Article() {
             }) => {
               return (
                 <article
-                  key={article._id}
+                  key={article.title}
                   className="bg-white dark:bg-prettyDark"
                 >
                   <img src={article.imageUrl} alt={article.imageAlt} />

@@ -1,7 +1,6 @@
 "use client";
 
-import { PropsWithChildren, useCallback } from "react";
-import { useFormState } from "react-dom";
+import { PropsWithChildren, useCallback, useActionState } from "react";
 import { useRouter } from "next/navigation";
 
 import { contactAction } from "~/components/ContactForm/contact-action";
@@ -25,7 +24,7 @@ interface Label extends PropsWithChildren {
 const ContactForm = () => {
   const router = useRouter();
 
-  const [state, formAction] = useFormState(contactAction, {
+  const [state, formAction] = useActionState(contactAction, {
     errors: [],
     message: "",
     status: 200,

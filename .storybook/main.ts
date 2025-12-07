@@ -1,14 +1,14 @@
+import { fileURLToPath } from "node:url";
 import type { StorybookConfig } from "@storybook/nextjs";
-import path from "path";
+import path, { dirname } from "path";
 import webpack from "webpack";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const config: StorybookConfig = {
   stories: ["../app/**/*.mdx", "../app/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
-  addons: [
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
-    "storybook-dark-mode",
-  ],
+  addons: ["@storybook/addon-docs"],
   framework: {
     name: "@storybook/nextjs",
     options: {},
@@ -44,4 +44,5 @@ const config: StorybookConfig = {
     return config;
   },
 };
+
 export default config;

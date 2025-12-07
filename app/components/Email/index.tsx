@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 
 import { ZodIssue } from "zod";
+import { JSX } from "react";
 
 interface EmailProps extends JSX.IntrinsicAttributes {
   firstName?: string;

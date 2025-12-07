@@ -13,7 +13,7 @@ const meta = {
         type: "radio",
       },
       description: "Is the button on a dark colored background?",
-      defaultValue: "clear",
+      defaultValue: "solid",
     },
     href: {
       control: "text",

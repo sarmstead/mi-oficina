@@ -18,7 +18,7 @@ jobs:
           env:
             RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}
             EMAIL_SEND_NAME=${{ secrets.EMAIL_SEND_NAME }}
-            EMAIL_SEND_ADDRESS=${{ secrets.EMAIL_SEND_ADDRESS }}
+            EMAIL_ADMIN_ADDRESS=${{ secrets.EMAIL_ADMIN_ADDRESS }}
             SANITY_PROJECT_ID=${{ secrets.SANITY_PROJECT_ID }}
             SANITY_DATASET=${{ secrets.SANITY_DATASET }}
           path: storybook-static

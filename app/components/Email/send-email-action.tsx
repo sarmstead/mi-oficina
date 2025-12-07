@@ -13,7 +13,7 @@ type EmailData = {
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 const senderName = process.env.EMAIL_SEND_NAME;
-const defaultSenderAddress = process.env.EMAIL_SEND_ADDRESS;
+const defaultSenderAddress = process.env.EMAIL_ADMIN_ADDRESS;
 
 export const sendEmail = async (
   { ...data }: EmailData,

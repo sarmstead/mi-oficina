@@ -1,3 +1,5 @@
+import { JSX } from "react";
+
 export interface IconProps extends JSX.IntrinsicAttributes {
   className?: string;
   fill?: string;

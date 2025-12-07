@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { Metadata } from "next";
+import Link from "next/link";
 
 import { getAllArticlesByCategory } from "~/(blog)/sanity-actions";
 import PageHeader from "~components/PageHeader";
@@ -19,12 +20,12 @@ export default async function Article() {
       <section className="mx-auto max-w-innerContainer py-16 px-5 md:px-10 lg:px-0">
         <p className="leading-body text-base text-black dark:text-white mb-8">
           Creat-Moteo was&nbsp;
-          <a
+          <Link
             href="/creatmoteo/what-is-creat-moteo"
             className="text-blooper dark:text-purps underline"
           >
             an experiment started in the summer of 2016
-          </a>
+          </Link>
           &nbsp;that finished in early 2020. It was the name of the blog for
           this site and its purpose was to inspire creative disciples. The
           entire article archive is below, so pick and choose as you like!
@@ -32,7 +33,6 @@ export default async function Article() {
         <section className="grid md:grid-cols-2 gap-12 md:gap-6">
           {articles.map(
             (article: {
-              _id: string;
               imageUrl: string;
               imageAlt: string;
               slug: string;
@@ -41,7 +41,7 @@ export default async function Article() {
             }) => {
               return (
                 <article
-                  key={article._id}
+                  key={article.title}
                   className="bg-white dark:bg-prettyDark"
                 >
                   <img src={article.imageUrl} alt={article.imageAlt} />

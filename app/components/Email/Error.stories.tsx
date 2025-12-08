@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/nextjs";
 
 import { Error } from "~components/Email/index";
 import { emailArgs, emailArgTypes } from "~components/Email/shared-args";

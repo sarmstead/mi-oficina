@@ -3,7 +3,7 @@
 import { ZodIssue } from "zod";
 import { JSX } from "react";
 
-interface EmailProps extends JSX.IntrinsicAttributes {
+export interface EmailProps extends JSX.IntrinsicAttributes {
   firstName?: string;
   lastName?: string;
   company?: string;

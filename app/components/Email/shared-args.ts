@@ -1,29 +1,32 @@
+import type { ArgTypes } from "@storybook/nextjs";
+import type { EmailProps } from "~components/Email";
+
 export const emailArgTypes = {
   firstName: {
-    control: "text",
+    control: { type: "text" },
     description: "First name of recipient",
   },
   lastName: {
-    control: "text",
+    control: { type: "text" },
     description: "Last name of recipient",
   },
   company: {
-    control: "text",
+    control: { type: "text" },
     description: "Company name of recipient",
   },
   recipientEmail: {
-    control: "text",
+    control: { type: "text" },
     description: "Email of recipient",
   },
   phone: {
-    control: "text",
+    control: { type: "text" },
     description: "Phone number of recipient",
   },
   message: {
-    control: "text",
+    control: { type: "text" },
     description: "Recipient's message",
   },
-};
+ } satisfies Partial<ArgTypes<EmailProps>>;
 
 export const emailArgs = {
   firstName: "Eugene",

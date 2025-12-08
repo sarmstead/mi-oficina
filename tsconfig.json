@@ -35,6 +35,9 @@
       "~logo/*": [
         "./app/components/Logo/*"
       ],
+       "~utils/*": [
+        "./app/utils/*"
+      ],
       "~assets/*": [
         "./public/assets/*"
       ]

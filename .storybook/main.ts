@@ -25,6 +25,7 @@ const config: StorybookConfig = {
         "~components": path.resolve(__dirname, "../app/components"),
         "~icon": path.resolve(__dirname, "../app/components/Icon"),
         "~logo": path.resolve(__dirname, "../app/components/Logo"),
+        "~utils": path.resolve(__dirname, "../app/utils"),
         "~assets": path.resolve(__dirname, "../public/assets"),
       };
 

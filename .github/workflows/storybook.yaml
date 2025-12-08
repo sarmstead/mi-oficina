@@ -1,7 +1,10 @@
+name: Build and Publish Storybook to GitHub Pages
+
 on:
   push:
     branches:
-      - "main"
+    # Change to "main" when pushing into the main branch
+      - "bugs/deploy-storybook"
 
 permissions:
   contents: read
@@ -9,18 +12,25 @@ permissions:
   id-token: write
 
 jobs:
-  deploy_storybook:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - id: build-publish
-        uses: bitovi/github-actions-storybook-to-github-pages@v1.0.2
+      - uses: actions/checkout@v4
         with:
-          env:
-            RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "25"
+      - name: Enable Yarn Corepack
+        run: corepack enable
+      - uses: bitovi/github-actions-storybook-to-github-pages@v1.0.3
+        with:
+          env: RESEND_API_KEY=${{ secrets.RESEND_API_KEY }}
             EMAIL_SEND_NAME=${{ secrets.EMAIL_SEND_NAME }}
             EMAIL_ADMIN_ADDRESS=${{ secrets.EMAIL_ADMIN_ADDRESS }}
             SANITY_PROJECT_ID=${{ secrets.SANITY_PROJECT_ID }}
             SANITY_DATASET=${{ secrets.SANITY_DATASET }}
-          path: storybook-static
+          install_command: yarn install
           build_command: yarn build-storybook
-          install_command: corepack enable && yarn install
+          path: storybook-static
+          checkout: false

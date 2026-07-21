@@ -15,9 +15,8 @@ const meta = {
       {
         code: "too_small",
         minimum: 1,
-        type: "string",
+        origin: "string",
         inclusive: true,
-        exact: false,
         message: "Name cannot be blank",
         path: ["name"],
       },

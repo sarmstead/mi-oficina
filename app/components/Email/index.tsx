@@ -313,7 +313,7 @@ export const Error = ({
                 {errors.map((message) => {
                   return (
                     <div
-                      key={message.path[0]}
+                      key={String(message.path[0])}
                       style={{
                         border: "1px solid #a80011",
                         padding: "4px",
@@ -321,7 +321,7 @@ export const Error = ({
                       }}
                     >
                       <p style={emailStyles.error}>
-                        Field Name: {message.path[0]}
+                        Field Name: {String(message.path[0])}
                       </p>
                       <p style={emailStyles.error}>Code: {message.code}</p>
                       <p style={emailStyles.error}>

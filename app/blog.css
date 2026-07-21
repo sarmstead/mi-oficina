@@ -1,3 +1,5 @@
+@reference "./globals.css";
+
 .article p {
   @apply leading-body text-base text-black dark:text-white mb-2;
 }

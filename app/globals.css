@@ -1,7 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@import "fonts";
+@import "tailwindcss";
+@config "../tailwind.config.ts";
+@import "./fonts.css";
 
 *::-webkit-scrollbar {
   background: #1d1d20;

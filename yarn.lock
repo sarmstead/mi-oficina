@@ -10117,7 +10117,7 @@ __metadata:
     jest-environment-jsdom: "npm:^29.7.0"
     lint-staged: "npm:^15.2.2"
     next: "npm:16.0.7"
-    phone: "npm:^3.1.42"
+    phone: "npm:^3.1.71"
     postcss: "npm:^8.4.38"
     prettier: "npm:3.2.5"
     prismjs: "npm:^1.29.0"
@@ -11114,10 +11114,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"phone@npm:^3.1.42":
-  version: 3.1.42
-  resolution: "phone@npm:3.1.42"
-  checksum: 2de23037d86f3ff822dcea19e61e0ce0e2e9f977e5685ce5d35d409da7a4876b739e631846271989292935d8bf7b55badc1e78c53f51f812ed04d6a6abcb3744
+"phone@npm:^3.1.71":
+  version: 3.1.71
+  resolution: "phone@npm:3.1.71"
+  checksum: 8f4ac65b82e64d7d73fb4c6e50ab36ebeea7697327c224b3586fc8b23b1e8220c0d08bdb131c4d6abe2955404bb9df8140fe8d8e3c8cb6702b5a9b58b46a2269
   languageName: node
   linkType: hard
 

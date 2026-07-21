@@ -140,17 +140,11 @@ export default async function CaseStudyWebflow() {
         </p>
         <p className="leading-body text-base text-black dark:text-white mb-8">
           I ultimately decided not to commercialize Abate given the legal
-          questions and API limitations. Regardless, as an app I now use for
-          myself, I can attest that it is always refreshing to get a simplified
-          news experience when I’m feeling overwhelmed by the status quo.
+          questions and API limitations. Regardless, I can attest that it is
+          always refreshing to get a simplified news experience when I’m feeling
+          overwhelmed by the status quo.
         </p>
         <section className="flex flex-col gap-2 sm:flex-row sm:gap-4">
-          <div className="sm:border-r-[1px] sm:border-r-blooper sm:dark:border-r-purps sm:pr-4">
-            <ViewLink
-              href="https://abate-news.vercel.app/"
-              title="View Live Page"
-            />
-          </div>
           <ViewLink
             href="https://github.com/sarmstead/abate/"
             title="View GitHub Repo"

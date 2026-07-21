@@ -41,6 +41,13 @@ const config: StorybookConfig = {
           resource.request = resource.request.replace(/^node:/, "");
         }),
       );
+
+      config.plugins.push(
+        new webpack.NormalModuleReplacementPlugin(
+          /ContactForm\/contact-action$/,
+          path.resolve(__dirname, "mocks/contact-action.ts"),
+        ),
+      );
     }
     return config;
   },

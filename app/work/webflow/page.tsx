@@ -4,7 +4,7 @@ import PageHeader from "~components/PageHeader";
 import ViewLink from "~components/ViewLink/ViewLink";
 import InlineCode from "~/components/Code/InlineCode";
 import CodeBlock from "~/components/Code/CodeBlock";
-import { fileToString } from "~/utils";
+import { fileToString } from "~/utils/server";
 
 export const metadata: Metadata = {
   title: "Sunjay Armstead | Webflow AI Case Study",

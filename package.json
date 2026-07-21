@@ -40,7 +40,7 @@
     "@storybook/addon-onboarding": "^10.5.3",
     "@storybook/nextjs": "^10.5.3",
     "@storybook/react": "^10.5.3",
-    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/jest-dom": "^7.0.0",
     "@testing-library/react": "^14.2.2",
     "@types/jest": "^30.0.0",
     "@types/node": "^20.11.30",

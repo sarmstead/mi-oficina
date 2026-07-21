@@ -4,7 +4,7 @@ import Image from "next/image";
 import PageHeader from "~components/PageHeader";
 import ViewLink from "~components/ViewLink/ViewLink";
 import CodeBlock from "~/components/Code/CodeBlock";
-import { fileToString } from "~/utils";
+import { fileToString } from "~/utils/server";
 import fullProcess from "~assets/images/case-study-abate.png";
 
 export const metadata: Metadata = {

@@ -25,6 +25,7 @@ const config: StorybookConfig = {
         "~components": path.resolve(__dirname, "../app/components"),
         "~icon": path.resolve(__dirname, "../app/components/Icon"),
         "~logo": path.resolve(__dirname, "../app/components/Logo"),
+        "~utils": path.resolve(__dirname, "../app/utils"),
         "~assets": path.resolve(__dirname, "../public/assets"),
       };
 
@@ -39,6 +40,13 @@ const config: StorybookConfig = {
         new webpack.NormalModuleReplacementPlugin(/^node:/, (resource) => {
           resource.request = resource.request.replace(/^node:/, "");
         }),
+      );
+
+      config.plugins.push(
+        new webpack.NormalModuleReplacementPlugin(
+          /ContactForm\/contact-action$/,
+          path.resolve(__dirname, "mocks/contact-action.ts"),
+        ),
       );
     }
     return config;

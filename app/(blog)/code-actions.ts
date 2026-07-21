@@ -1,6 +1,6 @@
 "use server";
 
-import { fileToString } from "~/utils";
+import { fileToString } from "~/utils/server";
 
 const docTitle = async (title: string) => {
   const html = await fileToString("app/(blog)/filename.html");

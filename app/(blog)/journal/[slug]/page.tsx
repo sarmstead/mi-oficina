@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import PageHeader from "~components/PageHeader";
 import { getArticleBySlug, getAllSlugs } from "~/(blog)/sanity-actions";
 import ArticleBody from "~/(blog)/ArticleBody";
-import { authorsAsString, generateBlogMeta, formattedBlogDate } from "~/utils";
+import { authorsAsString, formattedBlogDate } from "~/utils";
+import { generateBlogMeta } from "~/utils/server";
 
 export default async function Article(props: {
   params: Promise<{ slug: string }>;

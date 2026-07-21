@@ -102,10 +102,6 @@ export default function CaseStudyReviewed() {
           work for other engineers to plug in dynamic aspects of the content
           management and email service provider.
         </p>
-        <ViewLink
-          href="https://reviewed.usatoday.com/newsletters"
-          title="View Live Page"
-        />
       </section>
     </>
   );

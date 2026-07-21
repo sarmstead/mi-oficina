@@ -2809,10 +2809,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@opentelemetry/api@npm:^1.8.0":
-  version: 1.8.0
-  resolution: "@opentelemetry/api@npm:1.8.0"
-  checksum: 66d5504bfbf9c19a14ea549f5fca975a73a5e1e8a1e40a6dc2d662893c942b9ba66c009262816dee2b9ffd0267acd707ec692eba20db11a09d4ee114c00dc161
+"@opentelemetry/api@npm:^1.9.1":
+  version: 1.9.1
+  resolution: "@opentelemetry/api@npm:1.9.1"
+  checksum: c608485fc8b5a91e1f7e05e843b45b509307456b31cd2ad365933d90813e40ebfedf179f1451c762037e82d7c76aa8500e95d2da3609f640a1206cde5322cd14
   languageName: node
   linkType: hard
 
@@ -10027,7 +10027,7 @@ __metadata:
   resolution: "mi-oficina@workspace:."
   dependencies:
     "@jest/globals": "npm:^29.7.0"
-    "@opentelemetry/api": "npm:^1.8.0"
+    "@opentelemetry/api": "npm:^1.9.1"
     "@reduxjs/toolkit": "npm:^2.2.2"
     "@sanity/client": "npm:^6.15.7"
     "@storybook/addon-docs": "npm:^10.1.4"

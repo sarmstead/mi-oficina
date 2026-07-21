@@ -17,7 +17,7 @@
     "**/*": "prettier --write --ignore-unknown"
   },
   "dependencies": {
-    "@opentelemetry/api": "^1.8.0",
+    "@opentelemetry/api": "^1.9.1",
     "@reduxjs/toolkit": "^2.2.2",
     "@sanity/client": "^6.15.7",
     "@vercel/postgres": "^0.7.2",

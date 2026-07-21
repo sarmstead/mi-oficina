@@ -35,7 +35,7 @@
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
-    "@storybook/addon-docs": "^10.1.4",
+    "@storybook/addon-docs": "^10.5.3",
     "@storybook/addon-links": "^10.1.4",
     "@storybook/addon-onboarding": "^10.1.4",
     "@storybook/nextjs": "^10.1.4",

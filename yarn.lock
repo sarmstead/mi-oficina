@@ -3017,12 +3017,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-onboarding@npm:^10.1.4":
-  version: 10.1.4
-  resolution: "@storybook/addon-onboarding@npm:10.1.4"
+"@storybook/addon-onboarding@npm:^10.5.3":
+  version: 10.5.3
+  resolution: "@storybook/addon-onboarding@npm:10.5.3"
   peerDependencies:
-    storybook: ^10.1.4
-  checksum: 1c252b23a11d8354c6f8c70cf1e33d9041b5e7d46284d9e285c78a7c3aa08cb98bef512ef4dcc6203fdf2460e23171e6a6ea248904b524ea3a19fc1b79188c64
+    storybook: ^10.5.3
+  checksum: 886de7d481e1ba7140582c6496092e9f2031b8cee83731f031351b4db2edc02a6224c3e4d5b62fb828626491b9b72f24b46de90dac721d0cf5d27cb8d39fe36a
   languageName: node
   linkType: hard
 
@@ -10201,7 +10201,7 @@ __metadata:
     "@sanity/client": "npm:^6.15.7"
     "@storybook/addon-docs": "npm:^10.5.3"
     "@storybook/addon-links": "npm:^10.5.3"
-    "@storybook/addon-onboarding": "npm:^10.1.4"
+    "@storybook/addon-onboarding": "npm:^10.5.3"
     "@storybook/nextjs": "npm:^10.1.4"
     "@storybook/react": "npm:^10.1.4"
     "@testing-library/jest-dom": "npm:^6.4.2"

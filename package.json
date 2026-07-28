@@ -6,7 +6,7 @@
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "start": "next start",
-    "lint": "eslint ./app",
+    "lint": "oxlint ./app",
     "storybook": "storybook dev -p 3001",
     "build-storybook": "storybook build",
     "prepare": "husky install",
@@ -22,7 +22,7 @@
     "@reduxjs/toolkit": "^2.12.0",
     "@sanity/client": "^7.24.0",
     "@vercel/postgres": "^0.10.0",
-    "next": "16.2.10",
+    "next": "16.3.0-canary.101",
     "phone": "^3.1.71",
     "prismjs": "^1.30.0",
     "react": "19.2.7",
@@ -31,7 +31,6 @@
     "resend": "^6.18.1",
     "sanitize-html": "^2.17.6",
     "showdown": "^2.1.0",
-    "ts-node": "^10.9.2",
     "zod": "^4.4.3"
   },
   "devDependencies": {
@@ -52,19 +51,16 @@
     "@types/sanitize-html": "^2.16.1",
     "@types/showdown": "^2.0.6",
     "autoprefixer": "^10.5.4",
-    "eslint": "^9",
-    "eslint-config-next": "16.2.10",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-storybook": "^10.5.3",
     "husky": "^9.1.7",
     "jest": "^30.4.2",
     "jest-environment-jsdom": "^30.4.1",
     "lint-staged": "^17.1.0",
+    "oxlint": "^1.76.0",
     "postcss": "^8.5.21",
     "prettier": "3.9.6",
     "storybook": "^10.5.5",
     "tailwindcss": "^4.3.3",
-    "typescript": "^5.4.3"
+    "typescript": "^7.0.2"
   },
   "packageManager": "yarn@4.0.2",
   "resolutions": {

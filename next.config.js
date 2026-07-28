@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    useTypeScriptCli: true,
+  },
   webpack: (config, { webpack }) => {
     config.externals["node:fs"] = "commonjs node:fs";
     config.resolve.fallback = {

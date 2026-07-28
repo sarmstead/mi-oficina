@@ -5,7 +5,6 @@ import PageHeader from "~components/PageHeader";
 import Figure from "~/work/reviewed/Figure";
 import desktopWireframes from "~assets/images/case-study-reviewed--desktop.png";
 import mobileWireframes from "~assets/images/case-study-reviewed--mobile.png";
-import ViewLink from "~components/ViewLink/ViewLink";
 
 export const metadata: Metadata = {
   title: "Sunjay Armstead | Reviewed Case Study",

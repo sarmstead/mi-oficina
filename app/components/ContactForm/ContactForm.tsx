@@ -206,7 +206,7 @@ const TextArea = ({ name, id, errors = [], required }: Input) => {
 const Errors = ({ errors }: Error) => {
   const errorString = errors.join(", ");
 
-  if (!errors || errors.length === 0) null;
+  if (!errors || errors.length === 0) return null;
 
   return (
     <p className="text-red-800 dark:text-red-300 font-medium">{errorString}</p>

@@ -3830,12 +3830,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-onboarding@npm:^10.5.5":
-  version: 10.5.5
-  resolution: "@storybook/addon-onboarding@npm:10.5.5"
+"@storybook/addon-onboarding@npm:^10.5.7":
+  version: 10.5.7
+  resolution: "@storybook/addon-onboarding@npm:10.5.7"
   peerDependencies:
-    storybook: ^10.5.5
-  checksum: fbd1fab49ef2aedbf908c3c13e247eafc0fc7e50a055fb53ec7fe0b2ae959faad7978c43a5f7c93b25dc631f7c24029269a2fe2b414c9a4e7dcbcead9427b3af
+    storybook: ^10.5.7
+  checksum: a4958b5d83fa7e8fccba5705a9bee382c6b8276656f7de26969ac47a4c96a84c0b8e65812eab42ebe2de0d6154b54f23d062f5a56e7c9eac1ffff6b6d8af0cfa
   languageName: node
   linkType: hard
 
@@ -9368,7 +9368,7 @@ __metadata:
     "@sanity/client": "npm:^7.24.0"
     "@storybook/addon-docs": "npm:^10.5.5"
     "@storybook/addon-links": "npm:^10.5.5"
-    "@storybook/addon-onboarding": "npm:^10.5.5"
+    "@storybook/addon-onboarding": "npm:^10.5.7"
     "@storybook/nextjs": "npm:^10.5.5"
     "@storybook/react": "npm:^10.5.3"
     "@tailwindcss/postcss": "npm:^4.3.3"

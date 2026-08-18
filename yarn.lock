@@ -4296,7 +4296,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@testing-library/jest-dom@npm:^6.9.1":
+"@testing-library/jest-dom@npm:6.9.1":
   version: 6.9.1
   resolution: "@testing-library/jest-dom@npm:6.9.1"
   dependencies:
@@ -9399,7 +9399,7 @@ __metadata:
     resend: "npm:^6.18.1"
     sanitize-html: "npm:^2.17.7"
     showdown: "npm:^2.1.0"
-    storybook: "npm:^10.5.5"
+    storybook: "npm:^10.5.8"
     tailwindcss: "npm:^4.3.3"
     typescript: "npm:^7.0.2"
     zod: "npm:^4.4.3"
@@ -11939,14 +11939,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook@npm:^10.5.5":
-  version: 10.5.5
-  resolution: "storybook@npm:10.5.5"
+"storybook@npm:^10.5.8":
+  version: 10.5.8
+  resolution: "storybook@npm:10.5.8"
   dependencies:
     "@storybook/global": "npm:^5.0.0"
     "@storybook/icons": "npm:^2.0.2"
     "@testing-library/dom": "npm:^10.4.1"
-    "@testing-library/jest-dom": "npm:^6.9.1"
+    "@testing-library/jest-dom": "npm:6.9.1"
     "@testing-library/user-event": "npm:^14.6.1"
     "@vitest/expect": "npm:3.2.4"
     "@vitest/spy": "npm:3.2.4"
@@ -11973,7 +11973,7 @@ __metadata:
       optional: true
   bin:
     storybook: ./dist/bin/dispatcher.js
-  checksum: f9a373c4a81b85595a76a1d8ea8cbfd428a280c97d39dd4fc987be3d3367a2d460e195b3aa5243ed74cba42860e1d26c2129129b1318fa166a81dadd6cac387d
+  checksum: f98d04ddef82fadf0447de2fab05d372dfc980a7c156d3452ae9547cac93a179f7bca3a67b8d0a26a59a180365fd0d658d04079951f1595bc71df44e3bbb4d80
   languageName: node
   linkType: hard
 

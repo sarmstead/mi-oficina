@@ -58,7 +58,7 @@
     "oxlint": "^1.78.0",
     "postcss": "^8.5.26",
     "prettier": "3.9.6",
-    "storybook": "^10.5.5",
+    "storybook": "^10.5.8",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2"
   },

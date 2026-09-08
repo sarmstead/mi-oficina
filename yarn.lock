@@ -9415,7 +9415,7 @@ __metadata:
     react: "npm:19.2.8"
     react-dom: "npm:19.2.8"
     react-redux: "npm:^9.3.0"
-    resend: "npm:^6.18.1"
+    resend: "npm:^6.26.0"
     sanitize-html: "npm:^2.17.7"
     showdown: "npm:^2.1.0"
     storybook: "npm:^10.5.8"
@@ -11349,9 +11349,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"resend@npm:^6.18.1":
-  version: 6.18.1
-  resolution: "resend@npm:6.18.1"
+"resend@npm:^6.26.0":
+  version: 6.26.0
+  resolution: "resend@npm:6.26.0"
   dependencies:
     postal-mime: "npm:2.7.5"
     standardwebhooks: "npm:1.0.0"
@@ -11360,7 +11360,7 @@ __metadata:
   peerDependenciesMeta:
     "@react-email/render":
       optional: true
-  checksum: 6450a9166c12ad5db56fc6f77d01125b8e622ec93fe86ccb9295a498a134c4a446663f23fcacf713bd95b8aa0407fb9d015b8c51aa7d17a2deebbd308e28353d
+  checksum: 9627bcd06c3d47ed1017245181fffe69653c5d1682f8adffa42cf7f8b7276af5bb2c6f8d9f9af5775d4c05d4c6140031dadcc336b133a188d11383894432fb02
   languageName: node
   linkType: hard
 

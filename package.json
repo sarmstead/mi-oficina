@@ -37,7 +37,7 @@
     "@jest/globals": "^30.5.2",
     "@storybook/addon-docs": "^10.6.0",
     "@storybook/addon-links": "^10.5.5",
-    "@storybook/addon-onboarding": "^10.5.8",
+    "@storybook/addon-onboarding": "^10.6.0",
     "@storybook/nextjs": "^10.6.0",
     "@storybook/react": "^10.6.0",
     "@tailwindcss/postcss": "^4.3.3",

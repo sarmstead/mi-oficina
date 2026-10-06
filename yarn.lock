@@ -4038,16 +4038,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@sanity/client@npm:^8.2.0":
-  version: 8.2.0
-  resolution: "@sanity/client@npm:8.2.0"
+"@sanity/client@npm:^8.9.0":
+  version: 8.9.0
+  resolution: "@sanity/client@npm:8.9.0"
   dependencies:
-    eventsource: "npm:^5.1.0"
-    get-it: "npm:^9.5.0"
-    nanoid: "npm:^6.0.1"
-    obug: "npm:^2.1.4"
+    eventsource: "npm:^5.1.2"
+    get-it: "npm:^9.5.7"
+    obug: "npm:^3.0.0"
     rxjs: "npm:^7.8.2"
-  checksum: 13fe46d53e07b45b9c215ad3aee912676b5c54e4e21e8bdce1ff2a508c4ea7a4d2c8c28050fc33195c6c87b6efe82ceca1878813fe3dda3173d83103e7725f69
+  checksum: 983306fceffd344daf2cf7104a9212e29ce8ee8a05b11cf30837706a7cc10ab6108564017ed99c4597349d001cba50551b236c9c87c36ed47210884ff0c2a464
   languageName: node
   linkType: hard
 
@@ -7549,19 +7548,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eventsource-parser@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "eventsource-parser@npm:4.1.0"
-  checksum: 0591250f4f3df7ebef56ddfbba0e19aee5450d81347609d7d2417f08191060aea3fbb3aa71a02c25515b198ee17bd0c94d30190f576e0aa937c93c9e9f605e6f
+"eventsource-parser@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "eventsource-parser@npm:4.1.1"
+  checksum: cae2e8960409cd20cb7623b5f1f37ea41ec984e776c1c3fac0a0fe77efe292aa019e0d40427c87b5a13dbaf0b50133866afcb6bf3100dc49c2649758ebd29cbe
   languageName: node
   linkType: hard
 
-"eventsource@npm:^5.1.0":
-  version: 5.1.1
-  resolution: "eventsource@npm:5.1.1"
+"eventsource@npm:^5.1.2":
+  version: 5.1.2
+  resolution: "eventsource@npm:5.1.2"
   dependencies:
-    eventsource-parser: "npm:^4.1.0"
-  checksum: ce5afe28e983f5044897d422a6114731c65e53efc7f50fe325e4717908a67279f2e3481c570cc01c0cabf5c6866e5d16cd6467d0e23b37acdf2063c8ad468a1d
+    eventsource-parser: "npm:^4.1.1"
+  checksum: fdcde8bc8c85da65dcd145e331eeedd6026718779ee233c3f339ff87f291cd3bbd2a16bf2156aaad76607065b986c71fb053278fe8f28fdf628d509b65fdd72c
   languageName: node
   linkType: hard
 
@@ -7913,17 +7912,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"get-it@npm:^9.5.0":
-  version: 9.5.1
-  resolution: "get-it@npm:9.5.1"
+"get-it@npm:^9.5.7":
+  version: 9.6.1
+  resolution: "get-it@npm:9.6.1"
   dependencies:
-    undici: "npm:^7.22.0"
+    undici: "npm:^7.30.0"
   peerDependencies:
     vitest: ">=2.0.0"
   peerDependenciesMeta:
     vitest:
       optional: true
-  checksum: cb4248ce79ec080fa0f92f0267eecbf70f77950bb94a8a5e65b8aba6111e4c5e6ce002274b3bb874f0ee15d9f516af211432c70dcff703242bb70df62b6fa498
+  checksum: 89c7ddff2320da86aea18b3c1748be4008f1982b8960bad948869a1c3b27a807740f3f2eb4a489b8cbfd621656a56dc55002ba83c7ea73e063bd7c9ff039344a
   languageName: node
   linkType: hard
 
@@ -9861,7 +9860,7 @@ __metadata:
     "@opentelemetry/api": "npm:^1.9.1"
     "@react-email/render": "npm:^2.1.0"
     "@reduxjs/toolkit": "npm:^2.12.0"
-    "@sanity/client": "npm:^8.2.0"
+    "@sanity/client": "npm:^8.9.0"
     "@storybook/addon-docs": "npm:^10.6.0"
     "@storybook/addon-links": "npm:^10.5.5"
     "@storybook/addon-onboarding": "npm:^10.6.0"
@@ -10165,15 +10164,6 @@ __metadata:
   bin:
     nanoid: bin/nanoid.cjs
   checksum: e3fb661aa083454f40500473bb69eedb85dc160e763150b9a2c567c7e9ff560ce028a9f833123b618a6ea742e311138b591910e795614a629029e86e180660f3
-  languageName: node
-  linkType: hard
-
-"nanoid@npm:^6.0.1":
-  version: 6.0.1
-  resolution: "nanoid@npm:6.0.1"
-  bin:
-    nanoid: bin/nanoid.js
-  checksum: 5b362ad9822388dfebdf655849c76d3539e074d1003fbe6eb5dff8687faf93a9abbb19bdc5d134b9b8599f875f9b091feacfd7099b34b5fef23bc3f5be41dd10
   languageName: node
   linkType: hard
 
@@ -10500,10 +10490,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"obug@npm:^2.1.4":
-  version: 2.1.4
-  resolution: "obug@npm:2.1.4"
-  checksum: 34a0ee97cd88573cfd97d384c2a79f07118ae5680d7e45d1de6e99c74eddefe145e8ca27a2db02195a1ee5fded5aa22b924869c842728c201b9f109a27d0ef19
+"obug@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "obug@npm:3.0.0"
+  checksum: 985625b70ea05a39956da94f406040a0c7d27b1699a14af87b1ea75cba915b5957b75c4acdaccaefa2a86eaf40fc968bc00f6c28755a91496fc91a92b1513b38
   languageName: node
   linkType: hard
 
@@ -13269,10 +13259,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"undici@npm:^7.22.0":
-  version: 7.29.0
-  resolution: "undici@npm:7.29.0"
-  checksum: 85ea96e91e7f3de24de678cbbc54230fdd641a3b0643005f2aef044af1f1a2db8fbecb88b28e6fa78bb41ffeafda4479b57075b6b6ab92beac4b7b5ab53f9b10
+"undici@npm:^7.30.0":
+  version: 7.30.0
+  resolution: "undici@npm:7.30.0"
+  checksum: 011a321a9198532b0f0504740faa43b9ab8fcc0e4f60104e5c9cb808a61faeb03e4be4aec4f0c65f47913d7c7d9d91591793a6cb9ab843f98ca2c3d711c4a34c
   languageName: node
   linkType: hard
 

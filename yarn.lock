@@ -4046,21 +4046,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-links@npm:^10.6.1":
-  version: 10.6.1
-  resolution: "@storybook/addon-links@npm:10.6.1"
+"@storybook/addon-links@npm:^10.6.3":
+  version: 10.6.3
+  resolution: "@storybook/addon-links@npm:10.6.3"
   dependencies:
     "@storybook/global": "npm:^5.0.0"
   peerDependencies:
     "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-    storybook: ^10.6.1
+    storybook: ^10.6.3
   peerDependenciesMeta:
     "@types/react":
       optional: true
     react:
       optional: true
-  checksum: af07b5a30cd2e8b0d1f3a49382ff93476b299a924b72fea33646f2f848096312533db6d1eee6bad4473f0ec7eb9a28e2e064f611e7afa28a7e8fdf5575b3c7fb
+  checksum: 6a08dd6d4e2af1f3e6e75c158a9b2bd094d065b3432caf646976b8f5535b6cfd459657807ef5ca0703f3fa31434d679cf4648527ac854af6a415185a029ec9a2
   languageName: node
   linkType: hard
 
@@ -9716,7 +9716,7 @@ __metadata:
     "@reduxjs/toolkit": "npm:^2.12.0"
     "@sanity/client": "npm:^8.9.0"
     "@storybook/addon-docs": "npm:^10.6.3"
-    "@storybook/addon-links": "npm:^10.6.1"
+    "@storybook/addon-links": "npm:^10.6.3"
     "@storybook/addon-onboarding": "npm:^10.6.1"
     "@storybook/nextjs": "npm:^10.6.0"
     "@storybook/react": "npm:^10.6.3"

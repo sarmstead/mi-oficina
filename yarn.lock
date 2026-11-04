@@ -9748,7 +9748,7 @@ __metadata:
     resend: "npm:^6.37.0"
     sanitize-html: "npm:^2.18.0"
     showdown: "npm:^2.1.0"
-    storybook: "npm:^10.6.0"
+    storybook: "npm:^10.6.5"
     tailwindcss: "npm:^4.3.3"
     typescript: "npm:^7.0.2"
     zod: "npm:^4.4.3"
@@ -12370,9 +12370,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook@npm:^10.6.0":
-  version: 10.6.0
-  resolution: "storybook@npm:10.6.0"
+"storybook@npm:^10.6.5":
+  version: 10.6.5
+  resolution: "storybook@npm:10.6.5"
   dependencies:
     "@storybook/global": "npm:^5.0.0"
     "@storybook/icons": "npm:^2.0.2"
@@ -12404,7 +12404,7 @@ __metadata:
       optional: true
   bin:
     storybook: ./dist/bin/dispatcher.js
-  checksum: ffd7a513b088e206232c0206229fe05893c8c78e5e4a3b40647326111b608d79851f3b8f986616b6b585979d3a10c6c3081c0cd86a752329e2af309632bd7e3a
+  checksum: 3d910898f70f64315c119fbdcb3e944bf9566465041f181daadb73f1c9f966e49cb2de8aab008a78faafc2b6ad7781d2389548ef103eded3a46b80fcae89b066
   languageName: node
   linkType: hard
 
